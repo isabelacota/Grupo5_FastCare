@@ -32,9 +32,9 @@
         var plot1 = $.jqplot('coverage_pie_chart', [
             [
                 ['Passing', 0],
-                ['Pending', 0],
+                ['Pending', 1],
                 ['Ignored', 0],
-                ['Failing', 1],
+                ['Failing', 0],
                 ['Errors',  0]
             ]
         ], {
@@ -64,8 +64,8 @@
             },
             series: [
                 {label: '0% requirements tested successfully' },
-                {label: '0% requirements untested'},
-                {label: '100%} requirements failing'},
+                {label: '100% requirements untested'},
+                {label: '0%} requirements failing'},
                 {label: '0%} requirements with errors'}
             ]
         });
@@ -143,8 +143,11 @@
     <ul>
         <li><a href="index.html" >Overall Test Results</a></li>
         <li><a href="capabilities.html" class="current">Requirements</a></li>
+        <li><a href="7ea0a5e2d679b9deeda9910ae4a9bcd3a281e0d908303a9e16e486103e98880c.html" >Capabilities</a></li>
+        <li><a href="576946480b52ad056d6f5bddf874399c83582ecf90963cc074a14c70580e7d9f.html" >Features</a></li>
+        <li><a href="2a4631d87648e59c428d4cf0e9247f9d286e4679f436ca2ce872e931eb4dfd58.html" >Stories</a></li>
     </ul>
-    <span class="date-and-time">Report generated 18-09-2015 21:26</span>
+    <span class="date-and-time">Report generated 18-09-2015 22:33</span>
     <br style="clear:left"/>
 </div>
 
@@ -174,11 +177,38 @@
                 </head>
                 <body>
                     <tr>
+                        <td class="summary-leading-column">Capabilities</td>
+                        <td>1</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>1</td>
+                        <td>0</td>
+                        <td>0</td>
+                    </tr>
+                    <tr>
+                        <td class="summary-leading-column">Features</td>
+                        <td>3</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>3</td>
+                        <td>0</td>
+                        <td>0</td>
+                    </tr>
+                    <tr>
+                        <td class="summary-leading-column">Stories</td>
+                        <td>2</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>2</td>
+                        <td>0</td>
+                        <td>0</td>
+                    </tr>
+                    <tr>
                         <td class="summary-leading-column">Acceptance Criteria (tests)</td>
                         <td>2</td>
                         <td>0</td>
-                        <td>2</td>
                         <td>0</td>
+                        <td>2</td>
                         <td>0</td>
                         <td></td>
                     </tr>
@@ -208,8 +238,8 @@
             <td class="summary-leading-column">Automated</td>
             <td>2</td>
             <td>0 (0%)</td>
-            <td>2 (100%)</td>
             <td>0 (0%)</td>
+            <td>2 (100%)</td>
             <td>0 (0%)</td>
         </tr>
         <tr>
@@ -224,8 +254,8 @@
             <td class="summary-leading-column">Total</td>
             <td>2</td>
             <td>0 (0%)</td>
-            <td>2 (100%)</td>
             <td>0 (0%)</td>
+            <td>2 (100%)</td>
             <td>0 (0%)</td>
         </tr>
         </body>
@@ -236,6 +266,211 @@
 <div class="clr"></div>
 
 <div id="tabs">
+    <ul>
+            <li><a href="#tabs-1">
+            Capabilities (1)
+            </a></li>
+    </ul>
+    <div id="tabs-1" class="capabilities-table">
+        <div id="req_list_tests" class="table">
+            <div class="test-results">
+                <table id="req-results-table">
+                    <thead>
+                    <tr>
+                        <th width="30" class="test-results-heading">&nbsp;</th>
+                        <th width="65" class="test-results-heading">ID</th>
+                        <th width="525" class="test-results-heading">Capability</th>
+                            <th width="65" class="test-results-heading">Features</th>
+                        <th class="test-results-heading" width="75px">Auto.<br/>Tests</th>
+                        <th class="test-results-heading" width="25px"><i class="icon-check icon-large"
+                                                                         title="Tests passed (automated)"></i></th>
+                        <th class="test-results-heading" width="25px"><i class="icon-ban-circle icon-large"
+                                                                         title="Tests skipped or pending (automated)">
+                        </th>
+                        <th class="test-results-heading" width="25px"><i class="icon-thumbs-down icon-large"
+                                                                         title="Tests failed (automated)"></th>
+                        <th class="test-results-heading" width="25px"><i class="icon-exclamation-sign icon-large"
+                                                                         title="Tests failed with an error (automated)">
+                        </th>
+                            <th class="test-results-heading" width="75px">Manual<br/>Tests</th>
+                            <th class="test-results-heading" width="25px"><i class="icon-check icon-large"
+                                                                             title="Tests passed (manual)"></i></th>
+                            <th class="test-results-heading" width="25px"><i class="icon-ban-circle icon-large"
+                                                                             title="Tests skipped or pending (manual)">
+                            </th>
+                            <th class="test-results-heading" width="25px"><i class="icon-thumbs-down icon-large"
+                                                                             title="Tests failed (manual)"></th>
+                            <th class="test-results-heading" width="25px"><i class="icon-exclamation-sign icon-large"
+                                                                             title="Tests failed with an error (manual)">
+                            </th>
+
+
+                        <th width="125px" class="test-results-heading">Coverage</th>
+                    </tr>
+                    <tbody>
+
+
+                        <tr class="test-PENDING requirementRow">
+                            <td class="requirementRowCell">
+                                <img src="images/traffic-yellow.gif" class="summary-icon"
+                                     title="PENDING"/>
+                                <span style="display:none">0</span>
+                            </td>
+                            <td class="cardNumber requirementRowCell"></td>
+
+                            <td class="PENDING-text requirementRowCell">
+                                    <a href="javaScript:void(0)" class="read-more-link"><img src="images/plus.png"
+                                                                                             height="20"/></a>
+                                <span class="requirementName"><a
+                                        href="e7c040460fb08c26e0750b8cf04c96b92804dd5f58ce9c6173dd513eddb2ba19.html">Gestão de pacientes</a></span>
+                                    <div class="requirementNarrative read-more-text">Gestão de pacientes</div>
+                            </td>
+
+                                <td class="bluetext requirementRowCell">1</td>
+
+
+                            <td class="greentext highlighted-value requirementRowCell">2</td>
+                            <td class="greentext requirementRowCell">0</td>
+                            <td class="bluetext requirementRowCell">2</td>
+                            <td class="redtext requirementRowCell">0</td>
+                            <td class="lightorangetext requirementRowCell">0</td>
+                                <td class="greentext highlighted-value requirementRowCell">0</td>
+                                <td class="greentext requirementRowCell">0</td>
+                                <td class="bluetext requirementRowCell">0</td>
+                                <td class="redtext requirementRowCell">0</td>
+                                <td class="lightorangetext requirementRowCell">0</td>
+
+                            <td width="125px" class="lightgreentext requirementRowCell">
+
+                                <!--
+                                Accessing the ESAA Registration screens
+
+                                Tests implemented: 10
+                                  - Passing tests: 4
+                                  - Failing tests: 3
+
+                                Requirements specified:   6
+                                Requiments without tests: 2
+
+                                Estimated unimplemented tests: 7
+                                -->
+
+                                <table>
+                                    <tr>
+                                        <td width="40px">
+                                            <div class="small">0%</div>
+                                        </td>
+                                        <td width="125px">
+                                            <div class="percentagebar"
+                                                 title="Gestão de pacientes
+Tests implemented: 2
+  - Passing tests: 0 (0% of specified requirements)
+  - Failing tests: 0 (0% of specified requirements)
+  - Tests with errors: 0 (0% of specified requirements)
+
+Tests not implemented or not executed: 2
+  - Pending tests: 2 (100% of specified requirements)
+  - Ignored or skipped tests: 0 (0% of specified requirements)
+
+Requirements specified:     6
+Requirements with no tests: 0
+
+
+Estimated unimplemented tests: 0
+Estimated unimplemented or pending requirements: 100%
+Estimated ignored or skipped requirements: 0%"
+                                                 style="width: 125px;">
+                                                <div class="ignoredbar"
+                                                     style="width: 0px;"
+                                                     title="Gestão de pacientes
+Tests implemented: 2
+  - Passing tests: 0 (0% of specified requirements)
+  - Failing tests: 0 (0% of specified requirements)
+  - Tests with errors: 0 (0% of specified requirements)
+
+Tests not implemented or not executed: 2
+  - Pending tests: 2 (100% of specified requirements)
+  - Ignored or skipped tests: 0 (0% of specified requirements)
+
+Requirements specified:     6
+Requirements with no tests: 0
+
+
+Estimated unimplemented tests: 0
+Estimated unimplemented or pending requirements: 100%
+Estimated ignored or skipped requirements: 0%">
+                                                    <div class="errorbar"
+                                                         style="width: 0px;"
+                                                         title="Gestão de pacientes
+Tests implemented: 2
+  - Passing tests: 0 (0% of specified requirements)
+  - Failing tests: 0 (0% of specified requirements)
+  - Tests with errors: 0 (0% of specified requirements)
+
+Tests not implemented or not executed: 2
+  - Pending tests: 2 (100% of specified requirements)
+  - Ignored or skipped tests: 0 (0% of specified requirements)
+
+Requirements specified:     6
+Requirements with no tests: 0
+
+
+Estimated unimplemented tests: 0
+Estimated unimplemented or pending requirements: 100%
+Estimated ignored or skipped requirements: 0%">
+                                                        <div class="failingbar"
+                                                             style="width: 0px;"
+                                                             title="Gestão de pacientes
+Tests implemented: 2
+  - Passing tests: 0 (0% of specified requirements)
+  - Failing tests: 0 (0% of specified requirements)
+  - Tests with errors: 0 (0% of specified requirements)
+
+Tests not implemented or not executed: 2
+  - Pending tests: 2 (100% of specified requirements)
+  - Ignored or skipped tests: 0 (0% of specified requirements)
+
+Requirements specified:     6
+Requirements with no tests: 0
+
+
+Estimated unimplemented tests: 0
+Estimated unimplemented or pending requirements: 100%
+Estimated ignored or skipped requirements: 0%">
+                                                            <div class="passingbar"
+                                                                 style="width: 0px;"
+                                                                 title="Gestão de pacientes
+Tests implemented: 2
+  - Passing tests: 0 (0% of specified requirements)
+  - Failing tests: 0 (0% of specified requirements)
+  - Tests with errors: 0 (0% of specified requirements)
+
+Tests not implemented or not executed: 2
+  - Pending tests: 2 (100% of specified requirements)
+  - Ignored or skipped tests: 0 (0% of specified requirements)
+
+Requirements specified:     6
+Requirements with no tests: 0
+
+
+Estimated unimplemented tests: 0
+Estimated unimplemented or pending requirements: 100%
+Estimated ignored or skipped requirements: 0%">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
 
     <div id="test-tabs">
         <ul>
@@ -256,39 +491,39 @@
                     <tbody>
 
 
-                        <tr class="test-FAILURE">
-                            <td><img src="images/fail.png" title="FAILURE"
-                                     class="summary-icon"/><span style="display:none">FAILURE</span></td>
-                            <td class="FAILURE-text"><a
-                                    href="d49c1f54e69f93824d7d01fc6f5c9dde7ea7777f08336fb2aa6e8c7f995123c1.html" title="">Inserting a pacient in database </a>
+                        <tr class="test-PENDING">
+                            <td><img src="images/pending.png" title="PENDING"
+                                     class="summary-icon"/><span style="display:none">PENDING</span></td>
+                            <td class="PENDING-text"><a
+                                    href="98dac5a6f0a3c0417facb380134f8cfa810b73fef9fa207b360c8b8d44e95885.html" title="">Inserting a pacient in database </a>
                             </td>
 
-                            <td class="lightgreentext">7</td>
+                            <td class="lightgreentext">4</td>
                             <td class="bluetext">
                                 <img src="images/traffic-in-progress.gif"
                                      title="Over the last 0 tests: 0 passed, 0 failed, 0 pending"
                                      class="summary-icon"/>
                                 <span style="display:none">0</span>
                             </td>
-                            <td class="lightgreentext">8.22</td>
+                            <td class="lightgreentext">0.02</td>
                         </tr>
 
 
-                        <tr class="test-FAILURE">
-                            <td><img src="images/fail.png" title="FAILURE"
-                                     class="summary-icon"/><span style="display:none">FAILURE</span></td>
-                            <td class="FAILURE-text"><a
-                                    href="d8161a152ba73cedf87f7ef95947d08d9a16df250d8be91587d533161cc57797.html" title="">Looking up a pacient in database </a>
+                        <tr class="test-PENDING">
+                            <td><img src="images/pending.png" title="PENDING"
+                                     class="summary-icon"/><span style="display:none">PENDING</span></td>
+                            <td class="PENDING-text"><a
+                                    href="99c54e19f4f1d784cd6f48784202bd04a538156eb6382b0e1757ca04cb8358a9.html" title="">Looking up a pacient in database </a>
                             </td>
 
-                            <td class="lightgreentext">7</td>
+                            <td class="lightgreentext">4</td>
                             <td class="bluetext">
                                 <img src="images/traffic-in-progress.gif"
                                      title="Over the last 0 tests: 0 passed, 0 failed, 0 pending"
                                      class="summary-icon"/>
                                 <span style="display:none">0</span>
                             </td>
-                            <td class="lightgreentext">3.3</td>
+                            <td class="lightgreentext">0.12</td>
                         </tr>
                     </tbody>
                 </table>

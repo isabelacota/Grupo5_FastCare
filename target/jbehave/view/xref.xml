@@ -1,5 +1,5 @@
 <xref>
-  <whenMade>1442622410539</whenMade>
+  <whenMade>1442626423834</whenMade>
   <createdBy>JBehave</createdBy>
   <metaFilter>-ignore</metaFilter>
   <meta/>
@@ -7,9 +7,29 @@
     <story>
       <description></description>
       <narrative></narrative>
-      <name>InitialPage.story</name>
-      <path>mc437/stories/pages/InitialPage.story</path>
-      <html>mc437.stories.pages.InitialPage.html</html>
+      <name>BuscaDePaciente.story</name>
+      <path>stories/gestão_de_pacientes/crud_paciente/busca_de_paciente/BuscaDePaciente.story</path>
+      <html>stories.gestão_de_pacientes.crud_paciente.busca_de_paciente.BuscaDePaciente.html</html>
+      <meta></meta>
+      <scenarios>Scenario:Looking up a pacient in database
+Given the user is on the initial page
+Given the user is receptionist or doctor
+When the user looks up a pacient name &apos;$name&apos;
+Then they should see the pacient data
+
+
+</scenarios>
+      <passed>true</passed>
+      <pending>true</pending>
+      <started>1442626417895</started>
+      <duration>435</duration>
+    </story>
+    <story>
+      <description></description>
+      <narrative></narrative>
+      <name>RegistrarPaciente.story</name>
+      <path>stories/gestão_de_pacientes/crud_paciente/registrar_paciente/RegistrarPaciente.story</path>
+      <html>stories.gestão_de_pacientes.crud_paciente.registrar_paciente.RegistrarPaciente.html</html>
       <meta></meta>
       <scenarios>Scenario:Inserting a pacient in database
 Given the user is on the initial page
@@ -18,18 +38,11 @@ When the user click the insert pacient button
 Then they should see a form to enter the pacient data
 
 
-Scenario:Looking up a pacient in database
-Given the user is on the initial page
-Given the user is receptionist or doctor
-When the user looks up a pacient name &apos;$name&apos;
-Then they should see the pacient data
-
-
 </scenarios>
-      <passed>false</passed>
-      <pending>false</pending>
-      <started>1442622395451</started>
-      <duration>11792</duration>
+      <passed>true</passed>
+      <pending>true</pending>
+      <started>1442626420487</started>
+      <duration>28</duration>
     </story>
   </stories>
   <stepMatches/>

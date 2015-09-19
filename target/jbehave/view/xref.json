@@ -1,5 +1,5 @@
 {"xref": {
-  "whenMade": 1442622410539,
+  "whenMade": 1442626423834,
   "createdBy": "JBehave",
   "metaFilter": "-ignore",
   "meta": [],
@@ -7,15 +7,28 @@
     {
       "description": "",
       "narrative": "",
-      "name": "InitialPage.story",
-      "path": "mc437/stories/pages/InitialPage.story",
-      "html": "mc437.stories.pages.InitialPage.html",
+      "name": "BuscaDePaciente.story",
+      "path": "stories/gestão_de_pacientes/crud_paciente/busca_de_paciente/BuscaDePaciente.story",
+      "html": "stories.gestão_de_pacientes.crud_paciente.busca_de_paciente.BuscaDePaciente.html",
       "meta": "",
-      "scenarios": "Scenario:Inserting a pacient in database\u000aGiven the user is on the initial page\u000aGiven the user is receptionist or doctor\u000aWhen the user click the insert pacient button\u000aThen they should see a form to enter the pacient data\u000a\u000a\u000aScenario:Looking up a pacient in database\u000aGiven the user is on the initial page\u000aGiven the user is receptionist or doctor\u000aWhen the user looks up a pacient name '$name'\u000aThen they should see the pacient data\u000a\u000a\u000a",
-      "passed": false,
-      "pending": false,
-      "started": 1442622395451,
-      "duration": 11792
+      "scenarios": "Scenario:Looking up a pacient in database\u000aGiven the user is on the initial page\u000aGiven the user is receptionist or doctor\u000aWhen the user looks up a pacient name '$name'\u000aThen they should see the pacient data\u000a\u000a\u000a",
+      "passed": true,
+      "pending": true,
+      "started": 1442626417895,
+      "duration": 435
+    },
+    {
+      "description": "",
+      "narrative": "",
+      "name": "RegistrarPaciente.story",
+      "path": "stories/gestão_de_pacientes/crud_paciente/registrar_paciente/RegistrarPaciente.story",
+      "html": "stories.gestão_de_pacientes.crud_paciente.registrar_paciente.RegistrarPaciente.html",
+      "meta": "",
+      "scenarios": "Scenario:Inserting a pacient in database\u000aGiven the user is on the initial page\u000aGiven the user is receptionist or doctor\u000aWhen the user click the insert pacient button\u000aThen they should see a form to enter the pacient data\u000a\u000a\u000a",
+      "passed": true,
+      "pending": true,
+      "started": 1442626420487,
+      "duration": 28
     }
   ],
   "stepMatches": []

@@ -1,0 +1,5 @@
+Encontrar informação de paciente
+Narrative:
+In order to buscar paciente
+as a Medico/Recepcionista
+I want to preencher o nome do paciente buscado.
