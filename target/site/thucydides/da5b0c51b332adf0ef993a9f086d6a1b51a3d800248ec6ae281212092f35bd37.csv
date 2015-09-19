@@ -1,0 +1,3 @@
+"Story","Title","Result","Date","Stability","Duration (s)"
+"Initial page","Inserting a pacient in database","FAILURE","2015-09-19T00:26:35.529Z","0.0","8.22"
+"Initial page","Looking up a pacient in database","FAILURE","2015-09-19T00:26:43.939Z","0.0","3.3"

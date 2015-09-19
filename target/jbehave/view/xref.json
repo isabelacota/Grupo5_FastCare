@@ -1,0 +1,22 @@
+{"xref": {
+  "whenMade": 1442622410539,
+  "createdBy": "JBehave",
+  "metaFilter": "-ignore",
+  "meta": [],
+  "stories": [
+    {
+      "description": "",
+      "narrative": "",
+      "name": "InitialPage.story",
+      "path": "mc437/stories/pages/InitialPage.story",
+      "html": "mc437.stories.pages.InitialPage.html",
+      "meta": "",
+      "scenarios": "Scenario:Inserting a pacient in database\u000aGiven the user is on the initial page\u000aGiven the user is receptionist or doctor\u000aWhen the user click the insert pacient button\u000aThen they should see a form to enter the pacient data\u000a\u000a\u000aScenario:Looking up a pacient in database\u000aGiven the user is on the initial page\u000aGiven the user is receptionist or doctor\u000aWhen the user looks up a pacient name '$name'\u000aThen they should see the pacient data\u000a\u000a\u000a",
+      "passed": false,
+      "pending": false,
+      "started": 1442622395451,
+      "duration": 11792
+    }
+  ],
+  "stepMatches": []
+}}

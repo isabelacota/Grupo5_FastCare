@@ -1,0 +1,30 @@
+<div class="story">
+<h1></h1>
+<div class="path">mc437/stories/pages/InitialPage.story</div>
+<div class="scenario">
+<h2>Scenario: Inserting a pacient in database</h2>
+<div class="step successful">Given the user is on the initial page</div>
+<div class="step failed">Given the user is receptionist or doctor <span class="keyword failed">(FAILED)</span><br/><span class="message failed">java.lang.AssertionError</span></div>
+<div class="step notPerformed">When the user click the insert pacient button <span class="keyword notPerformed">(NOT PERFORMED)</span></div>
+<div class="step notPerformed">Then they should see a form to enter the pacient data <span class="keyword notPerformed">(NOT PERFORMED)</span></div>
+<pre class="failure">java.lang.AssertionError
+	at mc437.jbehave.DefinitionSteps.givenTheUserIsReceptionistOrDoctor(DefinitionSteps.java:22)
+	(reflection-invoke)
+	at org.jbehave.core.steps.StepCreator$ParametrisedStep.perform(StepCreator.java:595)
+	at org.jbehave.core.embedder.StoryRunner$FineSoFar.run(StoryRunner.java:535)
+...</pre>
+</div>
+<div class="scenario">
+<h2>Scenario: Looking up a pacient in database</h2>
+<div class="step successful">Given the user is on the initial page</div>
+<div class="step failed">Given the user is receptionist or doctor <span class="keyword failed">(FAILED)</span><br/><span class="message failed">java.lang.AssertionError</span></div>
+<div class="step notPerformed">When the user looks up a pacient name '$name' <span class="keyword notPerformed">(NOT PERFORMED)</span></div>
+<div class="step notPerformed">Then they should see the pacient data <span class="keyword notPerformed">(NOT PERFORMED)</span></div>
+<pre class="failure">java.lang.AssertionError
+	at mc437.jbehave.DefinitionSteps.givenTheUserIsReceptionistOrDoctor(DefinitionSteps.java:22)
+	(reflection-invoke)
+	at org.jbehave.core.steps.StepCreator$ParametrisedStep.perform(StepCreator.java:595)
+	at org.jbehave.core.embedder.StoryRunner$FineSoFar.run(StoryRunner.java:535)
+...</pre>
+</div>
+</div>
