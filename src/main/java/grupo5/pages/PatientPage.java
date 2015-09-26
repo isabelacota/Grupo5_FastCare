@@ -15,10 +15,17 @@ public class PatientPage extends PageObject {
 
     @FindBy(name="update_patient")
     private WebElementFacade update_patient_button;
+    
+    @FindBy(name="exclude_patient")
+    private WebElementFacade exclude_patient_button;
 
     // Methods 
 
     public void update_patient() {
         update_patient_button.click();
+    }
+    
+    public void exclude_patient(){
+    	exclude_patient_button.click();
     }
 }

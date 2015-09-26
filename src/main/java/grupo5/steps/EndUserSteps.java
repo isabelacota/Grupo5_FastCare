@@ -13,6 +13,7 @@ import static org.hamcrest.Matchers.hasItem;
 public class EndUserSteps extends ScenarioSteps {
 
 	InitialPage initialPage;
+	PatientPage patientPage;
 
     PatientPage patientPage;
 
@@ -29,6 +30,11 @@ public class EndUserSteps extends ScenarioSteps {
     @Step
     public void click_insert_button() {
     	initialPage.insert_pacient();
+    }
+    
+    @Step
+    public void click_exlude_button() {
+    	patientPage.exclude_patient();
     }
 
     @Step
