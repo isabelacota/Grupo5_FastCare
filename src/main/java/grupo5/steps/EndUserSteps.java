@@ -1,6 +1,7 @@
 package grupo5.steps;
 
 import grupo5.pages.InitialPage;
+import grupo5.pages.PatientPage;
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.pages.Pages;
 import net.thucydides.core.steps.ScenarioSteps;
@@ -12,6 +13,8 @@ import static org.hamcrest.Matchers.hasItem;
 public class EndUserSteps extends ScenarioSteps {
 
 	InitialPage initialPage;
+
+    PatientPage patientPage;
 
     @Step
     public void enters(String name) {
@@ -60,5 +63,10 @@ public class EndUserSteps extends ScenarioSteps {
     public void looks_for_pacient(String name) {
         enters(name);
         starts_search_pacient();
+    }
+
+    @Step
+    public void is_on_the_patient_page() {
+        patientPage.open();
     }
 }

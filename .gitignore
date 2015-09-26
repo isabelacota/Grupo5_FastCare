@@ -1,2 +1,8 @@
 *~
 Backend_example/RESTfullExample/target/*
+.idea
+.project
+*.iml
+/target/
+.settings/
+.classpath
