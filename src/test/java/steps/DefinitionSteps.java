@@ -81,5 +81,10 @@ public class DefinitionSteps {
     public void thenTheyShouldSeeThePacientData() {
         endUser.should_see_the_pacient_data();
     }
+    
+    @Then("an event must be inserted into audit log")
+    public void MustInsertEventAuditLog() {
+        //endUser.must_insert_event_audit_log();
+    }
 
 }
