@@ -16,6 +16,11 @@ public class DefinitionSteps {
     public void givenTheUserIsOnTheInitialPage() {
         endUser.is_the_home_page();
     }
+
+    @Given("the user is on the patient page")
+    public void givenTheUserIsOnThePatientPage() {
+        endUser.is_on_the_patient_page();
+    }
     
     @Given("the user is on buscar paciente page")
     public void givenTheUserIsOnBuscarPacientePage() {
@@ -52,9 +57,19 @@ public class DefinitionSteps {
         //endUser.looks_for_pacient(name, cpf, phone, gender, birth);
     }
     
+    @Given("the user is a doctor")
+    public void givenTheUserIsADoctor() {
+        assert(endUser.is_doctor());
+    }
+
     @When("the user looks up a pacient name '$name'")
     public void whenTheUserLooksUpThePacientName(String name) {
         endUser.looks_for_pacient(name);
+    }
+
+    @When("the user clicks to update the patient data")
+    public void whenTheUserClicksToUpdateThePatientData() {
+        // TODO
     }
     
     @When("the user click the insert pacient button")
@@ -85,6 +100,11 @@ public class DefinitionSteps {
     @Then("an event must be inserted into audit log")
     public void MustInsertEventAuditLog() {
         //endUser.must_insert_event_audit_log();
+    }
+
+    @Then("the patient data is updated on the database")
+    public void thenThePatientDataIsUpdatedOnTheDatabase() {
+        // TODO
     }
 
 }
