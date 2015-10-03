@@ -295,6 +295,11 @@ h6 {
 	line-height: 12px;
 }
 
+#cpf-validation{
+	color:#EA7B30;
+	visibility:hidden;
+}
+
 /* Header Section
 =================================================================== */
 .navbar {
@@ -306,7 +311,7 @@ h6 {
   	min-height: 40px;
   	padding-right: 20px;
   	padding-left: 20px;
-	background: #080808;
+	background: #287D68;;
 	filter: none;
 	text-shadow: 1px 1px 1px #0a0c0e;
 	border: none;
@@ -397,6 +402,7 @@ a.brand span {
 
 #sidebar-left {
 	background: #1C2B36;
+	visibility: hidden;
 }
 
 .sidebar-nav > ul{
@@ -834,7 +840,7 @@ ul.messages li .message {
 	font-size: 16px;
 	line-height: 16px;
   	padding: 10px;
-  	background: #578EBE;
+  	background: #799594;
 	-webkit-box-shadow: none;
      	-moz-box-shadow: none;
           box-shadow: none;
