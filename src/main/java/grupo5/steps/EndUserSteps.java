@@ -2,6 +2,7 @@ package grupo5.steps;
 
 import grupo5.pages.InitialPage;
 import grupo5.pages.PatientPage;
+import grupo5.pages.RegistrationPage;
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.pages.Pages;
 import net.thucydides.core.steps.ScenarioSteps;
@@ -14,8 +15,9 @@ public class EndUserSteps extends ScenarioSteps {
 
 	InitialPage initialPage;
 	PatientPage patientPage;
+	RegistrationPage registrationPage;
 
-    PatientPage patientPage;
+    //PatientPage patientPage;
 
     @Step
     public void enters(String name) {
@@ -75,4 +77,36 @@ public class EndUserSteps extends ScenarioSteps {
     public void is_on_the_patient_page() {
         patientPage.open();
     }
+    
+    //Registration
+    @Step
+    public void inserts_patient_name(String name) {
+        registrationPage.enter_pacient_name(name);
+        registrationPage.submit_pacient_name();
+    }
+    @Step
+    public void inserts_patient_gender(String gender) {
+        registrationPage.enter_pacient_gender(gender);
+        registrationPage.submit_pacient_gender();
+    }
+    @Step
+    public void inserts_patient_cpf(String cpf) {
+        registrationPage.enter_pacient_cpf(cpf);
+        registrationPage.submit_pacient_cpf();
+    }
+    @Step
+    public void inserts_patient_birth(String birth) {
+        registrationPage.enter_pacient_birth(birth);
+        registrationPage.submit_pacient_birth();
+    }
+    @Step
+    public void inserts_patient_phone(String phone) {
+        registrationPage.enter_pacient_phone(phone);
+        registrationPage.submit_pacient_phone();
+    }
+    @Step
+    public void confirm_patient_registration() {
+        registrationPage.confirm_submission();
+    }
+    
 }
