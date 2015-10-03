@@ -10,22 +10,25 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.QueryParam;
 
-import xyz.hidasy.rest.Pacient;
+import xyz.hidasy.rest.Patient;
+import xyz.hidasy.rest.PatientResponse;
 
-@Path("/pacient")
+@Path("/patient")
 public class HelloWorldService {
 
     @GET
     @Path("/{id}")
     @Produces(MediaType.APPLICATION_JSON)
-    public Pacient getPacient(@PathParam("id") String msg) {
+    public PatientResponse getPacient(@PathParam("id") String msg) {
 
-	Pacient pacient = new Pacient();
-	pacient.setName("Enter Sandman");
-	pacient.setId(msg);
+	PatientResponse pr = new PatientResponse();
+	pr.setStatus("Resposta");
+	pr.setStatusId(3);
+	pr.getPatient().setName("Enter Sandman");
+	pr.getPatient().setId(msg);
 	
 
-	return pacient;
+	return pr;
 	
 	//String output = "{\"status_message\": \"bla\"}";
 	
