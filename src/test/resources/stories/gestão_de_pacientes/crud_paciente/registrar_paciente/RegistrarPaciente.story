@@ -12,8 +12,6 @@ Then the user should see a field to insert the patient's birth time and date
 When the user insert the patient's birth time and date
 Then the user should see a field to insert the patient's phone
 When the user insert the patient's phone
-Then the user should see a field to insert the patient's address
-When the user insert the patient's address
 Then the user should see a page asking for confirmation to submit
 When the user confirm the submission
 Then the patient is added to the database
