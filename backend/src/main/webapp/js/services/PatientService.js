@@ -1,5 +1,5 @@
 app.factory('patientservice', ['$http', function($http) {
-  return $http.get('https://s3.amazonaws.com/codecademy-content/courses/ltp4/forecast-api/forecast.json')
+  return $http.get('http://localhost:8080/FastCare/API/patient/1')
             .success(function(data) {
               return data;
             })
