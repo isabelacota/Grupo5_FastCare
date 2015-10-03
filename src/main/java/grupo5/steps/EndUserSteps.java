@@ -18,6 +18,7 @@ public class EndUserSteps extends ScenarioSteps {
 	RegistrationPage registrationPage;
 
     //PatientPage patientPage;
+	
 
     @Step
     public void enters(String name) {
@@ -39,9 +40,6 @@ public class EndUserSteps extends ScenarioSteps {
     	patientPage.exclude_patient();
     }
 
-    @Step
-    public void should_see_insert_pacient_form() {
-    }
     
     @Step
     public void should_see_the_pacient_data() {
@@ -79,6 +77,16 @@ public class EndUserSteps extends ScenarioSteps {
     }
     
     //Registration
+    @Step
+    public void click_register_patient() {
+        assert(true);
+    }
+    
+    @Step
+    public void should_see_field() {
+        assert(true);
+    }
+    
     @Step
     public void inserts_patient_name(String name) {
         registrationPage.enter_pacient_name(name);
