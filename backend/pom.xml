@@ -2,10 +2,10 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>xyz.hidasy.rest</groupId>
-  <artifactId>RESTfullExample</artifactId>
+  <artifactId>FastCare</artifactId>
   <packaging>war</packaging>
   <version>1.0-SNAPSHOT</version>
-  <name>RESTfulExample Maven Webapp</name>
+  <name>REST HMS Maven Webapp</name>
   <url>http://maven.apache.org</url>
   <repositories>
     <repository>
@@ -34,7 +34,7 @@
     </dependency>
   </dependencies>
   <build>
-    <finalName>RESTfullExample</finalName>
+    <finalName>rest</finalName>
   </build>
   
 </project>
