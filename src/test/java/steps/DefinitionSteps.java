@@ -77,39 +77,36 @@ public class DefinitionSteps {
         endUser.click_insert_button();
     }
 
-    //Registration
+    //Registration - when
     @When("the user insert the patient's name")
     public void whenTheUserInsertPatientName() {
-        //endUser.insert_patient_name();
+        endUser.inserts_patient_name("joao");
     }
     @When("the user insert the patient's gender")
     public void whenTheUserInsertPatientGender() {
-        //endUser.insert_patient_gender();
+        endUser.inserts_patient_gender("male");
     }
     @When("the user insert the patient's cpf")
     public void whenTheUserInsertPatientCPF() {
-        //endUser.insert_patient_CPF();
+        endUser.inserts_patient_cpf("12345");
     }
     @When("the user insert the patient's birth time and date")
     public void whenTheUserInsertPatientBirth() {
-        //endUser.insert_patient_birth();
+    	endUser.inserts_patient_birth("dezembro");
     }
     @When("the user insert the patient's phone")
     public void whenTheUserInsertPatientPhone() {
-        //endUser.insert_patient_phone();
+    	endUser.inserts_patient_phone("192222222");
     }
-    @When("the user insert the patient's address")
-    public void whenTheUserInsertPatientAddress() {
-        //endUser.insert_patient_address();
-    }
+   
     @When("the user confirm the submission")
     public void whenTheUserConfirmSubmission() {
-        //endUser.insert_patient_confirm_submission();
+        endUser.confirm_patient_registration();
     }
     
     @When("the user click on Register a patient")
     public void whenTheUserClickOnRegisterPatient() {
-        //endUser.click_register_patient();
+       endUser.click_register_patient();
     }
     
     //Registration then
@@ -117,38 +114,43 @@ public class DefinitionSteps {
  
     @Then("the user should see a field to insert the patient's full name")
     public void thenTheyShouldSeeAFieldToPatientName() {
+    	endUser.should_see_field();
         //endUser.should_see_field_patient_name();
     }
     @Then("the user should see a field to insert the patient's gender")
     public void thenTheyShouldSeeAFieldToPatientGender() {
+    	endUser.should_see_field();
         //endUser.should_see_field_patient_gender();
     }
     @Then("the user should see a field to insert the patient's cpf")
     public void thenTheyShouldSeeAFieldToPatientCPF() {
+    	endUser.should_see_field();
         //endUser.should_see_field_patient_cpf();
     }
     @Then("the user should see a field to insert the patient's birth time and date")
     public void thenTheyShouldSeeAFieldToPatientBirth() {
+    	endUser.should_see_field();
         //endUser.should_see_field_patient_birth();
     }
     @Then("the user should see a field to insert the patient's phone")
     public void thenTheyShouldSeeAFieldToPatientPhone() {
+    	endUser.should_see_field();
         //endUser.should_see_field_patient_phone();
-    }
-    @Then("the user should see a field to insert the patient's address")
-    public void thenTheyShouldSeeAFieldToPatientAddress() {
-        //endUser.should_see_field_patient_address();
     }
     @Then("the user should see a page asking for confirmation to submit")
     public void thenTheyShouldSeeAPageAskingConfirmationToSubmit() {
+    	endUser.should_see_field();
         //endUser.should_see_page_confirmation_submit();
     }
     @Then("the patient is added to the database")
     public void thenThePatientIsAddedToTheDatabase() {
+    	endUser.should_see_field();
+
         //patient added to the database
     }
     @Then("a message patient inserted should be sent to the user")
     public void thenAMessageInsertedIsSentToTheUser() {
+    	endUser.should_see_field();
         //endUser.should_see_a_message_user_inserted();
     }
     
