@@ -2,12 +2,17 @@
     <head>
 
         <meta charset="UTF-8">
-        <script type="text/javascript" src="http://code.angularjs.org/1.0.6/angular.min.js"></script>
-        <script type="text/javascript" src="app.js"></script>
-        <!--<script src="customerController.js"></script>-->
+        <script src="http://code.angularjs.org/1.0.6/angular.min.js"></script>
+        <!-- Modules -->
+        <script src="js/app.js"></script>
+
+        <!-- Controllers -->
+        <script src="js/controllers/PatientController.js"></script>
+
+        <!-- Services -->
+        <script src="js/services/patientservice.js"></script>
     </head>
     <body>
-        <li><a href=“#/clientes”>Clientes {{ ola }} </a></li>
-        <div ng-view></div>
+        <div class="patients" ng-controller="PatientController">o</div>
     </body>
 </html>
