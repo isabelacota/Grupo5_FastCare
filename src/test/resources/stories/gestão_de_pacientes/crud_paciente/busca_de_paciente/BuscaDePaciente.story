@@ -1,4 +1,4 @@
-Scenario: Looking up a pacient in database
+Scenario: Looking up a patient in database
 Given the user is on the initial page
 Given the user is doctor
 When the user clicks on 'Buscar Paciente'
@@ -8,7 +8,7 @@ Then they should see a list of pacients that met that criteria
 Then an event must be inserted into audit log
 
 
-Scenario: Looking up a pacient in database
+Scenario: Looking up a patient in database
 Given the user is on the initial page
 Given the user is receptionist
 When the user clicks on 'Buscar Paciente'
