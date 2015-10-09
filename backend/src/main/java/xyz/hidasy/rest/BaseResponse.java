@@ -21,6 +21,15 @@ public class BaseResponse {
     public void setStatusId(int i) {
 	this.statusId = i;
     }
+
+    public String getToken() {
+	return authToken;
+    }
+
+    public void setToken(String token) {
+	this.authToken = token;
+    }
+
     
     @Override
     public String toString() {

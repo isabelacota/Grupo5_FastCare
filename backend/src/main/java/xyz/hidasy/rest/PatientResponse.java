@@ -15,6 +15,7 @@ public class PatientResponse extends BaseResponse{
 
     public void setPatient(Patient p) {
 	this.P = p;
+	return;
     }
     
     @Override
