@@ -36,11 +36,11 @@ public class SearchPatientPage extends PageObject {
     private WebElementFacade diagnosis_field;
 
     @FindBy(name="search")
-    private WebElementFacade search_pacient_button;
+    private WebElementFacade search_patient_button;
         
     // Methods 
     
-    public void enter_pacient_name(String name) {
+    public void enter_patient_name(String name) {
     	patient_name_field.type(name);
     }
     
@@ -64,8 +64,8 @@ public class SearchPatientPage extends PageObject {
     	diagnosis_field.type(diagnosis);
     }
 
-    public void lookup_pacient() {
-    	search_pacient_button.click();
+    public void click_search_button() {
+    	search_patient_button.click();
     }
     
 }

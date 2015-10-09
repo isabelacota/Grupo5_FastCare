@@ -21,26 +21,19 @@ public class InitialPage extends PageObject {
 
 	// Web Elements
 	
-    @FindBy(name="search_pacient")
-    private WebElementFacade search_pacients;
-
-    @FindBy(name="search")
-    private WebElementFacade search_pacient_button;
+    @FindBy(name="search_patient")
+    private WebElementFacade search_patient_button;
     
-    @FindBy(name="insert_pacient")
-    private WebElementFacade insert_pacient_button;
+    @FindBy(name="register_patient")
+    private WebElementFacade register_patient_button;
     
     // Methods 
     
-    public void enter_pacient_name(String name) {
-    	search_pacients.type(name);
-    }
-
-    public void lookup_pacient() {
-    	search_pacient_button.click();
+    public void search_patient() {
+    	search_patient_button.click();
     }
     
-    public void insert_pacient() {
-    	insert_pacient_button.click();
+    public void register_patient() {
+    	register_patient_button.click();
     }
 }
