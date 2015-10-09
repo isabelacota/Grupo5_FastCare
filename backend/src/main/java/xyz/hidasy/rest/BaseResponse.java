@@ -4,6 +4,7 @@ public class BaseResponse {
 
     String statusMessage;
     int statusId;
+    String authToken;
     
     public String getStatus() {
 	return statusMessage;
