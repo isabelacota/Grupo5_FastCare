@@ -36,6 +36,9 @@ public class RegistrationPage extends PageObject {
     @FindBy(name="field_phone")
     private WebElementFacade field_phone;
     
+    @FindBy(name="confirm_with_same_cpf")
+    private WebElementFacade confirm_with_same_cpf;
+    
     @FindBy(name="button_confirm")
     private WebElementFacade button_confirm;
     
@@ -79,6 +82,14 @@ public class RegistrationPage extends PageObject {
    
     public void submit_pacient_phone() {
     	field_phone.submit();
+    }
+    
+//    public void pops_message_patient_already_exists(){
+//    	message_cpf_already_exists.getCssValue("display");
+//    }
+    
+    public void register_same_cpf() {
+    	confirm_with_same_cpf.click();
     }
     
     public void confirm_submission() {

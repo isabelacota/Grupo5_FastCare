@@ -46,11 +46,6 @@ public class EndUserSteps extends ScenarioSteps {
     @Step
     public void should_see_the_pacient_data() {
     }
-
-    @Step
-    public void is_the_home_page() {
-    	initialPage.open();
-    }
     
     @Step
     public boolean is_receptionist() {
@@ -74,8 +69,18 @@ public class EndUserSteps extends ScenarioSteps {
     }
 
     @Step
+    public void is_the_home_page() {
+    	initialPage.open();
+    }
+    
+    @Step
     public void is_on_the_patient_page() {
         patientPage.open();
+    }
+    
+    @Step
+    public void is_on_the_registration_page() {
+    	registrationPage.open();
     }
     
     //Registration
@@ -103,6 +108,14 @@ public class EndUserSteps extends ScenarioSteps {
     public void inserts_patient_phone(String phone) {
         registrationPage.enter_pacient_phone(phone);
         registrationPage.submit_pacient_phone();
+    }
+//    @Step
+//    public void should_see_a__message_patient_already_exists(){
+//    	registrationPage.pops_message_patient_already_exists();
+//    }
+    @Step
+    public void register_same_cpf() {
+        registrationPage.register_same_cpf();
     }
     @Step
     public void confirm_patient_registration() {

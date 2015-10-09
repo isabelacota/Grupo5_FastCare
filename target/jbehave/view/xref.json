@@ -1,5 +1,5 @@
 {"xref": {
-  "whenMade": 1442626423834,
+  "whenMade": 1443837163253,
   "createdBy": "JBehave",
   "metaFilter": "-ignore",
   "meta": [],
@@ -7,15 +7,41 @@
     {
       "description": "",
       "narrative": "",
+      "name": "AtualizarPaciente.story",
+      "path": "stories/gestão_de_pacientes/crud_paciente/atualizar_paciente/AtualizarPaciente.story",
+      "html": "stories.gestão_de_pacientes.crud_paciente.atualizar_paciente.AtualizarPaciente.html",
+      "meta": "",
+      "scenarios": "Scenario:update an existing patient fields\u000aGiven the user is on the patient page\u000aGiven the user is a doctor\u000aWhen the user clicks to update the patient data\u000aThen the patient data is updated on the database\u000a\u000a\u000a",
+      "passed": true,
+      "pending": true,
+      "started": 1443837157973,
+      "duration": 537
+    },
+    {
+      "description": "",
+      "narrative": "",
+      "name": "ExclusaoDePaciente.story",
+      "path": "stories/gestão_de_pacientes/crud_paciente/excluir_paciente/ExclusaoDePaciente.story",
+      "html": "stories.gestão_de_pacientes.crud_paciente.excluir_paciente.ExclusaoDePaciente.html",
+      "meta": "",
+      "scenarios": "Scenario:Exluding pacients so they can`t be found by search\u000aGiven the user is in the patient details page\u000aGiven the user is receptionist or doctor\u000aWhen the user selects to exclude the patient with the cpf: '$cpf'\u000aThen patient with the cpf '$cpf' doesn't shows up in future searches and the action is registered in the audit trail\u000aThen an event must be inserted into audit log\u000a\u000a\u000a",
+      "passed": true,
+      "pending": true,
+      "started": 1443837158523,
+      "duration": 38
+    },
+    {
+      "description": "",
+      "narrative": "",
       "name": "BuscaDePaciente.story",
       "path": "stories/gestão_de_pacientes/crud_paciente/busca_de_paciente/BuscaDePaciente.story",
       "html": "stories.gestão_de_pacientes.crud_paciente.busca_de_paciente.BuscaDePaciente.html",
       "meta": "",
-      "scenarios": "Scenario:Looking up a pacient in database\u000aGiven the user is on the initial page\u000aGiven the user is receptionist or doctor\u000aWhen the user looks up a pacient name '$name'\u000aThen they should see the pacient data\u000a\u000a\u000a",
+      "scenarios": "Scenario:Looking up a pacient in database\u000aGiven the user is on the initial page\u000aGiven the user is doctor\u000aWhen the user clicks on 'Buscar Paciente'\u000aThen the user is on buscar paciente page\u000aWhen the user looks up a pacient name '$name' or cpf '$cpf' or phone '$phone' or gender '$gender' or birth '$birth' or diagnosis '$diagnosis'\u000aThen they should see a list of pacients that met that criteria\u000aThen an event must be inserted into audit log\u000a\u000a\u000aScenario:Looking up a pacient in database\u000aGiven the user is on the initial page\u000aGiven the user is receptionist\u000aWhen the user clicks on 'Buscar Paciente'\u000aGiven the user is on buscar paciente page\u000aWhen the user looks up a pacient name '$name' or cpf '$cpf' or phone '$phone' or gender '$gender' or birth '$birth'\u000aThen they should see a list of pacients that met that criteria\u000aThen an event must be inserted into audit log\u000a\u000a\u000a",
       "passed": true,
       "pending": true,
-      "started": 1442626417895,
-      "duration": 435
+      "started": 1443837158578,
+      "duration": 60
     },
     {
       "description": "",
@@ -24,11 +50,11 @@
       "path": "stories/gestão_de_pacientes/crud_paciente/registrar_paciente/RegistrarPaciente.story",
       "html": "stories.gestão_de_pacientes.crud_paciente.registrar_paciente.RegistrarPaciente.html",
       "meta": "",
-      "scenarios": "Scenario:Inserting a pacient in database\u000aGiven the user is on the initial page\u000aGiven the user is receptionist or doctor\u000aWhen the user click the insert pacient button\u000aThen they should see a form to enter the pacient data\u000a\u000a\u000a",
+      "scenarios": "Scenario:User inserts a patient in the database\u000aGiven the user is on the initial page\u000aWhen the user click on \"Register a patient\"\u000aGiven the user is on the registration page\u000aGiven the user is a receptionist or doctor\u000aThen the user should see a field to insert the patient's full name\u000aWhen the user insert the patient's name\u000aThen the user should see a field to insert the patient's gender\u000aWhen the user insert the patient's gender\u000aThen the user should see a field to insert the patient's cpf\u000aWhen the user insert the patient's cpf\u000aThen the user should see a field to insert the patient's birth time and date\u000aWhen the user insert the patient's birth time and date\u000aThen the user should see a field to insert the patient's phone\u000aWhen the user insert the patient's phone\u000aThen the user should see a page asking for confirmation to submit\u000aWhen the user confirm the submission\u000aThen the patient is added to the database\u000aThen an event must be inserted into audit log\u000aThen a message \"patient inserted\" should be sent to the user\u000a\u000a\u000aScenario:User tries to insert a patient that already exists in the database\u000aGiven the user is on the initial page\u000aWhen the user click on \"Register a patient\"\u000aGiven the user is on the registration page\u000aGiven the user is a receptionist or doctor\u000aThen the user should see a field to insert the patient's full name\u000aWhen the user insert the patient's name\u000aThen the user should see a field to insert the patient's gender\u000aWhen the user insert the patient's gender\u000aThen the user should see a field to insert the patient's cpf\u000aWhen the user insert the patient's cpf\u000aThen the user sees a message saying that a patient with the same cpf already exists\u000aWhen the user confirms that he wants to register the patient anyways\u000aThen the user should see a field to insert the patient's birth time and date\u000aWhen the user insert the patient's birth time and date\u000aThen the user should see a field to insert the patient's phone\u000aWhen the user insert the patient's phone\u000aThen the user should see a field to insert the patient's address\u000aWhen the user insert the patient's address\u000aThen the user should see a page asking for confirmation to submit\u000aWhen the user confirm the submission\u000aThen the patient is added to the database\u000aThen an event must be inserted into audit log\u000aThen a message \"patient inserted\" should be sent to the user\u000a\u000a\u000a",
       "passed": true,
       "pending": true,
-      "started": 1442626420487,
-      "duration": 28
+      "started": 1443837158653,
+      "duration": 199
     }
   ],
   "stepMatches": []

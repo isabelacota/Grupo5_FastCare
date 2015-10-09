@@ -22,6 +22,11 @@ public class DefinitionSteps {
         endUser.is_on_the_patient_page();
     }
     
+    @Given("the user is on the registration page")
+    public void givenTheUserIsOnTheRegistrationPage() {
+        endUser.is_on_the_registration_page();
+    }
+    
     @Given("the user is on buscar paciente page")
     public void givenTheUserIsOnBuscarPacientePage() {
         //endUser.is_the_buscar_paciente_page();
@@ -90,6 +95,10 @@ public class DefinitionSteps {
     public void whenTheUserInsertPatientCPF() {
         //endUser.insert_patient_CPF();
     }
+    @When("the user confirms that he wants to register the patient anyways")
+    public void whenTheUserWantsRegisterAnyways() {
+        //endUser.register_same_cpf();
+    }
     @When("the user insert the patient's birth time and date")
     public void whenTheUserInsertPatientBirth() {
         //endUser.insert_patient_birth();
@@ -107,7 +116,7 @@ public class DefinitionSteps {
         //endUser.insert_patient_confirm_submission();
     }
     
-    @When("the user click on Register a patient")
+    @When("the user click on \"Register a patient")
     public void whenTheUserClickOnRegisterPatient() {
         //endUser.click_register_patient();
     }
@@ -152,7 +161,10 @@ public class DefinitionSteps {
         //endUser.should_see_a_message_user_inserted();
     }
     
-    
+//    @Then("the user sees a message saying that a patient with the same cpf already exists")
+//    public void thenAMessagePatientAlreadyExists() {
+//        endUser.should_see_a__message_patient_already_exists();
+//    }
 
     @Then("they should see a list of pacients that met that criteria")
     public void thenTheyShouldSeeListPacientsMetCriteria() {

@@ -1,3 +1,6 @@
 "Story","Title","Result","Date","Stability","Duration (s)"
-"Registrar paciente","Inserting a pacient in database","PENDING","2015-09-19T01:33:40.494Z","0.0","0.02"
-"Busca de paciente","Looking up a pacient in database","PENDING","2015-09-19T01:33:37.973Z","0.0","0.12"
+"Exclusao de paciente","Exluding pacients so they can`t be found by search","PENDING","2015-10-03T01:52:38.529Z","0.0","0.03"
+"Busca de paciente","Looking up a pacient in database","PENDING","2015-10-03T01:52:38.581Z","0.0","0.02"
+"Registrar paciente","User inserts a patient in the database","PENDING","2015-10-03T01:52:38.658Z","0.0","0.06"
+"Registrar paciente","User tries to insert a patient that already exists in the database","PENDING","2015-10-03T01:52:38.723Z","0.0","0.13"
+"Atualizar paciente","update an existing patient fields","PENDING","2015-10-03T01:52:38.080Z","0.0","0.13"
