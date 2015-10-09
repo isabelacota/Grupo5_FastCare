@@ -9,6 +9,7 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.QueryParam;
+import java.sql.*;
 
 import xyz.hidasy.rest.Patient;
 import xyz.hidasy.rest.PatientResponse;
@@ -16,12 +17,25 @@ import xyz.hidasy.rest.PatientResponse;
 @Path("/patient")
 public class HelloWorldService {
 
+    Connection c = null;
+    Statement stmt = null;
+    HelloWorldService() {
+	try {
+	    Class.forName("org.sqlite.JDBC");
+	    c = DriverManager.getConnection("jdbc:sqlite:test.db");
+	} catch ( Exception e ) {
+	    System.err.println(e.getClass().getName() + ": " + e.getMessage() );
+	}
+    }
+	
     @GET
     @Path("/{id}")
     @Produces(MediaType.APPLICATION_JSON)
-    public PatientResponse getPacient(@PathParam("id") String msg) {
-
+    public PatientResponse getPacient(@PathParam("id") String id) {
+	//Assuming doctor is logged in
+	
 	PatientResponse pr = new PatientResponse();
+	
 	pr.setStatus("Resposta");
 	pr.setStatusId(3);
 	pr.getPatient().setName("Enter Sandman");
