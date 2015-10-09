@@ -21,67 +21,69 @@ public class RegistrationPage extends PageObject {
 
 	// Web Elements
 	
-    @FindBy(name="field_name")
-    private WebElementFacade field_name;
+    @FindBy(name="name_field")
+    private WebElementFacade name_field;
     
-    @FindBy(name="field_gender")
-    private WebElementFacade field_gender;
+    @FindBy(name="gender_field")
+    private WebElementFacade gender_field;
     
-    @FindBy(name="field_cpf")
-    private WebElementFacade field_cpf;
+    @FindBy(name="cpf_field")
+    private WebElementFacade cpf_field;
     
-    @FindBy(name="field_birth")
-    private WebElementFacade field_birth;
+    @FindBy(name="birth_field")
+    private WebElementFacade birth_field;
     
-    @FindBy(name="field_phone")
-    private WebElementFacade field_phone;
+    @FindBy(name="phone_field")
+    private WebElementFacade phone_field;
     
     @FindBy(name="confirm_with_same_cpf")
     private WebElementFacade confirm_with_same_cpf;
     
     @FindBy(name="button_confirm")
     private WebElementFacade button_confirm;
+    @FindBy(name="confirm_button")
+    private WebElementFacade confirm_button;
     
     // Methods 
     
-    public void enter_pacient_name(String name) {
-    	field_name.type(name);
+    public void enter_patient_name(String name) {
+    	name_field.type(name);
     }
    
-    public void submit_pacient_name() {
-    	field_name.submit();
+    public void submit_patient_name() {
+    	name_field.submit();
     }
     
-    public void enter_pacient_gender(String gender) {
-    	field_gender.type(gender);
+    public void enter_patient_gender(String gender) {
+    	gender_field.type(gender);
     }
    
-    public void submit_pacient_gender() {
-    	field_gender.submit();
+    public void submit_patient_gender() {
+    	gender_field.submit();
     }
     
-    public void enter_pacient_cpf(String cpf) {
-    	field_cpf.type(cpf);
+    public void enter_patient_cpf(String cpf) {
+    	cpf_field.type(cpf);
     }
    
-    public void submit_pacient_cpf() {
-    	field_cpf.submit();
+    public void submit_patient_cpf() {
+    	cpf_field.submit();
     }
     
-    public void enter_pacient_birth(String birth) {
-    	field_birth.type(birth);
+    public void enter_patient_birth(String birth) {
+    	birth_field.type(birth);
     }
    
-    public void submit_pacient_birth() {
-    	field_birth.submit();
+    public void submit_patient_birth() {
+    	birth_field.submit();
     }
     
-    public void enter_pacient_phone(String phone) {
-    	field_phone.type(phone);
+    public void enter_patient_phone(String phone) {
+    	phone_field.type(phone);
     }
    
-    public void submit_pacient_phone() {
-    	field_phone.submit();
+    public void submit_patient_phone() {
+    	phone_field.submit();
     }
     
 //    public void pops_message_patient_already_exists(){
@@ -93,7 +95,7 @@ public class RegistrationPage extends PageObject {
     }
     
     public void confirm_submission() {
-    	button_confirm.click();
+    	confirm_button.click();
     }
     
     
