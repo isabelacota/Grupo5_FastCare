@@ -12,7 +12,7 @@ import net.thucydides.core.pages.PageObject;
 import java.util.List;
 import static ch.lambdaj.Lambda.convert;
 
-@DefaultUrl("http://www.google.com.br")
+@DefaultUrl("http://xaveco.lab.ic.unicamp.br:8000/search.html")
 public class SearchPatientPage extends PageObject {
 
 	// Web Elements

@@ -1,5 +1,0 @@
-Excluir paciente da busca
-Narrative:
-In order to excluir paciente
-As a medico/recepcionista
-I want to remover um paciente da lista de pacientes cadastrados.
