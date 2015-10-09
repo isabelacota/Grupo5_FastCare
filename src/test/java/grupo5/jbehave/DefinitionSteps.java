@@ -1,4 +1,4 @@
-package steps;
+package grupo5.jbehave;
 
 import grupo5.steps.EndUserSteps;
 import net.thucydides.core.annotations.Steps;
@@ -11,6 +11,9 @@ public class DefinitionSteps {
 
     @Steps
     EndUserSteps endUser;
+    
+    
+    //// GIVEN PAGES STEPS /////////////////////////////////////////////////////////////////
 
     @Given("the user is on the initial page")
     public void givenTheUserIsOnTheInitialPage() {
@@ -19,14 +22,11 @@ public class DefinitionSteps {
 
     @Given("the user is on the patient page")
     public void givenTheUserIsOnThePatientPage() {
-        endUser.is_on_the_patient_page();
+        endUser.is_the_patient_page();
     }
     
-    @Given("the user is on buscar paciente page")
-    public void givenTheUserIsOnBuscarPacientePage() {
-        //endUser.is_the_buscar_paciente_page();
-    }
-    
+    //// GIVEN TYPES OF USERS STEPS ////////////////////////////////////////////////////////
+       
     @Given("the user is receptionist")
     public void givenTheUserIsReceptionist() {
         assert(endUser.is_receptionist()); 
@@ -42,39 +42,76 @@ public class DefinitionSteps {
         assert(endUser.is_receptionist() || endUser.is_doctor()); 
     }
     
-    @When("the user clicks on 'Buscar Paciente'")
-    public void whenTheUserClicksBuscarPaciente(String name) {
-        endUser.looks_for_pacient(name);
+    //// LOG STEPS ////////////////////////////////////////////////////////
+    
+    @Then("an event must be inserted into audit log")
+    public void MustInsertEventAuditLog() {
+        //endUser.must_insert_event_audit_log();
+    }
+    
+    
+    ////////////////////////////////////////////////////////////////////////////////////////
+    ////////////////////////////////////////////////////////////////////////////////////////
+    
+
+    //// SEARCH STEPS /////////////////////////////////////////////////////////////////
+    
+    @When("the user clicks on search patient button")
+    public void whenTheUserClicksSearchPatient() {
+        endUser.click_search_patient_button();
+    }
+    
+    @Then("the user should be on search patient page")
+    public void thenShouldBeSearchPatientPage() {
+        endUser.should_be_the_search_patient_page();
     }
 
-    @When("the user looks up a pacient name '$name' or cpf '$cpf' or phone '$phone' or gender '$gender' or birth '$birth' or diagnosis '$diagnosis'")
+    @When("the doctor looks up a patient name '$name' or cpf '$cpf' or phone '$phone' or gender '$gender' or birth '$birth' or diagnosis '$diagnosis'")
     public void whenTheDoctorLooksUpPacient(String name, String cpf, String phone, String gender, String birth, String diagnosis) {
-        //endUser.looks_for_pacient(name, cpf, phone, gender, birth, diagnosis);
+        endUser.search_enter_name(name);
+        endUser.search_enter_cpf(cpf);
+        endUser.search_enter_phone(phone);
+        endUser.search_enter_gender(gender);
+        endUser.search_enter_birth(birth);
+        endUser.search_enter_diagnosis(diagnosis);
+        endUser.search_submit();
     }
     
-    @When("the user looks up a pacient name '$name' or cpf '$cpf' or phone '$phone' or gender '$gender' or birth '$birth'")
-    public void whenTheReceptionistLooksUpPacient(String name, String cpf, String phone, String gender, String birth, String diagnosis) {
-        //endUser.looks_for_pacient(name, cpf, phone, gender, birth);
+    @When("the receptionist looks up a pacient name '$name' or cpf '$cpf' or phone '$phone' or gender '$gender' or birth '$birth'")
+    public void whenTheReceptionistLooksUpPacient(String name, String cpf, String phone, String gender, String birth) {
+        endUser.search_enter_name(name);
+        endUser.search_enter_cpf(cpf);
+        endUser.search_enter_phone(phone);
+        endUser.search_enter_gender(gender);
+        endUser.search_enter_birth(birth);
+        endUser.search_submit();
     }
     
-    @Given("the user is a doctor")
-    public void givenTheUserIsADoctor() {
-        assert(endUser.is_doctor());
+    @Then("they should see a list of pacients that met that criteria")
+    public void thenTheyShouldSeeListPacientsMetCriteria() {
+        endUser.shoud_see_list_pacients_met_criteria();
     }
-
-    @When("the user looks up a pacient name '$name'")
-    public void whenTheUserLooksUpThePacientName(String name) {
-        endUser.looks_for_pacient(name);
-    }
+    
+    
+    //// UPDATE STEPS /////////////////////////////////////////////////////////////////
+    
 
     @When("the user clicks to update the patient data")
     public void whenTheUserClicksToUpdateThePatientData() {
         // TODO
     }
     
-    @When("the user click the insert pacient button")
-    public void whenTheUserClickTheInsertPacientButton() {
-        endUser.click_insert_button();
+    @Then("the patient data is updated on the database")
+    public void thenThePatientDataIsUpdatedOnTheDatabase() {
+        // TODO
+    }
+    
+    
+    //// REGISTER STEPS /////////////////////////////////////////////////////////////////
+    
+    @When("the user click the register patient button")
+    public void whenTheUserClickTheInsertPatientButton() {
+        endUser.click_register_patient_button();
     }
 
     //Registration - when
@@ -153,32 +190,9 @@ public class DefinitionSteps {
     	endUser.should_see_field();
         //endUser.should_see_a_message_user_inserted();
     }
-    
-    
+       
 
-    @Then("they should see a list of pacients that met that criteria")
-    public void thenTheyShouldSeeListPacientsMetCriteria() {
-        //endUser.shoud_see_list_pacients_met_criteria();
-    }
-    
-    @Then("the user is on buscar paciente page")
-    public void thenTheyShouldBeBuscarPacientePage() {
-        //endUser.should_be_buscar_paciente_page();
-    }
-    
-    @Then("they should see the pacient data")
-    public void thenTheyShouldSeeThePacientData() {
-        endUser.should_see_the_pacient_data();
-    }
-    
-    @Then("an event must be inserted into audit log")
-    public void MustInsertEventAuditLog() {
-        //endUser.must_insert_event_audit_log();
-    }
 
-    @Then("the patient data is updated on the database")
-    public void thenThePatientDataIsUpdatedOnTheDatabase() {
-        // TODO
-    }
+
 
 }
