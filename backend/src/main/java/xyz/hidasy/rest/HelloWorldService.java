@@ -9,63 +9,48 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.QueryParam;
-import java.sql.*;
+
 
 import xyz.hidasy.rest.Patient;
+import xyz.hidasy.rest.PatientCRUD;
 import xyz.hidasy.rest.PatientResponse;
 
 @Path("/patient")
 public class HelloWorldService {
-
-    Connection c = null;
-    Statement stmt = null;
-    HelloWorldService() {
-	try {
-	    Class.forName("org.sqlite.JDBC");
-	    c = DriverManager.getConnection("jdbc:sqlite:test.db");
-	} catch ( Exception e ) {
-	    System.err.println(e.getClass().getName() + ": " + e.getMessage() );
-	}
-    }
 	
     @GET
     @Path("/{id}")
     @Produces(MediaType.APPLICATION_JSON)
     public PatientResponse getPacient(@PathParam("id") String id) {
 	//Assuming doctor is logged in
-	
 	PatientResponse pr = new PatientResponse();
-	
 	pr.setStatus("Resposta");
 	pr.setStatusId(3);
-	pr.getPatient().setName("Enter Sandman");
-	pr.getPatient().setId(msg);
 	
+	String name = "null";
 
-	return pr;
-	
-	//String output = "{\"status_message\": \"bla\"}";
-	
-	//return Response.status(200).entity(output).build();
+	PatientCRUD db = new PatientCRUD(Integer.valueOf(id));
+	pr.setPatient(db.get());
+	return pr;	
     }
 
     //@Consumes(MediaType.APPLICATION_JSON)
 
     @POST
-    @Path("/{id}/update")
-    public Response updatePacient(@PathParam("id") String msg) {
+	    @Path("/{id}/update")
+	    public Response updatePacient(@PathParam("id") String msg) {
 	
-	String output = "{[update]}";
+	    String output = "{[update]}";
 	
-	return Response.status(200).entity(output).build();
-    }
+	    return Response.status(200).entity(output).build();
+	}
     
-    //@Consumes(MediaType.APPLICATION_JSON)
-    @POST
-    @Path("/insert")
-    public Response updatePacient() {
+	//@Consumes(MediaType.APPLICATION_JSON)
+	@POST
+	    @Path("/insert")
+	    public Response updatePacient() {
 	
-	String output = "{[insert]}";
-	return Response.status(200).entity(output).build();
+	    String output = "{[insert]}";
+	    return Response.status(200).entity(output).build();
+	}
     }
-}
