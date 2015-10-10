@@ -24,7 +24,7 @@ public class RegistrationPage extends PageObject {
     @FindBy(id="username")
     private WebElementFacade name_field;
     
-    @FindBy(id="gender")
+    @FindBy(id="gender_field")
     private WebElementFacade gender_field;
     
     @FindBy(id="cpfnumber")

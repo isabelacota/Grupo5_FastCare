@@ -1,5 +1,5 @@
 <xref>
-  <whenMade>1443837163253</whenMade>
+  <whenMade>1444438404009</whenMade>
   <createdBy>JBehave</createdBy>
   <metaFilter>-ignore</metaFilter>
   <meta/>
@@ -21,29 +21,8 @@ Then the patient data is updated on the database
 </scenarios>
       <passed>true</passed>
       <pending>true</pending>
-      <started>1443837157973</started>
-      <duration>537</duration>
-    </story>
-    <story>
-      <description></description>
-      <narrative></narrative>
-      <name>ExclusaoDePaciente.story</name>
-      <path>stories/gestão_de_pacientes/crud_paciente/excluir_paciente/ExclusaoDePaciente.story</path>
-      <html>stories.gestão_de_pacientes.crud_paciente.excluir_paciente.ExclusaoDePaciente.html</html>
-      <meta></meta>
-      <scenarios>Scenario:Exluding pacients so they can`t be found by search
-Given the user is in the patient details page
-Given the user is receptionist or doctor
-When the user selects to exclude the patient with the cpf: &apos;$cpf&apos;
-Then patient with the cpf &apos;$cpf&apos; doesn&apos;t shows up in future searches and the action is registered in the audit trail
-Then an event must be inserted into audit log
-
-
-</scenarios>
-      <passed>true</passed>
-      <pending>true</pending>
-      <started>1443837158523</started>
-      <duration>38</duration>
+      <started>1444438359402</started>
+      <duration>7399</duration>
     </story>
     <story>
       <description></description>
@@ -52,31 +31,19 @@ Then an event must be inserted into audit log
       <path>stories/gestão_de_pacientes/crud_paciente/busca_de_paciente/BuscaDePaciente.story</path>
       <html>stories.gestão_de_pacientes.crud_paciente.busca_de_paciente.BuscaDePaciente.html</html>
       <meta></meta>
-      <scenarios>Scenario:Looking up a pacient in database
-Given the user is on the initial page
+      <scenarios>Scenario:Looking up a patient in database
+Given the user is on the search page
 Given the user is doctor
-When the user clicks on &apos;Buscar Paciente&apos;
-Then the user is on buscar paciente page
-When the user looks up a pacient name &apos;$name&apos; or cpf &apos;$cpf&apos; or phone &apos;$phone&apos; or gender &apos;$gender&apos; or birth &apos;$birth&apos; or diagnosis &apos;$diagnosis&apos;
-Then they should see a list of pacients that met that criteria
-Then an event must be inserted into audit log
-
-
-Scenario:Looking up a pacient in database
-Given the user is on the initial page
-Given the user is receptionist
-When the user clicks on &apos;Buscar Paciente&apos;
-Given the user is on buscar paciente page
-When the user looks up a pacient name &apos;$name&apos; or cpf &apos;$cpf&apos; or phone &apos;$phone&apos; or gender &apos;$gender&apos; or birth &apos;$birth&apos;
-Then they should see a list of pacients that met that criteria
+When the doctor looks up a patient name &apos;Robson&apos;
+Then they should see a list of patients that met that criteria
 Then an event must be inserted into audit log
 
 
 </scenarios>
       <passed>true</passed>
-      <pending>true</pending>
-      <started>1443837158578</started>
-      <duration>60</duration>
+      <pending>false</pending>
+      <started>1444438367015</started>
+      <duration>10013</duration>
     </story>
     <story>
       <description></description>
@@ -86,58 +53,21 @@ Then an event must be inserted into audit log
       <html>stories.gestão_de_pacientes.crud_paciente.registrar_paciente.RegistrarPaciente.html</html>
       <meta></meta>
       <scenarios>Scenario:User inserts a patient in the database
-Given the user is on the initial page
-When the user click on &quot;Register a patient&quot;
-Given the user is on the registration page
-Given the user is a receptionist or doctor
-Then the user should see a field to insert the patient&apos;s full name
-When the user insert the patient&apos;s name
-Then the user should see a field to insert the patient&apos;s gender
-When the user insert the patient&apos;s gender
-Then the user should see a field to insert the patient&apos;s cpf
-When the user insert the patient&apos;s cpf
-Then the user should see a field to insert the patient&apos;s birth time and date
-When the user insert the patient&apos;s birth time and date
-Then the user should see a field to insert the patient&apos;s phone
-When the user insert the patient&apos;s phone
-Then the user should see a page asking for confirmation to submit
+Given the user is on the insertion page
+When the user insert the patient&apos;s name &apos;Jorge&apos;
+When the user insert the patient&apos;s cpf &apos;123.456.789-0&apos;
+When the user insert the patient&apos;s birth date &apos;04/12/91&apos;
+When the user insert the patient&apos;s gender &apos;M&apos;
+When the user insert the patient&apos;s phone &apos;98887666&apos;
 When the user confirm the submission
 Then the patient is added to the database
-Then an event must be inserted into audit log
-Then a message &quot;patient inserted&quot; should be sent to the user
-
-
-Scenario:User tries to insert a patient that already exists in the database
-Given the user is on the initial page
-When the user click on &quot;Register a patient&quot;
-Given the user is on the registration page
-Given the user is a receptionist or doctor
-Then the user should see a field to insert the patient&apos;s full name
-When the user insert the patient&apos;s name
-Then the user should see a field to insert the patient&apos;s gender
-When the user insert the patient&apos;s gender
-Then the user should see a field to insert the patient&apos;s cpf
-When the user insert the patient&apos;s cpf
-Then the user sees a message saying that a patient with the same cpf already exists
-When the user confirms that he wants to register the patient anyways
-Then the user should see a field to insert the patient&apos;s birth time and date
-When the user insert the patient&apos;s birth time and date
-Then the user should see a field to insert the patient&apos;s phone
-When the user insert the patient&apos;s phone
-Then the user should see a field to insert the patient&apos;s address
-When the user insert the patient&apos;s address
-Then the user should see a page asking for confirmation to submit
-When the user confirm the submission
-Then the patient is added to the database
-Then an event must be inserted into audit log
-Then a message &quot;patient inserted&quot; should be sent to the user
 
 
 </scenarios>
       <passed>true</passed>
-      <pending>true</pending>
-      <started>1443837158653</started>
-      <duration>199</duration>
+      <pending>false</pending>
+      <started>1444438380208</started>
+      <duration>16928</duration>
     </story>
   </stories>
   <stepMatches/>
