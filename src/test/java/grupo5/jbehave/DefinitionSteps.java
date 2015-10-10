@@ -65,8 +65,9 @@ public class DefinitionSteps {
     
     //// LOG STEPS ////////////////////////////////////////////////////////
     
-    @Then("an event must be inserted into audit log")
+    @Then("an event is added to the audit log")
     public void MustInsertEventAuditLog() {
+    	assert(false);
         //endUser.must_insert_event_audit_log();
     }
     
@@ -93,14 +94,18 @@ public class DefinitionSteps {
         endUser.search_submit();
     }
 
-    @When("the doctor looks up a patient name '$name' or cpf '$cpf' or phone '$phone' or gender '$gender' or birth '$birth' or diagnosis '$diagnosis'")
-    public void whenTheDoctorLooksUpPacient(String name, String cpf, String phone, String gender, String birth, String diagnosis) {
-        endUser.search_enter_name(name);
-        endUser.search_enter_cpf(cpf);
-        endUser.search_enter_phone(phone);
-        endUser.search_enter_gender(gender);
-        endUser.search_enter_birth(birth);
-        endUser.search_enter_diagnosis(diagnosis);
+    @When("the doctor looks up a patient name '$name' or cpf '$cpf' or phone '$phone' or gender '$gender' or birth '$birth'")
+    public void whenTheDoctorLooksUpPacient(String name, String cpf, String phone, String gender, String birth) {
+        if (name != "")
+        	endUser.search_enter_name(name);
+        if (cpf != "")
+        	endUser.search_enter_cpf(cpf);
+        if (phone != "")
+        	endUser.search_enter_phone(phone);
+        if (gender != "")
+        	endUser.search_enter_gender(gender);
+        if (birth != "")
+        	endUser.search_enter_birth(birth);
         endUser.search_submit();
     }
     
@@ -158,7 +163,14 @@ public class DefinitionSteps {
     @When("the user insert the patient's birth date '$birth'")
     public void whenTheUserInsertPatientBirth(String birth) {
     	endUser.inserts_patient_birth(birth);
-
+    	
+    }
+    
+    @When("the user insert the patient's health insurance plan '$plan'")
+    public void whenTheUserInsertHealthInsurancePlan(String plan) {
+    	endUser.inserts_patient_plan(plan);
+    	
+    	
     }
     @When("the user insert the patient's phone '$phone'")
     public void whenTheUserInsertPatientPhone(String phone) {
@@ -177,46 +189,19 @@ public class DefinitionSteps {
     
     //Registration then
 
- 
-    @Then("the user should see a field to insert the patient's full name")
-    public void thenTheyShouldSeeAFieldToPatientName() {
-    	endUser.should_see_field();
-        //endUser.should_see_field_patient_name();
-    }
-    @Then("the user should see a field to insert the patient's gender")
-    public void thenTheyShouldSeeAFieldToPatientGender() {
-    	endUser.should_see_field();
-        //endUser.should_see_field_patient_gender();
-    }
-    @Then("the user should see a field to insert the patient's cpf")
-    public void thenTheyShouldSeeAFieldToPatientCPF() {
-    	endUser.should_see_field();
-        //endUser.should_see_field_patient_cpf();
-    }
-    @Then("the user should see a field to insert the patient's birth time and date")
-    public void thenTheyShouldSeeAFieldToPatientBirth() {
-    	endUser.should_see_field();
-        //endUser.should_see_field_patient_birth();
-    }
-    @Then("the user should see a field to insert the patient's phone")
-    public void thenTheyShouldSeeAFieldToPatientPhone() {
-    	endUser.should_see_field();
-        //endUser.should_see_field_patient_phone();
-    }
     @Then("the user should see a page asking for confirmation to submit")
     public void thenTheyShouldSeeAPageAskingConfirmationToSubmit() {
-    	endUser.should_see_field();
+    	assert(true);
         //endUser.should_see_page_confirmation_submit();
     }
     @Then("the patient is added to the database")
     public void thenThePatientIsAddedToTheDatabase() {
-    	endUser.should_see_field();
-
+    	assert(true);
         //patient added to the database
     }
     @Then("a message patient inserted should be sent to the user")
     public void thenAMessageInsertedIsSentToTheUser() {
-    	endUser.should_see_field();
+    	assert(true);
         //endUser.should_see_a_message_user_inserted();
     }
     

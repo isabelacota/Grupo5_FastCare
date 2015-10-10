@@ -1,5 +1,5 @@
 {"xref": {
-  "whenMade": 1444438404009,
+  "whenMade": 1444443189688,
   "createdBy": "JBehave",
   "metaFilter": "-ignore",
   "meta": [],
@@ -14,8 +14,8 @@
       "scenarios": "Scenario:update an existing patient fields\u000aGiven the user is on the patient page\u000aGiven the user is a doctor\u000aWhen the user clicks to update the patient data\u000aThen the patient data is updated on the database\u000a\u000a\u000a",
       "passed": true,
       "pending": true,
-      "started": 1444438359402,
-      "duration": 7399
+      "started": 1444443118829,
+      "duration": 7158
     },
     {
       "description": "",
@@ -24,11 +24,11 @@
       "path": "stories/gestão_de_pacientes/crud_paciente/busca_de_paciente/BuscaDePaciente.story",
       "html": "stories.gestão_de_pacientes.crud_paciente.busca_de_paciente.BuscaDePaciente.html",
       "meta": "",
-      "scenarios": "Scenario:Looking up a patient in database\u000aGiven the user is on the search page\u000aGiven the user is doctor\u000aWhen the doctor looks up a patient name 'Robson'\u000aThen they should see a list of patients that met that criteria\u000aThen an event must be inserted into audit log\u000a\u000a\u000a",
-      "passed": true,
-      "pending": false,
-      "started": 1444438367015,
-      "duration": 10013
+      "scenarios": "Scenario:Looking up a patient in database\u000aGiven the user is on the search page\u000aGiven the user is doctor\u000aWhen the doctor looks up a patient name 'Robson' or cpf '' or phone '' or gender '' or birth ''\u000aThen they should see a list of patients that met that criteria\u000aThen an event must be inserted into audit log\u000a\u000a\u000ahen they should see a list of patients that met that criteria\u000a\u000a\u000a",
+      "passed": false,
+      "pending": true,
+      "started": 1444443126219,
+      "duration": 37462
     },
     {
       "description": "",
@@ -37,11 +37,11 @@
       "path": "stories/gestão_de_pacientes/crud_paciente/registrar_paciente/RegistrarPaciente.story",
       "html": "stories.gestão_de_pacientes.crud_paciente.registrar_paciente.RegistrarPaciente.html",
       "meta": "",
-      "scenarios": "Scenario:User inserts a patient in the database\u000aGiven the user is on the insertion page\u000aWhen the user insert the patient's name 'Jorge'\u000aWhen the user insert the patient's cpf '123.456.789-0'\u000aWhen the user insert the patient's birth date '04/12/91'\u000aWhen the user insert the patient's gender 'M'\u000aWhen the user insert the patient's phone '98887666'\u000aWhen the user confirm the submission\u000aThen the patient is added to the database\u000a\u000a\u000a",
-      "passed": true,
-      "pending": false,
-      "started": 1444438380208,
-      "duration": 16928
+      "scenarios": "Scenario:User inserts a patient in the database\u000aGiven the user is on the insertion page\u000aWhen the user insert the patient's name 'Jorge'\u000aWhen the user insert the patient's cpf '123.456.789-0'\u000aWhen the user insert the patient's birth date '04/12/91'\u000aWhen the user insert the patient's gender 'M'\u000aWhen the user insert the patient's phone '98887666'\u000aWhen the user insert the patient's health insurance plan 'Unimed'\u000aWhen the user confirm the submission\u000aThen the patient is added to the database\u000aThen an event is added to the audit log\u000aThen a message \"patient inserted\" should be sent to the user\u000a\u000a\u000a",
+      "passed": false,
+      "pending": true,
+      "started": 1444443163925,
+      "duration": 18917
     }
   ],
   "stepMatches": []

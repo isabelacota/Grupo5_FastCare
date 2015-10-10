@@ -20,16 +20,16 @@ public class SearchPatientPage extends PageObject {
     @FindBy(id="search_field")
     private WebElementFacade patient_name_field;
     
-    @FindBy(id="cpf_field")
+    @FindBy(id="search_field_cpf")
     private WebElementFacade cpf_field;
     
-    @FindBy(id="phone_field")
+    @FindBy(id="search_field_phone")
     private WebElementFacade phone_field;
     
-    @FindBy(id="gender_field")
+    @FindBy(id="search_field_gender")
     private WebElementFacade gender_field;
     
-    @FindBy(id="birth_field")
+    @FindBy(id="search_field_birth")
     private WebElementFacade birth_field;
     
     @FindBy(id="diagnosis_field")
