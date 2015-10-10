@@ -36,6 +36,9 @@ public class RegistrationPage extends PageObject {
     @FindBy(id="phonenumber")
     private WebElementFacade phone_field;
     
+    @FindBy(id="plan_field")
+    private WebElementFacade plan_field;
+    
     @FindBy(id="confirm")
     private WebElementFacade confirm_button;
     
@@ -59,6 +62,9 @@ public class RegistrationPage extends PageObject {
     
     public void enter_patient_phone(String phone) {
     	phone_field.type(phone);
+    }
+    public void enter_patient_plan(String plan) {
+    	phone_field.type(plan);
     }
     
 //    public void pops_message_patient_already_exists(){

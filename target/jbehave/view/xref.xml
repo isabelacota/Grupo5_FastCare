@@ -1,5 +1,5 @@
 <xref>
-  <whenMade>1444438404009</whenMade>
+  <whenMade>1444443189688</whenMade>
   <createdBy>JBehave</createdBy>
   <metaFilter>-ignore</metaFilter>
   <meta/>
@@ -21,8 +21,8 @@ Then the patient data is updated on the database
 </scenarios>
       <passed>true</passed>
       <pending>true</pending>
-      <started>1444438359402</started>
-      <duration>7399</duration>
+      <started>1444443118829</started>
+      <duration>7158</duration>
     </story>
     <story>
       <description></description>
@@ -34,16 +34,19 @@ Then the patient data is updated on the database
       <scenarios>Scenario:Looking up a patient in database
 Given the user is on the search page
 Given the user is doctor
-When the doctor looks up a patient name &apos;Robson&apos;
+When the doctor looks up a patient name &apos;Robson&apos; or cpf &apos;&apos; or phone &apos;&apos; or gender &apos;&apos; or birth &apos;&apos;
 Then they should see a list of patients that met that criteria
 Then an event must be inserted into audit log
 
 
+hen they should see a list of patients that met that criteria
+
+
 </scenarios>
-      <passed>true</passed>
-      <pending>false</pending>
-      <started>1444438367015</started>
-      <duration>10013</duration>
+      <passed>false</passed>
+      <pending>true</pending>
+      <started>1444443126219</started>
+      <duration>37462</duration>
     </story>
     <story>
       <description></description>
@@ -59,15 +62,18 @@ When the user insert the patient&apos;s cpf &apos;123.456.789-0&apos;
 When the user insert the patient&apos;s birth date &apos;04/12/91&apos;
 When the user insert the patient&apos;s gender &apos;M&apos;
 When the user insert the patient&apos;s phone &apos;98887666&apos;
+When the user insert the patient&apos;s health insurance plan &apos;Unimed&apos;
 When the user confirm the submission
 Then the patient is added to the database
+Then an event is added to the audit log
+Then a message &quot;patient inserted&quot; should be sent to the user
 
 
 </scenarios>
-      <passed>true</passed>
-      <pending>false</pending>
-      <started>1444438380208</started>
-      <duration>16928</duration>
+      <passed>false</passed>
+      <pending>true</pending>
+      <started>1444443163925</started>
+      <duration>18917</duration>
     </story>
   </stories>
   <stepMatches/>

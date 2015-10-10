@@ -162,6 +162,10 @@ public class EndUserSteps extends ScenarioSteps {
     public void inserts_patient_phone(String phone) {
         registrationPage.enter_patient_phone(phone);
     }
+    @Step
+    public void inserts_patient_plan(String plan) {
+        registrationPage.enter_patient_plan(plan);
+    }
 //    @Step
 //    public void should_see_a__message_patient_already_exists(){
 //    	registrationPage.pops_message_patient_already_exists();
