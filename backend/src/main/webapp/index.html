@@ -14,5 +14,12 @@
     </head>
     <body>
         <div class="patients" ng-controller="PatientController">{{ fiveDay }}</div>
+    	<div ng-controller="PatientController">
+    		<form name="testeForm" ng-submit="insertPatient(patient)">
+    		
+    		<button type="submit">Inserir</button>
+    		</form>
+    	</div>
     </body>
+    
 </html>
