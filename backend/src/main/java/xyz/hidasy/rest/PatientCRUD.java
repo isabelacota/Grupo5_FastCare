@@ -11,7 +11,7 @@ public class PatientCRUD {
     PatientCRUD(int id) {
 	try {
 	    Class.forName("org.sqlite.JDBC");
-	    c = DriverManager.getConnection("jdbc:sqlite:ESSEBANCOAQUI.db");
+	    c = DriverManager.getConnection("jdbc:sqlite:dbs/main.db");
 	    c.setAutoCommit(false);
 	} catch ( Exception e ) {
 	    System.out.println(e.toString());
@@ -45,6 +45,7 @@ public class PatientCRUD {
 	    P.setName(rs.getString("name"));
 	    P.setCpf(rs.getString("cpf"));
 	    P.setGender(rs.getString("gender"));
+	    P.setBirth(rs.getLong("age"));
 	    //...
 	    rs.close();
 	} catch(Exception e) {

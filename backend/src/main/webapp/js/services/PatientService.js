@@ -10,7 +10,7 @@ app.factory('patientservice', ['$http', function($http) {
 
 app.factory('insertPatientService', ['$http', function($http, patient) {
 	var insertPatient = function(patient) {
-		return $http.post('http://localhost:8080/FastCare/patient', {
+		return $http.post('./API/patient', {
 			name: patient.name,
 			cpf: patient.cpf,
 			birthDate: patient.birthDate,

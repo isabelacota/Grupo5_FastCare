@@ -6,9 +6,9 @@ public class Patient {
 
     String name;
     String cpf;
-    Date createdAt;
-    Date updatedAt;
-    Date birthDate;
+    long createdAt;
+    long updatedAt;
+    long birthDate;
     String gender;
     String phone;
     String id;
@@ -29,27 +29,27 @@ public class Patient {
 	this.cpf = cpf;
     }
 
-    public Date getCreation() {
+    public long getCreation() {
 	return createdAt;
     }
     
-    public void setCreation(Date d) {
+    public void setCreation(long d) {
 	this.createdAt = d;
     }
     
-    public Date getUpdate() {
+    public long getUpdate() {
 	return updatedAt;
     }
     
-    public void setUpdate(Date d) {
+    public void setUpdate(long d) {
 	this.updatedAt = d;
     }
 
-    public Date getBirth() {
+    public long getBirth() {
 	return birthDate;
     }
     
-    public void setBirth(Date d) {
+    public void setBirth(long d) {
 	this.birthDate = d;
     }   
     
