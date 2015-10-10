@@ -43,7 +43,7 @@ public class DefinitionSteps {
     
     @Given("the user is on the search page")
     public void givenTheUserIsOnSearchPage() {
-        endUser.is_the_insertion_page();
+        endUser.is_the_search_page();;
     }
     
     //// GIVEN TYPES OF USERS STEPS ////////////////////////////////////////////////////////
@@ -114,7 +114,7 @@ public class DefinitionSteps {
         endUser.search_submit();
     }
     
-    @Then("they should see a list of pacients that met that criteria")
+    @Then("they should see a list of patients that met that criteria")
     public void thenTheyShouldSeeListPacientsMetCriteria() {
         endUser.shoud_see_list_pacients_met_criteria();
     }
