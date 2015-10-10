@@ -1,5 +1,0 @@
-Atualizar dados de um paciente existente utilizando dados válidos
-Narrative:
-In order to atualizar paciente
-As a doctor
-I want to atualizar dados de um paciente

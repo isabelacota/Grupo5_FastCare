@@ -36,6 +36,16 @@ public class DefinitionSteps {
         endUser.is_the_patient_page();
     }
     
+    @Given("the user is on the insertion page")
+    public void givenTheUserIsOnInsertionPage() {
+        endUser.is_the_insertion_page();
+    }
+    
+    @Given("the user is on the search page")
+    public void givenTheUserIsOnSearchPage() {
+        endUser.is_the_insertion_page();
+    }
+    
     //// GIVEN TYPES OF USERS STEPS ////////////////////////////////////////////////////////
        
     @Given("the user is receptionist")
@@ -75,6 +85,12 @@ public class DefinitionSteps {
     @Then("the user should be on search patient page")
     public void thenShouldBeSearchPatientPage() {
         endUser.should_be_the_search_patient_page();
+    }
+    
+    @When("the doctor looks up a patient name '$name'")
+    public void whenTheDoctorLooksUpPacientName(String name) {
+        endUser.search_enter_name(name);
+        endUser.search_submit();
     }
 
     @When("the doctor looks up a patient name '$name' or cpf '$cpf' or phone '$phone' or gender '$gender' or birth '$birth' or diagnosis '$diagnosis'")
@@ -126,28 +142,26 @@ public class DefinitionSteps {
     }
 
     //Registration - when
-    @When("the user insert the patient's name")
-    public void whenTheUserInsertPatientName() {
-        endUser.inserts_patient_name("joao");
+    @When("the user insert the patient's name '$name'")
+    public void whenTheUserInsertPatientName(String name) {
+        endUser.inserts_patient_name(name);
     }
-    @When("the user insert the patient's gender")
-    public void whenTheUserInsertPatientGender() {
-        endUser.inserts_patient_gender("male");
+    @When("the user insert the patient's gender '$gender'")
+    public void whenTheUserInsertPatientGender(String gender) {
+        endUser.inserts_patient_gender(gender);
     }
-    @When("the user insert the patient's cpf")
-    public void whenTheUserInsertPatientCPF() {
-        endUser.inserts_patient_cpf("12345");
+    @When("the user insert the patient's cpf '$cpf'")
+    public void whenTheUserInsertPatientCPF(String cpf) {
+        endUser.inserts_patient_cpf(cpf);
     }
-    @When("the user confirms that he wants to register the patient anyways")
-    public void whenTheUserWantsRegisterAnyways() {
-        //endUser.register_same_cpf();
+
+    @When("the user insert the patient's birth date '$birth'")
+    public void whenTheUserInsertPatientBirth(String birth) {
+    	endUser.inserts_patient_birth(birth);
+
     }
-    @When("the user insert the patient's birth time and date")
-    public void whenTheUserInsertPatientBirth() {
-    	endUser.inserts_patient_birth("dezembro");
-    }
-    @When("the user insert the patient's phone")
-    public void whenTheUserInsertPatientPhone() {
+    @When("the user insert the patient's phone '$phone'")
+    public void whenTheUserInsertPatientPhone(String phone) {
     	endUser.inserts_patient_phone("192222222");
     }
    

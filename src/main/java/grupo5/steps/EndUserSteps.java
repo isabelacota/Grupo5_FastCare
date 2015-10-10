@@ -30,6 +30,16 @@ public class EndUserSteps extends ScenarioSteps {
     public void is_the_patient_page() {
         patientPage.open();
     }
+    
+    @Step
+    public void is_the_insertion_page() {
+    	registrationPage.open();
+    }
+    
+    @Step
+    public void is_the_search_page() {
+    	search_patientPage.open();
+    }
        
 	//// INITIAL PAGE STEPS /////////////////////////////////////////////////////////////////
 
@@ -135,36 +145,28 @@ public class EndUserSteps extends ScenarioSteps {
     @Step
     public void inserts_patient_name(String name) {
         registrationPage.enter_patient_name(name);
-        registrationPage.submit_patient_name();
     }
     @Step
     public void inserts_patient_gender(String gender) {
         registrationPage.enter_patient_gender(gender);
-        registrationPage.submit_patient_gender();
-    }
+      }
     @Step
     public void inserts_patient_cpf(String cpf) {
         registrationPage.enter_patient_cpf(cpf);
-        registrationPage.submit_patient_cpf();
     }
     @Step
     public void inserts_patient_birth(String birth) {
         registrationPage.enter_patient_birth(birth);
-        registrationPage.submit_patient_birth();
     }
     @Step
     public void inserts_patient_phone(String phone) {
         registrationPage.enter_patient_phone(phone);
-        registrationPage.submit_patient_phone();
     }
 //    @Step
 //    public void should_see_a__message_patient_already_exists(){
 //    	registrationPage.pops_message_patient_already_exists();
 //    }
-    @Step
-    public void register_same_cpf() {
-        registrationPage.register_same_cpf();
-    }
+
     @Step
     public void confirm_patient_registration() {
         registrationPage.confirm_submission();

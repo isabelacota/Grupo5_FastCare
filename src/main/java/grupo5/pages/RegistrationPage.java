@@ -16,32 +16,27 @@ import java.util.List;
 
 import static ch.lambdaj.Lambda.convert;
 
-@DefaultUrl("http://www.google.com.br")
+@DefaultUrl("http://xaveco.lab.ic.unicamp.br:8000/insert.html")
 public class RegistrationPage extends PageObject {
 
 	// Web Elements
 	
-    @FindBy(name="name_field")
+    @FindBy(id="username")
     private WebElementFacade name_field;
     
-    @FindBy(name="gender_field")
+    @FindBy(id="gender")
     private WebElementFacade gender_field;
     
-    @FindBy(name="cpf_field")
+    @FindBy(id="cpfnumber")
     private WebElementFacade cpf_field;
     
-    @FindBy(name="birth_field")
+    @FindBy(id="date-birth")
     private WebElementFacade birth_field;
     
-    @FindBy(name="phone_field")
+    @FindBy(id="phonenumber")
     private WebElementFacade phone_field;
     
-    @FindBy(name="confirm_with_same_cpf")
-    private WebElementFacade confirm_with_same_cpf;
-    
-    @FindBy(name="button_confirm")
-    private WebElementFacade button_confirm;
-    @FindBy(name="confirm_button")
+    @FindBy(id="confirm")
     private WebElementFacade confirm_button;
     
     // Methods 
@@ -49,51 +44,27 @@ public class RegistrationPage extends PageObject {
     public void enter_patient_name(String name) {
     	name_field.type(name);
     }
-   
-    public void submit_patient_name() {
-    	name_field.submit();
-    }
     
     public void enter_patient_gender(String gender) {
     	gender_field.type(gender);
-    }
-   
-    public void submit_patient_gender() {
-    	gender_field.submit();
     }
     
     public void enter_patient_cpf(String cpf) {
     	cpf_field.type(cpf);
     }
-   
-    public void submit_patient_cpf() {
-    	cpf_field.submit();
-    }
     
     public void enter_patient_birth(String birth) {
     	birth_field.type(birth);
-    }
-   
-    public void submit_patient_birth() {
-    	birth_field.submit();
     }
     
     public void enter_patient_phone(String phone) {
     	phone_field.type(phone);
     }
-   
-    public void submit_patient_phone() {
-    	phone_field.submit();
-    }
     
 //    public void pops_message_patient_already_exists(){
 //    	message_cpf_already_exists.getCssValue("display");
 //    }
-    
-    public void register_same_cpf() {
-    	confirm_with_same_cpf.click();
-    }
-    
+        
     public void confirm_submission() {
     	confirm_button.click();
     }
