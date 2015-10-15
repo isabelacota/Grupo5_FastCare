@@ -15,14 +15,13 @@ public class PatientService {
     @GET
     @Path("patient/{id}")
     @Produces(MediaType.APPLICATION_JSON)
-    public PatientResponse getPatient(@PathParam("id") Integer id) {
+    public PatientResponse getPatient(@PathParam("id") Long id) {
         //Assuming doctor is logged in
         PatientResponse pr = new PatientResponse();
         pr.setStatus("Resposta");
         pr.setStatusId(3);
 
-        PatientCRUD db = new PatientCRUD(id);
-        pr.setPatient(db.get());
+        pr.setPatient(Database.getPatientById(id));
         return pr;
     }
 
@@ -39,9 +38,19 @@ public class PatientService {
 	@Consumes(MediaType.APPLICATION_JSON)
 	@POST
     @Path("patient/insert")
-    public Response insertPatient() {
+    @Produces(MediaType.APPLICATION_JSON)
+    public PatientResponse insertPatient(Patient patient) {
+        PatientResponse patientResponse = new PatientResponse();
+        patientResponse.setStatus("Erro ao inserir paciente");
+        patientResponse.setStatusId(3);
 
-	    String output = "{[insert]}";
-	    return Response.status(200).entity(output).build();
+        patient.setId(System.currentTimeMillis());
+        patient.setCreatedAt(System.currentTimeMillis());
+        if (Database.insertPatient(patient)) {
+            patientResponse.setPatient(patient);
+            patientResponse.setStatus("Paciente inserido com sucesso");
+        }
+
+	    return patientResponse;
 	}
 }

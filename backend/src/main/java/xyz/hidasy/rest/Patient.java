@@ -2,90 +2,100 @@ package xyz.hidasy.rest;
 
 public class Patient {
 
+    private Long id;
     private String name;
     private String cpf;
-    private long createdAt;
-    private long updatedAt;
     private long birthDate;
+    private String healthPlan;
     private String gender;
     private String phone;
-    private String id;
-    
+    private long createdAt;
+    private long updatedAt;
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
     public String getName() {
-	return name;
+        return name;
     }
-    
+
     public void setName(String name) {
-	this.name = name;
+        this.name = name;
     }
-    
+
     public String getCpf() {
-	return cpf;
+        return cpf;
     }
-    
+
     public void setCpf(String cpf) {
-	this.cpf = cpf;
+        this.cpf = cpf;
     }
 
-    public long getCreation() {
-	return createdAt;
-    }
-    
-    public void setCreation(long d) {
-	this.createdAt = d;
-    }
-    
-    public long getUpdate() {
-	return updatedAt;
-    }
-    
-    public void setUpdate(long d) {
-	this.updatedAt = d;
+    public long getBirthDate() {
+        return birthDate;
     }
 
-    public long getBirth() {
-	return birthDate;
+    public void setBirthDate(long birthDate) {
+        this.birthDate = birthDate;
     }
-    
-    public void setBirth(long d) {
-	this.birthDate = d;
-    }   
-    
+
+    public String getHealthPlan() {
+        return healthPlan;
+    }
+
+    public void setHealthPlan(String healthPlan) {
+        this.healthPlan = healthPlan;
+    }
+
     public String getGender() {
-	return gender;
+        return gender;
     }
-    
+
     public void setGender(String gender) {
-	this.gender = gender;
+        this.gender = gender;
     }
-    
+
     public String getPhone() {
-	return phone;
+        return phone;
     }
-    
+
     public void setPhone(String phone) {
-	this.phone = phone;
+        this.phone = phone;
     }
-    
-    public String getId() {
-	return id;
+
+    public long getCreatedAt() {
+        return createdAt;
     }
-    
-    public void setId(String id) {
-	this.id = id;
+
+    public void setCreatedAt(long createdAt) {
+        this.createdAt = createdAt;
+    }
+
+    public long getUpdatedAt() {
+        return updatedAt;
+    }
+
+    public void setUpdatedAt(long updatedAt) {
+        this.updatedAt = updatedAt;
     }
 
     @Override
     public String toString() {
         return "Patient{" +
-                "name='" + name + '\'' +
+                "id='" + id + '\'' +
+                ", name='" + name + '\'' +
                 ", cpf='" + cpf + '\'' +
-                ", createdAt=" + createdAt +
-                ", updatedAt=" + updatedAt +
                 ", birthDate=" + birthDate +
+                ", healthPlan='" + healthPlan + '\'' +
                 ", gender='" + gender + '\'' +
                 ", phone='" + phone + '\'' +
-                ", id='" + id + '\'' +
+                ", createdAt=" + createdAt +
+                ", updatedAt=" + updatedAt +
                 '}';
     }
 }
