@@ -2,6 +2,9 @@
 .idea
 .project
 *.iml
+*.class
+*.DS_Store
 /target/
+/backend/target/
 .settings/
 .classpath

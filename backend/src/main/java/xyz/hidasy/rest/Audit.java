@@ -2,7 +2,7 @@ package xyz.hidasy.rest;
 
 import java.util.Date;
 
-public class Patient {
+public class Audit {
 
     String name;
     String cpf;

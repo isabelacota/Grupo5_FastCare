@@ -19,20 +19,20 @@ public class AuditTrail {
     @GET
     //@Path("/{id}")
     @Produces(MediaType.APPLICATION_JSON)
-    public AuditResponse getAudit(@GetParam("id") String id) {
-	//Assuming doctor is logged in
-	AuditResponse r = new AuditResponse();
-	pr.setStatus("Resposta");
-	pr.setStatusId(3);
-	return r;	
+    public AuditResponse getAudit(@QueryParam("id") String id) {
+        //Assuming doctor is logged in
+        AuditResponse r = new AuditResponse();
+        r.setStatus("Resposta");
+        r.setStatusId(3);
+        return r;
     }
 
     @Consumes(MediaType.APPLICATION_JSON)
     @POST
     @Path("/update")
-    public Response updatePacient(@PostParam("data") AuditResponse r) {
+    public Response updatePacient(@QueryParam("data") AuditResponse r) {
 	
-	return Response.status(200).entity(output).build();
+	    return Response.status(200).entity(r).build();
     }
     
     

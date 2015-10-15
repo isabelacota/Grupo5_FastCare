@@ -5,9 +5,9 @@ import xyz.hidasy.rest.Patient;
 
 public class AuditResponse extends BaseResponse{
 
-    AuditData A;
+    Audit A;
     AuditResponse() {
-	A = new AuditData();
+	A = new Audit();
     }
     public Audit getAudit() {
 	return A;
