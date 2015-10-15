@@ -2,9 +2,9 @@ package xyz.hidasy.rest;
 
 public class BaseResponse {
 
-    String statusMessage;
-    int statusId;
-    String authToken;
+    private String statusMessage;
+    private int statusId;
+    private String authToken;
     
     public String getStatus() {
 	return statusMessage;
@@ -30,10 +30,12 @@ public class BaseResponse {
 	this.authToken = token;
     }
 
-    
     @Override
     public String toString() {
-	return "TO-DO";
+        return "BaseResponse{" +
+                "statusMessage='" + statusMessage + '\'' +
+                ", statusId=" + statusId +
+                ", authToken='" + authToken + '\'' +
+                '}';
     }
-    
 }

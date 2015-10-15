@@ -1,7 +1,5 @@
 package xyz.hidasy.rest;
 
-import java.util.Date;
-
 public class Audit {
 
     String name;

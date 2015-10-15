@@ -1,17 +1,15 @@
 package xyz.hidasy.rest;
 
-import java.util.Date;
-
 public class Patient {
 
-    String name;
-    String cpf;
-    long createdAt;
-    long updatedAt;
-    long birthDate;
-    String gender;
-    String phone;
-    String id;
+    private String name;
+    private String cpf;
+    private long createdAt;
+    private long updatedAt;
+    private long birthDate;
+    private String gender;
+    private String phone;
+    private String id;
     
     public String getName() {
 	return name;
@@ -76,9 +74,18 @@ public class Patient {
     public void setId(String id) {
 	this.id = id;
     }
-    
+
     @Override
     public String toString() {
-	return "Pacient [name=" + name + ", id=" + id + "]";
+        return "Patient{" +
+                "name='" + name + '\'' +
+                ", cpf='" + cpf + '\'' +
+                ", createdAt=" + createdAt +
+                ", updatedAt=" + updatedAt +
+                ", birthDate=" + birthDate +
+                ", gender='" + gender + '\'' +
+                ", phone='" + phone + '\'' +
+                ", id='" + id + '\'' +
+                '}';
     }
 }

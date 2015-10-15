@@ -1,12 +1,9 @@
 package xyz.hidasy.rest;
 
-import xyz.hidasy.rest.BaseResponse;
-import xyz.hidasy.rest.Patient;
-
-public class AuditResponse extends BaseResponse{
+public class AuditResponse extends BaseResponse {
 
     Audit A;
-    AuditResponse() {
+    public AuditResponse() {
 	A = new Audit();
     }
     public Audit getAudit() {

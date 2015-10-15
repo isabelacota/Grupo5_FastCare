@@ -1,26 +1,26 @@
 package xyz.hidasy.rest;
 
-import xyz.hidasy.rest.BaseResponse;
-import xyz.hidasy.rest.Patient;
-
 public class PatientResponse extends BaseResponse{
 
-    Patient P;
-    PatientResponse() {
-	P = new Patient();
+    private Patient patient;
+
+    public PatientResponse() {
+	    patient = new Patient();
     }
     public Patient getPatient() {
-	return P;
+	return patient;
     }
 
     public void setPatient(Patient p) {
-	this.P = p;
-	return;
+	    this.patient = p;
     }
-    
+
     @Override
     public String toString() {
-	return "TO-DO";
+        return "PatientResponse{" +
+                "patient=" + patient +
+                ", status=" + getStatus() +
+                ", statusId" + getStatusId() +
+                '}';
     }
-    
 }

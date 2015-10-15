@@ -8,48 +8,39 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
-import javax.ws.rs.QueryParam;
 
-
-import xyz.hidasy.rest.Patient;
-import xyz.hidasy.rest.PatientCRUD;
-import xyz.hidasy.rest.PatientResponse;
-
-@Path("/patient")
-public class HelloWorldService {
+@Path("/")
+public class PatientService {
 	
     @GET
-    @Path("/{id}")
+    @Path("patient/{id}")
     @Produces(MediaType.APPLICATION_JSON)
-    public PatientResponse getPacient(@PathParam("id") String id) {
+    public PatientResponse getPatient(@PathParam("id") Integer id) {
         //Assuming doctor is logged in
         PatientResponse pr = new PatientResponse();
         pr.setStatus("Resposta");
         pr.setStatusId(3);
 
-        String name = "null";
-
-        PatientCRUD db = new PatientCRUD(Integer.valueOf(id));
+        PatientCRUD db = new PatientCRUD(id);
         pr.setPatient(db.get());
         return pr;
     }
 
-    //@Consumes(MediaType.APPLICATION_JSON)
-
+    @Consumes(MediaType.APPLICATION_JSON)
     @POST
-    @Path("/{id}/update")
+    @Path("patient/{id}/update")
     public Response updatePacient(@PathParam("id") String msg) {
-	
+
 	    String output = "{[update]}";
-	
+
 	    return Response.status(200).entity(output).build();
 	}
-    
+
 	@Consumes(MediaType.APPLICATION_JSON)
 	@POST
-    @Path("/insert")
+    @Path("patient/insert")
     public Response insertPatient() {
-	
+
 	    String output = "{[insert]}";
 	    return Response.status(200).entity(output).build();
 	}
