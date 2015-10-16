@@ -409,6 +409,9 @@
 						</div>
 					</div>
 					<div class="box-content" ng-controller="FilterPatientController">
+                        <div name="mensagemErro" ng-show="fail">
+                            <font color="red">{{errorMessage}}</font>
+                        </div>
 						<div class="control-group" id="control-search">
 							<div id="DataTables_Table_0_filter" class="dataTables_filter">
                                 <form name="testeForm" ng-submit="filterPatients(filter)">

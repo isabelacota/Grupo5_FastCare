@@ -72,13 +72,19 @@ public class PatientService {
     @Produces(MediaType.APPLICATION_JSON)
     public MultiplePatientsResponse filterPatients(@QueryParam("filter") String filter) {
         MultiplePatientsResponse multiplePatientsResponse = new MultiplePatientsResponse();
-        multiplePatientsResponse.setStatusMessage("Erro ao filtrar paciente");
+        multiplePatientsResponse.setStatusMessage("Erro desconhecido ao filtrar pacientes");
         multiplePatientsResponse.setStatusId(-1);
 
         List<Patient> patients = Database.filterPatients(filter);
         if (patients != null) {
-            multiplePatientsResponse.setStatusMessage("Pacientes recuperados com sucesso");
-            multiplePatientsResponse.setPatients(patients);
+            if (patients.size() > 1) {
+                multiplePatientsResponse.setStatusId(0);
+                multiplePatientsResponse.setStatusMessage("Pacientes recuperados com sucesso");
+                multiplePatientsResponse.setPatients(patients);
+            } else {
+                multiplePatientsResponse.setStatusId(1);
+                multiplePatientsResponse.setStatusMessage("Nenhum paciente foi encontrado para esse filtro");
+            }
         }
 
         return multiplePatientsResponse;

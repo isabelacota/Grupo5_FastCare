@@ -17,7 +17,8 @@ app.controller('PatientController', ['$scope', 'patientService', function($scope
           }
 	  })
 	  .error(function(err) {
-		  
+          $scope.fail = true;
+          $scope.errorMessage = err;
 	  }); 
   };
 }]);
