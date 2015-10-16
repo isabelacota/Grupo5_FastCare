@@ -3,6 +3,7 @@ package xyz.hidasy.rest;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Date;
 
 public class Database {
     private static Connection c = null;
@@ -19,8 +20,8 @@ public class Database {
         try {
             String sql = "CREATE TABLE PATIENT  "    +
             "(ID BIGINT PRIMARY KEY      NOT NULL," +
-            " NAME           TEXT     NOT NULL," +
-            " CPF            CHAR(14) NOT NULL," +
+            " NAME           TEXT     NOT NULL UNIQUE," +
+            " CPF            CHAR(14) NOT NULL UNIQUE," +
             " BIRTHDATE      INT      ," +
             " CREATED        INT      ," +
             " GENDER         TEXT     NOT NULL," +
@@ -72,24 +73,16 @@ public class Database {
 	    return patient;
     }
 
-    public static boolean insertPatient(Patient patient) {
-        String sql = "INSERT INTO PATIENT(ID, NAME, CPF, BIRTHDATE, GENDER, PHONE, HEALTHPLAN) VALUES (" +
+    public static void insertPatient(Patient patient) throws SQLException {
+        String sql = "INSERT INTO PATIENT(ID, NAME, CPF, BIRTHDATE, GENDER, PHONE, HEALTHPLAN, CREATED) VALUES (" +
                 patient.getId() + ",'" + patient.getName() + "','" + patient.getCpf() + "'," +
                 patient.getBirthDate() + ",'" + patient.getGender() + "','" + patient.getPhone() + "','" +
-                patient.getHealthPlan() + "');";
+                patient.getHealthPlan() + "'," + new Date().getTime() +");";
 
         System.out.println("Query for insertion: " + sql);
 
-        try {
-            Statement statement = c.createStatement();
-            statement.executeUpdate(sql);
-
-            return true;
-        } catch (SQLException e) {
-            e.printStackTrace();
-
-            return false;
-        }
+        Statement statement = c.createStatement();
+        statement.executeUpdate(sql);
     }
 
     public static List<Patient> filterPatients(String filter) {
@@ -113,6 +106,7 @@ public class Database {
                 patient.setBirthDate(rs.getLong("birthdate"));
                 patient.setPhone(rs.getString("phone"));
                 patient.setHealthPlan(rs.getString("healthplan"));
+                patient.setCreatedAt(rs.getLong("created"));
 
                 patients.add(patient);
             }

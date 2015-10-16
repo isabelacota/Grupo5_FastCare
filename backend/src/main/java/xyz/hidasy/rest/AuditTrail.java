@@ -12,7 +12,7 @@ public class AuditTrail {
     public AuditResponse getAudit(@QueryParam("id") String id) {
         //Assuming doctor is logged in
         AuditResponse r = new AuditResponse();
-        r.setStatus("Resposta");
+        r.setStatusMessage("Resposta");
         r.setStatusId(3);
         return r;
     }

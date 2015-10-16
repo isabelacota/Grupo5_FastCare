@@ -3,6 +3,7 @@ package xyz.hidasy.rest;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+import java.sql.SQLException;
 import java.util.List;
 
 @Path("/")
@@ -14,7 +15,7 @@ public class PatientService {
     public PatientResponse getPatient(@PathParam("id") Long id) {
         //Assuming doctor is logged in
         PatientResponse pr = new PatientResponse();
-        pr.setStatus("Resposta");
+        pr.setStatusMessage("Resposta");
         pr.setStatusId(3);
 
         pr.setPatient(Database.getPatientById(id));
@@ -24,7 +25,7 @@ public class PatientService {
     @Consumes(MediaType.APPLICATION_JSON)
     @POST
     @Path("patient/{id}/update")
-    public Response updatePacient(@PathParam("id") String msg) {
+    public Response updatePatient(@PathParam("id") String msg) {
 
 	    String output = "{[update]}";
 
@@ -37,14 +38,30 @@ public class PatientService {
     @Produces(MediaType.APPLICATION_JSON)
     public PatientResponse insertPatient(Patient patient) {
         PatientResponse patientResponse = new PatientResponse();
-        patientResponse.setStatus("Erro ao inserir paciente");
-        patientResponse.setStatusId(3);
+        patientResponse.setStatusMessage("Erro desconhecido ao inserir paciente");
+        patientResponse.setStatusId(-1);
 
-        patient.setId(System.currentTimeMillis());
-        patient.setCreatedAt(System.currentTimeMillis());
-        if (Database.insertPatient(patient)) {
-            patientResponse.setPatient(patient);
-            patientResponse.setStatus("Paciente inserido com sucesso");
+        if (CpfValidator.validaCPF(patient.getCpf())) {
+            patient.setId(System.currentTimeMillis());
+            patient.setCreatedAt(System.currentTimeMillis());
+            try {
+                Database.insertPatient(patient);
+                patientResponse.setPatient(patient);
+                patientResponse.setStatusId(0);
+                patientResponse.setStatusMessage("Paciente inserido com sucesso");
+            } catch (SQLException e) {
+                if (e.getErrorCode() == 0) {
+                    patientResponse.setStatusId(2);
+                    if (e.getMessage().contains("CPF")) {
+                        patientResponse.setStatusMessage("CPF já existente!");
+                    } else if (e.getMessage().contains("NAME")) {
+                        patientResponse.setStatusMessage("Nome já existente!");
+                    }
+                }
+            }
+        } else {
+            patientResponse.setStatusId(1);
+            patientResponse.setStatusMessage("CPF com formato inválido");
         }
 
 	    return patientResponse;
@@ -55,12 +72,12 @@ public class PatientService {
     @Produces(MediaType.APPLICATION_JSON)
     public MultiplePatientsResponse filterPatients(@QueryParam("filter") String filter) {
         MultiplePatientsResponse multiplePatientsResponse = new MultiplePatientsResponse();
-        multiplePatientsResponse.setStatus("Erro ao filtrar paciente");
-        multiplePatientsResponse.setStatusId(3);
+        multiplePatientsResponse.setStatusMessage("Erro ao filtrar paciente");
+        multiplePatientsResponse.setStatusId(-1);
 
         List<Patient> patients = Database.filterPatients(filter);
         if (patients != null) {
-            multiplePatientsResponse.setStatus("Pacientes recuperados com sucesso");
+            multiplePatientsResponse.setStatusMessage("Pacientes recuperados com sucesso");
             multiplePatientsResponse.setPatients(patients);
         }
 

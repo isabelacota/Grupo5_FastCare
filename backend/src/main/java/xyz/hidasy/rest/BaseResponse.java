@@ -5,29 +5,29 @@ public class BaseResponse {
     private String statusMessage;
     private int statusId;
     private String authToken;
-    
-    public String getStatus() {
-	return statusMessage;
+
+    public String getStatusMessage() {
+        return statusMessage;
     }
-    
-    public void setStatus(String m) {
-	this.statusMessage = m;
+
+    public void setStatusMessage(String statusMessage) {
+        this.statusMessage = statusMessage;
     }
-    
+
     public int getStatusId() {
-	return statusId;
-    }
-    
-    public void setStatusId(int i) {
-	this.statusId = i;
+        return statusId;
     }
 
-    public String getToken() {
-	return authToken;
+    public void setStatusId(int statusId) {
+        this.statusId = statusId;
     }
 
-    public void setToken(String token) {
-	this.authToken = token;
+    public String getAuthToken() {
+        return authToken;
+    }
+
+    public void setAuthToken(String authToken) {
+        this.authToken = authToken;
     }
 
     @Override

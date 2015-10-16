@@ -372,7 +372,7 @@
 			<div class="row-fluid sortable">
 				<div class="box span12">
 					<div class="box-header" data-original-title>
-						<h2><i class="halflings-icon white edit"></i><span class="break"></span>Dados do Pasciente</h2>
+						<h2><i class="halflings-icon white edit"></i><span class="break"></span>Dados do Paciente</h2>
 						<div class="box-icon">
 							<a href="#" class="btn-setting"><i class="halflings-icon white wrench"></i></a>
 							<a href="#" class="btn-minimize"><i class="halflings-icon white chevron-up"></i></a>
@@ -380,6 +380,14 @@
 						</div>
 					</div>
 					<div class="box-content" ng-controller="PatientController">
+                        <center>
+                        <div name="mensagemSucesso" ng-show="success">
+                            <font color="green">Paciente inserido com sucesso</font>
+                        </div>
+                        <div name="mensagemErro" ng-show="fail">
+                            <font color="red">Erro ao inserir paciente: {{errorMessage}}</font>
+                        </div>
+                        </center>
 						<form class="form-horizontal" ng-submit="insertPatient(patient)">
 						  <fieldset>
 							<div class="control-group" id="control-name">

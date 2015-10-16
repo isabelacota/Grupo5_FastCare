@@ -19,7 +19,7 @@ public class PatientResponse extends BaseResponse{
     public String toString() {
         return "PatientResponse{" +
                 "patient=" + patient +
-                ", status=" + getStatus() +
+                ", status=" + getStatusMessage() +
                 ", statusId" + getStatusId() +
                 '}';
     }
