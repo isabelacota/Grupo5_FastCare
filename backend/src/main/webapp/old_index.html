@@ -1,0 +1,24 @@
+<html ng-app="app">
+    <head>
+
+        <meta charset="UTF-8">
+        <script src="http://code.angularjs.org/1.0.6/angular.min.js"></script>
+        <!-- Modules -->
+        <script src="js/app.js"></script>
+
+        <!-- Controllers -->
+        <script src="js/controllers/PatientController.js"></script>
+
+        <!-- Services -->
+        <script src="js/services/PatientService.js"></script>
+    </head>
+    <body>
+    	<div ng-controller="PatientController">
+    		<form name="testeForm" ng-submit="insertPatient(patient)">
+    		
+    		<button type="submit">Inserir</button>
+    		</form>
+    	</div>
+    </body>
+    
+</html>

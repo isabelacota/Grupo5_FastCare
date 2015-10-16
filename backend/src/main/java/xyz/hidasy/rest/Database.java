@@ -1,6 +1,8 @@
 package xyz.hidasy.rest;
 
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Database {
     private static Connection c = null;
@@ -88,6 +90,41 @@ public class Database {
 
             return false;
         }
+    }
+
+    public static List<Patient> filterPatients(String filter) {
+        String sql = "SELECT * FROM PATIENT WHERE (" +
+                "NAME LIKE '%" + filter + "%' OR CPF LIKE '%" + filter + "%' OR PHONE LIKE '%" + filter + "%');";
+
+        System.out.println("Query for select: " + sql);
+
+        try {
+            Statement statement = c.createStatement();
+
+            ResultSet rs = statement.executeQuery(sql);
+            List<Patient> patients = new ArrayList<Patient>();
+            while (rs.next()) {
+                Patient patient = new Patient();
+
+                patient.setId(rs.getLong("id"));
+                patient.setName(rs.getString("name"));
+                patient.setCpf(rs.getString("cpf"));
+                patient.setGender(rs.getString("gender"));
+                patient.setBirthDate(rs.getLong("birthdate"));
+                patient.setPhone(rs.getString("phone"));
+                patient.setHealthPlan(rs.getString("healthplan"));
+
+                patients.add(patient);
+            }
+
+            System.out.println("PAtients: " + patients);
+            return patients;
+        } catch (SQLException e) {
+            e.printStackTrace();
+
+            return null;
+        }
+
     }
 
 

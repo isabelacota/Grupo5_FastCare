@@ -1,4 +1,4 @@
-app.factory('patientservice', ['$http', function($http) {
+app.factory('oldPatientservice', ['$http', function($http) {
   return $http.get('http://bla:8080/FastCare/API/patient/1')
             .success(function(data) {
               return data;
@@ -8,23 +8,37 @@ app.factory('patientservice', ['$http', function($http) {
             });
 }]);
 
-app.factory('insertPatientService', ['$http', function($http, patient) {
+app.factory('patientService', ['$http', function($http, patient) {
 	var insertPatient = function(patient) {
-		return $http.post('./API/patient', {
+		return $http.post('./API/patient/insert', {
 			name: patient.name,
 			cpf: patient.cpf,
-			birthDate: patient.birthDate,
+			//birthDate: patient.birthDate,
 			gender: patient.gender,
-			phone: patient.phone})
+			phone: patient.phone,
+			healthPlan: patient.healthPlan})
 		.success(function(data) {
-				return data.P;
+				return data.patient;
 		})
 		.error(function(err) {
 				return err;
 		});
 	};
+
+	var filterPatient = function(filter) {
+	    var url = './API/patient/filter?filter=' + filter;
+
+	    return $http.get(url)
+	        .success(function(response) {
+	            return response.patients;
+	        })
+	        .error(function(err) {
+	                return err;
+	        });
+	};
 	
 	return {
-		insert: insertPatient
+		insert: insertPatient,
+		filter: filterPatient
 	};
 }]);
