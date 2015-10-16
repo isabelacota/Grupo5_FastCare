@@ -64,7 +64,7 @@ public class RegistrationPage extends PageObject {
     	phone_field.type(phone);
     }
     public void enter_patient_plan(String plan) {
-    	phone_field.type(plan);
+    	plan_field.type(plan);
     }
     
 //    public void pops_message_patient_already_exists(){

@@ -93,6 +93,12 @@ public class DefinitionSteps {
         endUser.search_enter_name(name);
         endUser.search_submit();
     }
+    
+    @When("the doctor looks up field '$name'")
+    public void whenTheDoctorLooksUpField(String name) {
+        endUser.search_enter_name(name);
+        endUser.search_submit();
+    }
 
     @When("the doctor looks up a patient name '$name' or cpf '$cpf' or phone '$phone' or gender '$gender' or birth '$birth'")
     public void whenTheDoctorLooksUpPacient(String name, String cpf, String phone, String gender, String birth) {
@@ -199,11 +205,12 @@ public class DefinitionSteps {
     	assert(false);
         //patient added to the database
     }
-    @Then("a message patient inserted should be sent to the user")
+    
+    @Then("a message '$message' should be sent to the user")
     public void thenAMessageInsertedIsSentToTheUser() {
-    	assert(true);
-        //endUser.should_see_a_message_user_inserted();
+    	assert(false);
     }
+
     
 //    @Then("the user sees a message saying that a patient with the same cpf already exists")
 //    public void thenAMessagePatientAlreadyExists() {
