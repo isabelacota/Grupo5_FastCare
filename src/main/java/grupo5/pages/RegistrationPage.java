@@ -16,7 +16,7 @@ import java.util.List;
 
 import static ch.lambdaj.Lambda.convert;
 
-@DefaultUrl("http://xaveco.lab.ic.unicamp.br:8000/insert.html")
+@DefaultUrl("http://127.0.0.1:8080/FastCare/insert.html")
 public class RegistrationPage extends PageObject {
 
 	// Web Elements

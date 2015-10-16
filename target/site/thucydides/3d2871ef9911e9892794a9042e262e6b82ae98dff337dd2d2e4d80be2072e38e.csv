@@ -1,4 +1,0 @@
-"Story","Title","Result","Date","Stability","Duration (s)"
-"Busca de paciente","Looking up a patient in database","PENDING","2015-10-10T02:12:06.224Z","0.0","37.45"
-"Registrar paciente","User inserts a patient in the database","PENDING","2015-10-10T02:12:43.931Z","0.0","18.91"
-"Atualizar paciente","update an existing patient fields","PENDING","2015-10-10T02:11:58.915Z","0.0","6.86"

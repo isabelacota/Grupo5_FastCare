@@ -191,12 +191,12 @@ public class DefinitionSteps {
 
     @Then("the user should see a page asking for confirmation to submit")
     public void thenTheyShouldSeeAPageAskingConfirmationToSubmit() {
-    	assert(true);
+    	assert(false);
         //endUser.should_see_page_confirmation_submit();
     }
     @Then("the patient is added to the database")
     public void thenThePatientIsAddedToTheDatabase() {
-    	assert(true);
+    	assert(false);
         //patient added to the database
     }
     @Then("a message patient inserted should be sent to the user")
