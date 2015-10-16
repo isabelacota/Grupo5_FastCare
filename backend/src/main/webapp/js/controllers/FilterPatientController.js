@@ -1,12 +1,11 @@
 app.controller('FilterPatientController', ['$scope', 'patientService', function($scope, patientService) {
 
   $scope.patients = [];
-  $scope.filter = 'bla';
+  $scope.filter = '';
 
   $scope.filterPatients = function(filter) {
-      debugger;
-      patientService.filterPatients(filter).success(function(patients) {
-          $scope.patients = patients;
+      patientService.filter(filter).success(function(response) {
+          $scope.patients = response.patients;
       })
       .error(function(err) {
 

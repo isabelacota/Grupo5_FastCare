@@ -3,7 +3,6 @@ app.controller('PatientController', ['$scope', 'patientService', function($scope
   $scope.patient = {};
   
   $scope.insertPatient = function(patient) {
-	  debugger;
 	  patientService.insert(patient).success(function(patient) {
 		  $scope.patient = patient;
 	  })

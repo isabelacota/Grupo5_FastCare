@@ -4,12 +4,12 @@
 	
 	<!-- start: Meta -->
 	<meta charset="utf-8">
-
     <script src="http://code.angularjs.org/1.0.6/angular.min.js"></script>
     <!-- Modules -->
     <script src="js/app.js"></script>
 
     <!-- Controllers -->
+    <script src="js/controllers/PatientController.js"></script>
     <script src="js/controllers/FilterPatientController.js"></script>
 
     <!-- Services -->
@@ -392,7 +392,13 @@
 				</li>
 				<li><a href="#">Pesquisar Pacientes</a></li>
 			</ul>
-			
+            <!--<div ng-controller="FilterPatientController">
+                <form name="testeForm" ng-submit="filterPatients(filter)">
+
+                    <button type="submit">Inserir</button>
+                </form>
+
+            </div>-->
 			<div class="row-fluid">
 				<div style="width:100%;" class="box span4" onTablet="span6" onDesktop="span4">
 					<div class="box-header">
@@ -402,7 +408,7 @@
 							<a href="#" class="btn-close"><i class="halflings-icon white remove"></i></a>
 						</div>
 					</div>
-					<div class="box-content" ng-controler="FilterPatientController">
+					<div class="box-content" ng-controller="FilterPatientController">
 						<div class="control-group" id="control-search">
 							<div id="DataTables_Table_0_filter" class="dataTables_filter">
                                 <form name="testeForm" ng-submit="filterPatients(filter)">
@@ -413,7 +419,6 @@
 								<label>Genero Biológico: <input id="search_field_gender" aria-controls="DataTables_Table_0" type="text"></label>
 								<label>Telefone: <input id="search_field_phone" aria-controls="DataTables_Table_0" type="text"></label>
 								<label>CPF: <input id="search_field_cpf" aria-controls="DataTables_Table_0" type="text"></label>-->
-                                <button id="confirm" type="submit" class="btn btn-primary" ng-click="filterPatients(filter)">Salvar Dados</button>
 								<button id="search_button" type="submit" class="btn btn-primary" style="position:relative;left:30px;bottom: 5px">Buscar</button>
                                 </form>
 							</div>
@@ -423,8 +428,11 @@
 								<a href="#">
 									<img class="avatar" alt="Dennis Ji" src="img/avatar.jpg">
 								</a>
-								<strong>{{patient.name}}</strong> <a href="#">Dennis Ji</a><br>
-								<strong>{{patient.cpf}}</strong> 011111111<br>
+								<strong>Nome: </strong>{{patient.name}}<br>
+								<strong>Cpf: </strong>{{patient.cpf}}<br>
+                                <strong>Plano de Saúde: </strong>{{patient.healthPlan}}<br>
+                                <strong>Gênero Biológico: </strong>{{patient.gender}}<br>
+                                <strong>Telefone: </strong>{{patient.phone}}<br>
 								<a class="btn btn-info" href="#">
 									<i class="halflings-icon white edit"></i>  
 								</a>

@@ -8,13 +8,14 @@
 
         <!-- Controllers -->
         <script src="js/controllers/PatientController.js"></script>
+        <script src="js/controllers/FilterPatientController.js"></script>
 
         <!-- Services -->
         <script src="js/services/PatientService.js"></script>
     </head>
     <body>
-    	<div ng-controller="PatientController">
-    		<form name="testeForm" ng-submit="insertPatient(patient)">
+    	<div ng-controller="FilterPatientController">
+    		<form name="testeForm" ng-submit="filterPatients(filter)">
     		
     		<button type="submit">Inserir</button>
     		</form>

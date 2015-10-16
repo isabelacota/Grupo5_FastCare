@@ -25,7 +25,7 @@ app.factory('patientService', ['$http', function($http, patient) {
 		});
 	};
 
-	var filterPatient = function(filter) {
+	var filterPatients = function(filter) {
 	    var url = './API/patient/filter?filter=' + filter;
 
 	    return $http.get(url)
@@ -39,6 +39,6 @@ app.factory('patientService', ['$http', function($http, patient) {
 	
 	return {
 		insert: insertPatient,
-		filter: filterPatient
+		filter: filterPatients
 	};
 }]);
