@@ -31,7 +31,7 @@ public class Database {
             Statement stmt = c.createStatement();
             stmt.executeUpdate(sql);
 	    
-	    sql = "CREATE TABLE AUDIT (INTEGER PRIMARY KEY ID," +
+	    sql = "CREATE TABLE AUDIT (ID INTEGER PRIMARY KEY," +
 		"USER TEXT NOT NULL," +
 		"DATE TEXT NOT NULL," +
 		"ACTION TEXT NOT NULL);";
@@ -103,7 +103,7 @@ public class Database {
             ResultSet rs = statement.executeQuery(sql);
             List<Audit> Audits = new ArrayList<Audit>();
             while (rs.next()) {
-                Audit audit = new Audit();
+		Audit audit = new Audit();
 
                 audit.setId(rs.getLong("id"));
                 audit.setUser(rs.getString("user"));
