@@ -1,8 +1,11 @@
 app.controller('AuditTrailController', ['$scope', 'auditTrailService', function($scope, auditService) {
-
-  $scope.success = false;
-  $scope.fail = false;
-  $scope.records = auditService.getRecords();
+    
+    $scope.success = false;
+    $scope.fail = false;
+    auditService.getAudits().success(function(response) {
+	console.log(response.audits);
+	$scope.audits = response.audits;
+    });
   
 //  $scope.insertPatient = function(patient) {
 //      $scope.success = false;

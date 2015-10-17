@@ -1,8 +1,7 @@
 app.factory('auditTrailService', ['$http', function($http) {
 
-    var getRecords = function() {
-    	return ['morpheus', 'neo', 'trinity'];
-		return $http.get('./API/audit/')
+    var getAudits = function() {
+		return $http.get('./API/audit')
 		.success(function(data) {
 			return data.audits;
 		})
@@ -24,6 +23,6 @@ app.factory('auditTrailService', ['$http', function($http) {
 	};
 
 	return {
-		getRecords: getRecords
+		getAudits: getAudits
 	};
 }]);

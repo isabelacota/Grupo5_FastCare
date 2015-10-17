@@ -17,6 +17,7 @@ public class PatientService {
         PatientResponse pr = new PatientResponse();
         pr.setStatusMessage("Resposta");
         pr.setStatusId(3);
+	Database.insertAudit("Medico","Requested patient "+id,"31/02/2412");
 
         pr.setPatient(Database.getPatientById(id));
         return pr;
@@ -75,6 +76,7 @@ public class PatientService {
         MultiplePatientsResponse multiplePatientsResponse = new MultiplePatientsResponse();
         multiplePatientsResponse.setStatusMessage("Erro desconhecido ao filtrar pacientes");
         multiplePatientsResponse.setStatusId(-1);
+	Database.insertAudit("Medico","Searched patients as "+filter,"31/02/2412");
 
         List<Patient> patients = Database.filterPatients(filter);
         if (patients != null) {
