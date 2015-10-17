@@ -230,7 +230,21 @@
 .widget.red h2 .glyphicons i:before {
 	color: #fff;
 }
-
+/* Fast Care Alterations
+=================================================================== */
+#cpf-validation{
+	color:#EA7B30;
+	visibility:hidden;
+}
+.label-search{
+	display:inline;
+}
+.btn-users-options{
+	left:250px;
+	bottom:30px;
+	position:relative;
+}
+/*=================================================================== */
 /* Basic
 =================================================================== */
 
@@ -295,10 +309,6 @@ h6 {
 	line-height: 12px;
 }
 
-#cpf-validation{
-	color:#EA7B30;
-	visibility:hidden;
-}
 
 /* Header Section
 =================================================================== */
@@ -1546,7 +1556,7 @@ ul.chat.metro li.right .message .arrow {
 
 .btn {
   display: inline-block;
-  padding: 6px 12px;
+  padding: 12px 24px;
   margin-bottom: 0;
   font-size: 14px;
   font-weight: 500;
