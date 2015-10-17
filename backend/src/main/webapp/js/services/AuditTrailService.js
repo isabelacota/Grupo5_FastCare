@@ -4,7 +4,7 @@ app.factory('auditTrailService', ['$http', function($http) {
     	return ['morpheus', 'neo', 'trinity'];
 		return $http.get('./API/audit/')
 		.success(function(data) {
-				return ['morpheus', 'neo', 'trinity'];
+			return data.audits;
 		})
 		.error(function(err) {
 				return err;
