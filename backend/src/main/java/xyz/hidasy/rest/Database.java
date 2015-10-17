@@ -30,11 +30,19 @@ public class Database {
             " ADDRESS        CHAR(50))";
             Statement stmt = c.createStatement();
             stmt.executeUpdate(sql);
-	    
-	    sql = "CREATE TABLE AUDIT (ID INTEGER PRIMARY KEY," +
-		"USER TEXT NOT NULL," +
-		"DATE TEXT NOT NULL," +
-		"ACTION TEXT NOT NULL);";
+	} catch(Exception ee) {
+            ee.printStackTrace();
+        }
+	try {
+	    String sql;
+	    Statement stmt = c.createStatement();
+            
+	    sql = "CREATE TABLE AUDIT " +
+		"(ID    INTEGER PRIMARY KEY," +
+		"USER   TEXT    NOT NULL," +
+		"DATE   TEXT    NOT NULL," +
+		"ACTION TEXT    NOT NULL);";
+	    System.out.println(sql);
 	    stmt.executeUpdate(sql);
 
 	    sql = "INSERT INTO PATIENT(ID,NAME,CPF,BIRTHDATE,CREATED,GENDER,ADDRESS)" +
@@ -80,7 +88,7 @@ public class Database {
 	    return patient;
     }
 
-    public static void insertAuditLog(String User, String Action, String Date) {
+    public static void insertAudit(String User, String Action, String Date) {
 	try {
 	    Statement stmt = c.createStatement();
 	    String sql;

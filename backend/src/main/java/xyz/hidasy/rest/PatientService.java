@@ -49,7 +49,8 @@ public class PatientService {
                 patientResponse.setPatient(patient);
                 patientResponse.setStatusId(0);
                 patientResponse.setStatusMessage("Paciente inserido com sucesso");
-            } catch (SQLException e) {
+		Database.insertAudit("Medico","Created patient "+patient.getId(),"31/02/2412");
+	    } catch (SQLException e) {
                 if (e.getErrorCode() == 0) {
                     patientResponse.setStatusId(2);
                     if (e.getMessage().contains("CPF")) {
