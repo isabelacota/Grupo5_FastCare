@@ -5,6 +5,7 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import java.sql.SQLException;
 import java.util.List;
+import java.util.Calendar;
 
 @Path("/")
 public class PatientService {
@@ -17,7 +18,8 @@ public class PatientService {
         PatientResponse pr = new PatientResponse();
         pr.setStatusMessage("Resposta");
         pr.setStatusId(3);
-	Database.insertAudit("Medico","Requested patient "+id,"31/02/2412");
+	Calendar today = Calendar.getInstance();
+	Database.insertAudit("Medico","Requested patient "+id,today.getTime().toString());
 
         pr.setPatient(Database.getPatientById(id));
         return pr;
@@ -49,8 +51,9 @@ public class PatientService {
                 Database.insertPatient(patient);
                 patientResponse.setPatient(patient);
                 patientResponse.setStatusId(0);
-                patientResponse.setStatusMessage("Paciente inserido com sucesso");
-		Database.insertAudit("Medico","Created patient "+patient.getId(),"31/02/2412");
+		patientResponse.setStatusMessage("Paciente inserido com sucesso");
+		Calendar today = Calendar.getInstance();
+		Database.insertAudit("Medico","Created patient "+patient.getId(),today.getTime().toString());
 	    } catch (SQLException e) {
                 if (e.getErrorCode() == 0) {
                     patientResponse.setStatusId(2);
@@ -76,7 +79,8 @@ public class PatientService {
         MultiplePatientsResponse multiplePatientsResponse = new MultiplePatientsResponse();
         multiplePatientsResponse.setStatusMessage("Erro desconhecido ao filtrar pacientes");
         multiplePatientsResponse.setStatusId(-1);
-	Database.insertAudit("Medico","Searched patients as "+filter,"31/02/2412");
+	Calendar today = Calendar.getInstance();
+	Database.insertAudit("Medico","Searched patients as "+filter,today.getTime().toString());
 
         List<Patient> patients = Database.filterPatients(filter);
         if (patients != null) {
