@@ -30,7 +30,22 @@ public class Database {
             " ADDRESS        CHAR(50))";
             Statement stmt = c.createStatement();
             stmt.executeUpdate(sql);
-            sql = "INSERT INTO PATIENT(ID,NAME,CPF,BIRTHDATE,CREATED,GENDER,ADDRESS)" +
+	} catch(Exception ee) {
+            ee.printStackTrace();
+        }
+	try {
+	    String sql;
+	    Statement stmt = c.createStatement();
+            
+	    sql = "CREATE TABLE AUDIT " +
+		"(ID    INTEGER PRIMARY KEY," +
+		"USER   TEXT    NOT NULL," +
+		"DATE   TEXT    NOT NULL," +
+		"ACTION TEXT    NOT NULL);";
+	    System.out.println(sql);
+	    stmt.executeUpdate(sql);
+
+	    sql = "INSERT INTO PATIENT(ID,NAME,CPF,BIRTHDATE,CREATED,GENDER,ADDRESS)" +
             "VALUES (1, 'Maria', '123.234.345-45', 23, 21313, 'Female', 'rua banha 3')";
             stmt.executeUpdate(sql);
             sql = "INSERT INTO PATIENT(ID,NAME,CPF,BIRTHDATE,CREATED,GENDER, ADDRESS)" +
@@ -73,6 +88,48 @@ public class Database {
 	    return patient;
     }
 
+    public static void insertAudit(String User, String Action, String Date) {
+	try {
+	    Statement stmt = c.createStatement();
+	    String sql;
+	    sql = "INSERT INTO AUDIT(USER, DATE, ACTION) " +
+		"VALUES ('"+User+"','"+Date+"','"+Action+"')";
+            stmt.executeUpdate(sql);
+	} catch (Exception e) {
+	    System.out.println(e.toString());
+	}
+    }
+    
+    public static List<Audit> getAuditLog() {
+        String sql = "SELECT * FROM AUDIT";
+	
+        System.out.println("Query for select: " + sql);
+
+        try {
+            Statement statement = c.createStatement();
+
+            ResultSet rs = statement.executeQuery(sql);
+            List<Audit> Audits = new ArrayList<Audit>();
+            while (rs.next()) {
+		Audit audit = new Audit();
+
+                audit.setId(rs.getLong("id"));
+                audit.setUser(rs.getString("user"));
+                audit.setAction(rs.getString("action"));
+                audit.setDate(rs.getString("date"));
+                Audits.add(audit);
+            }
+	    
+            return Audits;
+        } catch (SQLException e) {
+            e.printStackTrace();
+
+            return null;
+        }
+
+    }
+
+    
     public static void insertPatient(Patient patient) throws SQLException {
         String sql = "INSERT INTO PATIENT(ID, NAME, CPF, BIRTHDATE, GENDER, PHONE, HEALTHPLAN, CREATED) VALUES (" +
                 patient.getId() + ",'" + patient.getName() + "','" + patient.getCpf() + "'," +

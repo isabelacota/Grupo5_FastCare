@@ -230,7 +230,47 @@
 .widget.red h2 .glyphicons i:before {
 	color: #fff;
 }
-
+/* Fast Care Alterations
+=================================================================== */
+#cpf-validation{
+	color:#EA7B30;
+	visibility:hidden;
+}
+.label-search{
+	display:inline;
+}
+.btn-users-options{
+	left:250px;
+	bottom:30px;
+	position:relative;
+}
+.btn_home{
+	background-color:#578EBE !important;
+/*
+    background-image:url ("/home/cc2013/ra135257/Pictures/uno.jpg") !important;
+    background-repeat: no-repeat;
+    background-position:"center";
+*/
+    padding: 15px 20px;
+    margin: 25px;
+    font-family: 'OpenSansBold', sans-serif;
+    font-size: 14px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    border-radius: 2px;
+    display: inline-block;
+    text-align: center;
+    cursor: pointer;
+    box-shadow: inset 0 0 0 0 #C14800;
+	-webkit-transition: all ease 0.8s;
+	-moz-transition: all ease 0.8s;
+	transition: all ease 0.8s;
+}
+.btn_home:hover {
+    box-shadow: inset 0 100px 0 0 #C14800;
+}
+/*=================================================================== */
 /* Basic
 =================================================================== */
 
@@ -295,10 +335,6 @@ h6 {
 	line-height: 12px;
 }
 
-#cpf-validation{
-	color:#EA7B30;
-	visibility:hidden;
-}
 
 /* Header Section
 =================================================================== */
@@ -1546,7 +1582,7 @@ ul.chat.metro li.right .message .arrow {
 
 .btn {
   display: inline-block;
-  padding: 6px 12px;
+  padding: 12px 24px;
   margin-bottom: 0;
   font-size: 14px;
   font-weight: 500;

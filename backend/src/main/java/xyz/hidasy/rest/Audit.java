@@ -2,81 +2,45 @@ package xyz.hidasy.rest;
 
 public class Audit {
 
-    String name;
-    String cpf;
-    long createdAt;
-    long updatedAt;
-    long birthDate;
-    String gender;
-    String phone;
-    String id;
+    String User;
+    String Action;
+    String Date;
+    long id;
     
-    public String getName() {
-	return name;
+    public String getUser() {
+	return User;
     }
     
-    public void setName(String name) {
-	this.name = name;
+    public void setUser(String user) {
+	this.User = user;
     }
     
-    public String getCpf() {
-	return cpf;
+    public String getAction() {
+	return Action;
     }
     
-    public void setCpf(String cpf) {
-	this.cpf = cpf;
+    public void setAction(String action) {
+	this.Action = action;
     }
 
-    public long getCreation() {
-	return createdAt;
+    public String getDate() {
+	return Date;
     }
     
-    public void setCreation(long d) {
-	this.createdAt = d;
+    public void setDate(String date) {
+	this.Date = date;
     }
     
-    public long getUpdate() {
-	return updatedAt;
-    }
-    
-    public void setUpdate(long d) {
-	this.updatedAt = d;
-    }
-
-    public long getBirth() {
-	return birthDate;
-    }
-    
-    public void setBirth(long d) {
-	this.birthDate = d;
-    }   
-    
-    public String getGender() {
-	return gender;
-    }
-    
-    public void setGender(String gender) {
-	this.gender = gender;
-    }
-    
-    public String getPhone() {
-	return phone;
-    }
-    
-    public void setPhone(String phone) {
-	this.phone = phone;
-    }
-    
-    public String getId() {
+    public long getId() {
 	return id;
     }
     
-    public void setId(String id) {
-	this.id = id;
+    public void setId(long Id) {
+	this.id = Id;
     }
-    
+
     @Override
     public String toString() {
-	return "Pacient [name=" + name + ", id=" + id + "]";
+	return "Audit Trail object";
     }
 }
