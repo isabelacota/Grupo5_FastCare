@@ -1,17 +1,17 @@
 package xyz.hidasy.rest;
+import java.util.List;
+
 
 public class AuditResponse extends BaseResponse {
 
-    Audit A;
-    public AuditResponse() {
-	A = new Audit();
-    }
-    public Audit getAudit() {
-	return A;
+    List<Audit> audits;
+
+    public List<Audit> getAudits() {
+	return audits;
     }
 
-    public void setAudit(Audit a) {
-	this.A = a;
+    public void setAudits(List <Audit> a) {
+	this.audits = a;
 	return;
     }
     
