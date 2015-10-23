@@ -207,7 +207,7 @@ public class DefinitionSteps {
     }
     
     @Then("a message '$message' should be sent to the user")
-    public void thenAMessageInsertedIsSentToTheUser() {
+    public void thenAMessageInsertedIsSentToTheUser(String message) {
     	assert(false);
     }
 

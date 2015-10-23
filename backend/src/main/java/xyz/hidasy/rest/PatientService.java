@@ -77,7 +77,7 @@ public class PatientService {
 
         List<Patient> patients = Database.filterPatients(filter);
         if (patients != null) {
-            if (patients.size() > 1) {
+            if (patients.size() >= 1) {
                 multiplePatientsResponse.setStatusId(0);
                 multiplePatientsResponse.setStatusMessage("Pacientes recuperados com sucesso");
                 multiplePatientsResponse.setPatients(patients);
