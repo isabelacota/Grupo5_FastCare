@@ -110,7 +110,7 @@ public class EndUserSteps extends ScenarioSteps {
 
     @Step
     public void shoud_see_list_pacients_met_criteria () {
-    	assert(true);
+    	assertThat(search_patientPage.getMessage(), containsString("Nome"));
     }
     
     @Step
@@ -176,4 +176,17 @@ public class EndUserSteps extends ScenarioSteps {
         registrationPage.confirm_submission();
     }
     
+
+///////////////////////////////////////////////////////////////////////
+
+	@Step
+	public void should_see_message_registration(String message) {
+		assertThat(registrationPage.getMessage(), containsString(message));
+	}
+	
+	@Step
+	public void should_see_message_search(String message) {
+		assertThat(search_patientPage.getMessage(), containsString(message));
+	}
+	
 }

@@ -206,9 +206,14 @@ public class DefinitionSteps {
         //patient added to the database
     }
     
-    @Then("a message '$message' should be sent to the user")
-    public void thenAMessageInsertedIsSentToTheUser(String message) {
-    	assert(false);
+    @Then("a message '$message' should be sent to the user on registration page")
+    public void thenAMessageInsertedIsSentToTheUserOnRegistrationPage(String message) {
+    	endUser.should_see_message_registration(message);
+    }
+    
+    @Then("a message '$message' should be sent to the user on search page")
+    public void thenAMessageInsertedIsSentToTheUserOnSearchPage(String message) {
+    	endUser.should_see_message_search(message);
     }
 
     

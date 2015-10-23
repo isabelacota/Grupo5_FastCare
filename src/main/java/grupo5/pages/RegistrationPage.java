@@ -75,6 +75,11 @@ public class RegistrationPage extends PageObject {
     	confirm_button.click();
     }
     
+    public String getMessage() {
+        WebElement messageClass = find(By.name("mensagemSucesso"));
+        return messageClass.getText();
+    }
+    
     
     
 }

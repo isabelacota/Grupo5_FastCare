@@ -2,14 +2,18 @@ package grupo5.pages;
 
 import ch.lambdaj.function.convert.Converter;
 import net.thucydides.core.annotations.DefaultUrl;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+
 import net.thucydides.core.pages.WebElementFacade;
 import net.thucydides.core.annotations.findby.FindBy;
 import net.thucydides.core.pages.PageObject;
+
 import java.util.List;
+
 import static ch.lambdaj.Lambda.convert;
 
 @DefaultUrl("http://127.0.0.1:8080/FastCare/search.html")
@@ -66,6 +70,11 @@ public class SearchPatientPage extends PageObject {
 
     public void click_search_button() {
     	search_patient_button.click();
+    }
+    
+    public String getMessage() {
+        WebElement messageClass = find(By.name("Nome"));
+        return messageClass.getText();
     }
     
 }

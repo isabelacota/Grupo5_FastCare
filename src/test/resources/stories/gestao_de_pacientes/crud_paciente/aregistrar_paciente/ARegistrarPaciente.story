@@ -6,9 +6,7 @@ When the user insert the patient's gender 'M'
 When the user insert the patient's health insurance plan 'Unimed'
 When the user insert the patient's phone '98887666'
 When the user confirm the submission
-Then the patient is added to the database
-Then an event is added to the audit log
-Then a message 'patient inserted' should be sent to the user
+Then a message 'Paciente inserido com sucesso' should be sent to the user on registration page
 
 Scenario: User inserts a patient with invalid cpf in the database
 Given the user is on the insertion page
@@ -18,18 +16,14 @@ When the user insert the patient's gender 'M'
 When the user insert the patient's health insurance plan 'Unimed'
 When the user insert the patient's phone '98887666'
 When the user confirm the submission
-Then the patient is added to the database
-Then an event is added to the audit log
-Then a message 'invalid cpf' should be sent to the user
+Then a message 'CPF com formato inválido' should be sent to the user on registration page
 
 Scenario: User inserts a patient that already exists in the database
 Given the user is on the insertion page
-When the user insert the patient's name 'Jorge'
+When the user insert the patient's name 'Jorge' 
 When the user insert the patient's cpf '65006961317'
 When the user insert the patient's gender 'M'
 When the user insert the patient's health insurance plan 'Unimed'
 When the user insert the patient's phone '98887666'
 When the user confirm the submission
-Then the patient is added to the database
-Then an event is added to the audit log
-Then a message 'patient already exists' should be sent to the user
+Then a message 'CPF já existente!' should be sent to the user on registration page
