@@ -1,5 +1,5 @@
 Possibilitar inserir plano do paciente
 Narrative:
 In order to inserir plano do  paciente
-as a Medico/Recepcionista
+as a Medico
 I want to preencher um formulario com os dados necessarios.
