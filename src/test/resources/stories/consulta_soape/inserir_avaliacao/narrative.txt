@@ -1,5 +1,5 @@
-Possibilitar registro de paciente
+Possibilitar insercao de dados da avaliacao de paciente
 Narrative:
-In order to registrar um paciente
-as a Medico/Recepcionista
+In order to inserir dados da avaliacao de paciente
+as a Medico
 I want to preencher um formulario com os dados necessarios.
