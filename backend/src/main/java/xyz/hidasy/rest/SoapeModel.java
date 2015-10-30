@@ -18,4 +18,12 @@ public class SoapeModel {
     public void setAppointmentId(Integer appointmentId) {
         this.appointmentId = appointmentId;
     }
+
+    public Date getLastUpdatedAt() {
+        return lastUpdatedAt;
+    }
+
+    public void setLastUpdatedAt(Date lastUpdatedAt) {
+        this.lastUpdatedAt = lastUpdatedAt;
+    }
 }
