@@ -4,6 +4,7 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Date;
+import static xyz.hidasy.rest.JsonUtils.*;
 
 public class Database {
     private static Connection c = null;
@@ -81,15 +82,15 @@ public class Database {
     }
 
     public static Objective getObjectiveById(Long id) {
+	Objective objective = null;
 	try {
 	    String sql = "SELECT * FROM OBJECTIVE WHERE ID = " + id;
 	    Statement stmt = c.createStatement();
 
 	    ResultSet rs = stmt.executeQuery(sql);
 	    rs.next();
-	    Objective objective = readFromJSON(rs.getString("patientdata"),Objective.class);
-	    objective.setId(rs.getLong("id"));
-	    objective.setUpdate(rs.getString("lastupdate"));
+	    objective = readFromJson(rs.getString("patientdata"),Objective.class);
+	    objective.setLastUpdatedAt(rs.getString("lastupdate"));
 	    //...
 	    rs.close();
 	} catch(Exception e) {
@@ -104,19 +105,27 @@ public class Database {
 	}
 	return objective;
     }
+    public static void addObjective(Objective o) throws SQLException {
+	String sql = "INSERT INTO OBJECTIVE(ID,PATIENTDATA,LASTUPDATE) VALUES (" +
+	    writeToJson(o) + ",'" + o.getLastUpdatedAt() +";";
+        System.out.println("Query for insertion: " + sql);
+	insertAudit("Medico","Inserted subjective appointment");
+	Statement statement = c.createStatement();
+	statement.executeUpdate(sql);
+    }
     
     public static Subjective getSubjectiveById(Long id) {
+	Subjective subjective = null;
 	try {
 	    String sql = "SELECT * FROM SUBJECTIVE WHERE ID = " + id;
 	    Statement stmt = c.createStatement();
 
 	    ResultSet rs = stmt.executeQuery(sql);
 	    rs.next();
-	    Subjective subjective = readFromJSON(rs.getString("patientdata"),Subjective.class);
-	    subjective.setId(rs.getLong("id"));
+	    subjective = readFromJson(rs.getString("patientdata"),Subjective.class);
 	    subjective.setMainComplaint(rs.getString("maincomplaint"));
 	    subjective.setStory(rs.getString("story"));
-	    subjective.setUpdate(rs.getString("lastupdate"));
+	    subjective.setLastUpdatedAt(rs.getString("lastupdate"));
 	    //...
 	    rs.close();
 	} catch(Exception e) {
@@ -130,6 +139,16 @@ public class Database {
 	    }
 	}
 	return subjective;
+    }
+
+    public static void addSubjective(Subjective s) throws SQLException {
+	String sql = "INSERT INTO SUBJECTIVE(MAINCOMPLAINT,STORY,PATIENTDATA,LASTUPDATE) VALUES (" +
+	    s.getMainComplaint() + "','" + s.getStory() +
+	    "'," + writeToJson(s) + ",'" + s.getLastUpdatedAt() +";";
+        System.out.println("Query for insertion: " + sql);
+	insertAudit("Medico","Inserted subjective appointment");
+	Statement statement = c.createStatement();
+	statement.executeUpdate(sql);
     }
     
     public static Patient getPatientById(Long id) {

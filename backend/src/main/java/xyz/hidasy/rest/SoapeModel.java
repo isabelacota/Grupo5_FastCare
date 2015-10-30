@@ -9,7 +9,7 @@ public class SoapeModel {
 
     protected Integer appointmentId;
 
-    protected Date lastUpdatedAt;
+    protected String lastUpdatedAt;
 
     public Integer getAppointmentId() {
         return appointmentId;
@@ -19,11 +19,11 @@ public class SoapeModel {
         this.appointmentId = appointmentId;
     }
 
-    public Date getLastUpdatedAt() {
+    public String getLastUpdatedAt() {
         return lastUpdatedAt;
     }
 
-    public void setLastUpdatedAt(Date lastUpdatedAt) {
+    public void setLastUpdatedAt(String lastUpdatedAt) {
         this.lastUpdatedAt = lastUpdatedAt;
     }
 }

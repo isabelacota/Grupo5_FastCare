@@ -36,7 +36,7 @@ public class Subjective extends SoapeModel{
 
     private String onDrugs;
 
-    private Date lastUpdatedAt;
+    private String lastUpdatedAt;
 
     public String getMainComplaint() {
         return mainComplaint;
