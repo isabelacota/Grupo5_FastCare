@@ -5,7 +5,8 @@ import java.util.Date;
 /**
  * @author Caique Moreira caique.moreira@movile.com
  */
-public class Subjective {
+
+public class Subjective extends SoapeModel{
 
     private Integer appointmentId;
 
@@ -139,22 +140,6 @@ public class Subjective {
 
     public void setOnDrugs(String onDrugs) {
         this.onDrugs = onDrugs;
-    }
-
-    public void setAppointmentId(Integer appointmentId) {
-        this.appointmentId = appointmentId;
-    }
-
-    public Integer getAppointmentId() {
-        return appointmentId;
-    }
-
-    public Date getLastUpdatedAt() {
-        return lastUpdatedAt;
-    }
-
-    public void setLastUpdatedAt(Date lastUpdatedAt) {
-        this.lastUpdatedAt = lastUpdatedAt;
     }
 
     @Override
