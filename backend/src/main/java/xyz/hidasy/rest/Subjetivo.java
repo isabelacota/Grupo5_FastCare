@@ -1,9 +1,13 @@
 package xyz.hidasy.rest;
 
+import java.util.Date;
+
 /**
  * @author Caique Moreira caique.moreira@movile.com
  */
 public class Subjetivo {
+
+    private Integer appointmentId;
 
     private String mainComplaint;
 
@@ -30,6 +34,8 @@ public class Subjetivo {
     private Boolean scars;
 
     private String onDrugs;
+
+    private Date lastUpdatedAt;
 
     public String getMainComplaint() {
         return mainComplaint;
@@ -133,5 +139,42 @@ public class Subjetivo {
 
     public void setOnDrugs(String onDrugs) {
         this.onDrugs = onDrugs;
+    }
+
+    public void setAppointmentId(Integer appointmentId) {
+        this.appointmentId = appointmentId;
+    }
+
+    public Integer getAppointmentId() {
+        return appointmentId;
+    }
+
+    public Date getLastUpdatedAt() {
+        return lastUpdatedAt;
+    }
+
+    public void setLastUpdatedAt(Date lastUpdatedAt) {
+        this.lastUpdatedAt = lastUpdatedAt;
+    }
+
+    @Override
+    public String toString() {
+        return "Subjetivo{" +
+                "appointmentId=" + appointmentId +
+                ", mainComplaint='" + mainComplaint + '\'' +
+                ", story='" + story + '\'' +
+                ", renal='" + renal + '\'' +
+                ", reumatism='" + reumatism + '\'' +
+                ", cardiac='" + cardiac + '\'' +
+                ", pulmonar='" + pulmonar + '\'' +
+                ", gastric='" + gastric + '\'' +
+                ", alergies='" + alergies + '\'' +
+                ", hepatite=" + hepatite +
+                ", pregnancy=" + pregnancy +
+                ", diabetes=" + diabetes +
+                ", scars=" + scars +
+                ", onDrugs='" + onDrugs + '\'' +
+                ", lastUpdatedAt=" + lastUpdatedAt +
+                '}';
     }
 }
