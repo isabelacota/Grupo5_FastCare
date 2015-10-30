@@ -6,22 +6,4 @@ app.controller('AuditTrailController', ['$scope', 'auditTrailService', function(
 	console.log(response.audits);
 	$scope.audits = response.audits;
     });
-  
-//  $scope.insertPatient = function(patient) {
-//      $scope.success = false;
-//      $scope.fail = false;
-//	  patientService.insert(patient).success(function(response) {
-//          if (response.statusId == 0) {
-//              $scope.patient = {};
-//              $scope.success = true;
-//          } else {
-//              $scope.fail = true;
-//              $scope.errorMessage = response.statusMessage;
-//          }
-//	  })
-//	  .error(function(err) {
-//          $scope.fail = true;
-//          $scope.errorMessage = err;
-//	  });
-//  };
 }]);
