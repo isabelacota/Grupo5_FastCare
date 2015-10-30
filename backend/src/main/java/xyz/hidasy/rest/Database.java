@@ -4,7 +4,6 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Date;
-import java.util.Calendar;
 
 public class Database {
     private static Connection c = null;
@@ -71,34 +70,34 @@ public class Database {
 
     }
 
-        public static Subjective getSubjectiveById(Long id) {
-        try {
-            String sql = "SELECT * FROM SUBJECTIVE WHERE ID = " + id;
-            Statement stmt = c.createStatement();
-
-            ResultSet rs = stmt.executeQuery(sql);
-            rs.next();
-	    Subjective subjective = readFromJSON(rs.getString("patientdata"),Subjetivo.class);
-            subjective.setId(rs.getLong("id"));
-            subjective.setMainComplaint(rs.getString("maincomplaint"));
-            subjective.setStory(rs.getString("story"));
-            subjective.setUpdate(rs.getString("lastupdate"));
-            //...
-            rs.close();
-        } catch(Exception e) {
-            e.printStackTrace();
-        } finally {
-            try {
-                //c.commit();
-                //c.close();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
-	return subjective;
-    }
+//        public static Subjective getSubjectiveById(Long id) {
+//        try {
+//            String sql = "SELECT * FROM SUBJECTIVE WHERE ID = " + id;
+//            Statement stmt = c.createStatement();
+//
+//            ResultSet rs = stmt.executeQuery(sql);
+//            rs.next();
+//	    Subjective subjective = readFromJSON(rs.getString("patientdata"),Subjetivo.class);
+//            subjective.setId(rs.getLong("id"));
+//            subjective.setMainComplaint(rs.getString("maincomplaint"));
+//            subjective.setStory(rs.getString("story"));
+//            subjective.setUpdate(rs.getString("lastupdate"));
+//            //...
+//            rs.close();
+//        } catch(Exception e) {
+//            e.printStackTrace();
+//        } finally {
+//            try {
+//                //c.commit();
+//                //c.close();
+//            } catch (Exception e) {
+//                e.printStackTrace();
+//            }
+//        }
+//	return subjective;
+//    }
     
-    public static void getPatientById(Long id) {
+    public static Patient getPatientById(Long id) {
         Patient patient = new Patient();
         try {
             String sql = "SELECT * FROM PATIENT WHERE ID = " + id;
@@ -128,7 +127,7 @@ public class Database {
 	return patient;
     }
 
-    public static void insertAudit(String User, String Action, String Date) {
+    public static void insertAudit(String User, String Action) {
 	try {
 	    Statement stmt = c.createStatement();
 	    String sql;
