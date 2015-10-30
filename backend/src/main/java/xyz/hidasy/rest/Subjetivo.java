@@ -5,7 +5,7 @@ import java.util.Date;
 /**
  * @author Caique Moreira caique.moreira@movile.com
  */
-public class Subjetivo {
+public class Subjective {
 
     private Integer appointmentId;
 
@@ -157,6 +157,9 @@ public class Subjetivo {
         this.lastUpdatedAt = lastUpdatedAt;
     }
 
+    public void setData(String data) {
+	//Receives json and populate all fields
+    }
     @Override
     public String toString() {
         return "Subjetivo{" +
