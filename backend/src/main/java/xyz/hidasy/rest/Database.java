@@ -4,6 +4,7 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Date;
+import java.util.Calendar;
 
 public class Database {
     private static Connection c = null;
@@ -134,12 +135,13 @@ public class Database {
         statement.executeUpdate(sql);
     }
       
-    public static void insertAudit(String User, String Action, String Date) {
+    public static void insertAudit(String User, String Action) {
 	try {
+	    Calendar today = Calendar.getInstance();
 	    Statement stmt = c.createStatement();
 	    String sql;
 	    sql = "INSERT INTO AUDIT(USER, DATE, ACTION) " +
-		"VALUES ('"+User+"','"+Date+"','"+Action+"')";
+		"VALUES ('"+User+"','"+today.getTime().toString()+"','"+Action+"')";
             stmt.executeUpdate(sql);
 	} catch (Exception e) {
 	    System.out.println(e.toString());
