@@ -157,9 +157,6 @@ public class Subjective {
         this.lastUpdatedAt = lastUpdatedAt;
     }
 
-    public void setData(String data) {
-	//Receives json and populate all fields
-    }
     @Override
     public String toString() {
         return "Subjetivo{" +
