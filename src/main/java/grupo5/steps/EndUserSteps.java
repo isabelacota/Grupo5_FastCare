@@ -56,6 +56,52 @@ public class EndUserSteps extends ScenarioSteps {
     public void click_inserir_dados_objetivos() {
     	visitPage.inserir_dados_objetivos();
     }
+    
+    //// DADOS SUBJETIVOS //////
+    @Step
+    public void inserts_main_complaint(String str) {
+        visitPage.enter_main_complaint(str);
+    }
+    @Step
+    public void inserts_history_illness(String str) {
+        visitPage.enter_illness(str);
+    }
+    @Step
+    public void inserts_symptomatic(String str) {
+        visitPage.enter_symptomatic(str);
+    }
+    @Step
+    public void inserts_personal_family_history(String str) {
+        visitPage.enter_personal(str);
+    }
+    @Step
+    public void inserts_lifestyle(String str) {
+        visitPage.enter_lifestyle(str);
+    }
+    @Step
+    public void inserts_orthotics(String str) {
+        visitPage.enter_orthotics(str);
+    }
+    @Step
+    public void inserts_comments(String str) {
+        visitPage.enter_comments(str);
+    }
+    @Step
+    public void confirm_subjetivos_submission() {
+        visitPage.confirm_submission();
+    }
+    
+    @Step
+	public void should_see_subjetivos_confirmation(String message) {
+		assertThat(visitPage.getMessage(), containsString(message));
+	}
+    
+    
+    
+    
+    
+    
+    
 	//// INITIAL PAGE STEPS /////////////////////////////////////////////////////////////////
 
     @Step
