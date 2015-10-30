@@ -56,6 +56,52 @@ public class EndUserSteps extends ScenarioSteps {
     public void click_inserir_dados_objetivos() {
     	visitPage.inserir_dados_objetivos();
     }
+    
+    //// DADOS SUBJETIVOS //////
+    @Step
+    public void inserts_main_complaint(String str) {
+        visitPage.enter_main_complaint(str);
+    }
+    @Step
+    public void inserts_history_illness(String str) {
+        visitPage.enter_illness(str);
+    }
+    @Step
+    public void inserts_symptomatic(String str) {
+        visitPage.enter_symptomatic(str);
+    }
+    @Step
+    public void inserts_personal_family_history(String str) {
+        visitPage.enter_personal(str);
+    }
+    @Step
+    public void inserts_lifestyle(String str) {
+        visitPage.enter_lifestyle(str);
+    }
+    @Step
+    public void inserts_orthotics(String str) {
+        visitPage.enter_orthotics(str);
+    }
+    @Step
+    public void inserts_comments(String str) {
+        visitPage.enter_comments(str);
+    }
+    @Step
+    public void confirm_subjetivos_submission() {
+        visitPage.confirm_submission();
+    }
+    
+    @Step
+	public void should_see_subjetivos_confirmation(String message) {
+		assertThat(visitPage.getMessage(), containsString(message));
+	}
+    
+    
+    
+    
+    
+    
+    
 	//// INITIAL PAGE STEPS /////////////////////////////////////////////////////////////////
 
     @Step
@@ -125,8 +171,8 @@ public class EndUserSteps extends ScenarioSteps {
 
     @Step
     public void shoud_see_list_pacients_met_criteria () {
-    	//assertThat(search_patientPage.getMessage(), containsString("Nome"));
-    	assert(true);
+    	assertThat(search_patientPage.getSuccessMessage(), containsString("Nome"));
+    	//assert(true);
     }
     
     @Step
@@ -196,15 +242,21 @@ public class EndUserSteps extends ScenarioSteps {
 ///////////////////////////////////////////////////////////////////////
 
 	@Step
-	public void should_see_message_registration(String message) {
-		//assertThat(registrationPage.getMessage(), containsString(message));
-		assert(true);
+	public void should_see_success_message_registration(String message) {
+		assertThat(registrationPage.getSuccessMessage(), containsString(message));
+		//assert(true);
 	}
 	
 	@Step
-	public void should_see_message_search(String message) {
-		//assertThat(search_patientPage.getMessage(), containsString(message));
-		assert(true);
+	public void should_see_error_message_registration(String message) {
+		assertThat(registrationPage.getErrorMessage(), containsString(message));
+		//assert(true);
+	}
+	
+	@Step
+	public void should_see_error_message_search(String message) {
+		assertThat(search_patientPage.getErrorMessage(), containsString(message));
+		//assert(true);
 	}
 	
 }

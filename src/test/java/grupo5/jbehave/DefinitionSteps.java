@@ -77,12 +77,52 @@ public class DefinitionSteps {
     }
     
     ////SUBJETIVOS STEPS ////////////////////////////////////////////////////////
-    @When("When the user clicks on 'Inserir dados subjetivos'")
+    @When("the user clicks on 'Inserir dados subjetivos'")
     public void whenTheUserClicksOnInserirDadosSubjetivos() {
         endUser.click_inserir_dados_subjetivos();
     }
+    
+    
+    @When("the user insert the main complaint '$str'")
+    public void whenTheUserInsertTheMainComplaint(String str) {
+        endUser.inserts_main_complaint(str);
+    }
+    @When("the user insert the history of present illness '$str'")
+    public void whenTheUserInsertHistoryIllness(String str) {
+        endUser.inserts_history_illness(str);
+    }
+    @When("the user insert the symptomatic interrogation '$str'")
+    public void whenTheUserInsertSymptomaticInterrogation(String str) {
+        endUser.inserts_symptomatic(str);
+    }
+    @When("the user insert the personal and family history '$str'")
+    public void whenTheUserInsertPersonalFamilyHistory(String str) {
+        endUser.inserts_personal_family_history(str);
+    }
+    @When("the user insert the lifestyle and socioeconomic and cultural conditions '$str'")
+    public void whenTheUserInsertLifestyleEtc(String str) {
+        endUser.inserts_lifestyle(str);
+    }
+    
+    @When("the user insert the orthotics and prosthetics '$str'")
+    public void whenTheUserInsertOrthoticsProsthetics(String str) {
+        endUser.inserts_orthotics(str);
+    }
+    @When("the user insert the comments '$str'")
+    public void whenTheUserInsertComments(String str) {
+        endUser.inserts_comments(str);
+    }
+    @When("the user confirm the subjetivo submission")
+    public void whenTheUserConfirmSubjetivoSubmission() {
+        endUser.confirm_subjetivos_submission();
+    }
+    @Then("a message '$str' should be sent to the user on visit page")
+    public void thenSubjMsgShouldBeSentOnVisitPage(String str) {
+        endUser.should_see_subjetivos_confirmation(str);
+    }
+    
     ////OBJETIVOS STEPS ////////////////////////////////////////////////////////
-    @When("When the user clicks on 'Inserir dados objetivos'")
+    @When("the user clicks on 'Inserir dados objetivos'")
     public void whenTheUserClicksOnInserirDadosObjetivos() {
         endUser.click_inserir_dados_objetivos();
     }
@@ -220,17 +260,21 @@ public class DefinitionSteps {
         //patient added to the database
     }
     
-    @Then("a message '$message' should be sent to the user on registration page")
-    public void thenAMessageInsertedIsSentToTheUserOnRegistrationPage(String message) {
-    	endUser.should_see_message_registration(message);
+    @Then("a success message '$message' should be sent to the user on registration page")
+    public void thenASuccessMessageInsertedIsSentToTheUserOnRegistrationPage(String message) {
+    	endUser.should_see_success_message_registration(message);
     }
     
-    @Then("a message '$message' should be sent to the user on search page")
-    public void thenAMessageInsertedIsSentToTheUserOnSearchPage(String message) {
-    	endUser.should_see_message_search(message);
+    @Then("a error message '$message' should be sent to the user on registration page")
+    public void thenAErrorMessageInsertedIsSentToTheUserOnRegistrationPage(String message) {
+    	endUser.should_see_error_message_registration(message);
     }
-
     
+    @Then("a error message '$message' should be sent to the user on search page")
+    public void thenAErrorMessageInsertedIsSentToTheUserOnSearchPage(String message) {
+    	endUser.should_see_error_message_search(message);
+    }
+        
 //    @Then("the user sees a message saying that a patient with the same cpf already exists")
 //    public void thenAMessagePatientAlreadyExists() {
 //        endUser.should_see_a__message_patient_already_exists();
