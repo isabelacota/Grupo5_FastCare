@@ -1,5 +1,5 @@
 Scenario: User inserts subjective data to patient
-Given the user is on visit page
+Given the user is on the visit page
 When the user clicks on 'Inserir dados subjetivos'
 When the user insert the main complaint 'dor de cabeca'
 When the user insert the history of present illness 'none'
