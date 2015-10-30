@@ -260,19 +260,21 @@ public class DefinitionSteps {
         //patient added to the database
     }
     
-    @Then("a message '$message' should be sent to the user on registration page")
-    public void thenAMessageInsertedIsSentToTheUserOnRegistrationPage(String message) {
-    	endUser.should_see_message_registration(message);
+    @Then("a success message '$message' should be sent to the user on registration page")
+    public void thenASuccessMessageInsertedIsSentToTheUserOnRegistrationPage(String message) {
+    	endUser.should_see_success_message_registration(message);
     }
     
-    @Then("a message '$message' should be sent to the user on search page")
-    public void thenAMessageInsertedIsSentToTheUserOnSearchPage(String message) {
-    	endUser.should_see_message_search(message);
+    @Then("a error message '$message' should be sent to the user on registration page")
+    public void thenAErrorMessageInsertedIsSentToTheUserOnRegistrationPage(String message) {
+    	endUser.should_see_error_message_registration(message);
     }
     
-   
-
-    
+    @Then("a error message '$message' should be sent to the user on search page")
+    public void thenAErrorMessageInsertedIsSentToTheUserOnSearchPage(String message) {
+    	endUser.should_see_error_message_search(message);
+    }
+        
 //    @Then("the user sees a message saying that a patient with the same cpf already exists")
 //    public void thenAMessagePatientAlreadyExists() {
 //        endUser.should_see_a__message_patient_already_exists();
