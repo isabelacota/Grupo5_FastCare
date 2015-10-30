@@ -2,6 +2,7 @@ package grupo5.steps;
 
 import grupo5.pages.InitialPage;
 import grupo5.pages.PatientPage;
+import grupo5.pages.VisitPage;
 import grupo5.pages.RegistrationPage;
 import grupo5.pages.SearchPatientPage;
 import net.thucydides.core.annotations.Step;
@@ -16,6 +17,7 @@ public class EndUserSteps extends ScenarioSteps {
 
 	InitialPage initialPage;
 	PatientPage patientPage;
+	VisitPage visitPage;
 	RegistrationPage registrationPage;
 	SearchPatientPage search_patientPage;
 	
@@ -40,7 +42,20 @@ public class EndUserSteps extends ScenarioSteps {
     public void is_the_search_page() {
     	search_patientPage.open();
     }
-       
+    
+    @Step
+    public void is_the_visit_page() {
+    	visitPage.open();
+    }
+      
+    @Step
+    public void click_inserir_dados_subjetivos() {
+    	visitPage.inserir_dados_subjetivos();;
+    }
+    @Step
+    public void click_inserir_dados_objetivos() {
+    	visitPage.inserir_dados_objetivos();
+    }
 	//// INITIAL PAGE STEPS /////////////////////////////////////////////////////////////////
 
     @Step

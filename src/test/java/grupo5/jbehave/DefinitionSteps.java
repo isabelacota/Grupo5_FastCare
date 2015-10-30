@@ -46,6 +46,11 @@ public class DefinitionSteps {
         endUser.is_the_search_page();;
     }
     
+    @Given("the user is on the visit page")
+    public void givenTheUserIsOnVisitPage() {
+        endUser.is_the_visit_page();;
+    }
+    
     //// GIVEN TYPES OF USERS STEPS ////////////////////////////////////////////////////////
        
     @Given("the user is receptionist")
@@ -71,7 +76,16 @@ public class DefinitionSteps {
         //endUser.must_insert_event_audit_log();
     }
     
-    
+    ////SUBJETIVOS STEPS ////////////////////////////////////////////////////////
+    @When("When the user clicks on 'Inserir dados subjetivos'")
+    public void whenTheUserClicksOnInserirDadosSubjetivos() {
+        endUser.click_inserir_dados_subjetivos();
+    }
+    ////OBJETIVOS STEPS ////////////////////////////////////////////////////////
+    @When("When the user clicks on 'Inserir dados objetivos'")
+    public void whenTheUserClicksOnInserirDadosObjetivos() {
+        endUser.click_inserir_dados_objetivos();
+    }
     ////////////////////////////////////////////////////////////////////////////////////////
     ////////////////////////////////////////////////////////////////////////////////////////
     

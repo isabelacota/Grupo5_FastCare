@@ -5,7 +5,8 @@ import java.util.Date;
 /**
  * @author Caique Moreira caique.moreira@movile.com
  */
-public class Subjetivo extends SoapeModel{
+
+public class Subjective extends SoapeModel{
 
     private Integer appointmentId;
 

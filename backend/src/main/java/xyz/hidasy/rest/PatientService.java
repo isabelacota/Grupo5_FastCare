@@ -18,8 +18,7 @@ public class PatientService {
         PatientResponse pr = new PatientResponse();
         pr.setStatusMessage("Resposta");
         pr.setStatusId(3);
-	Calendar today = Calendar.getInstance();
-	Database.insertAudit("Medico","Requested patient "+id,today.getTime().toString());
+	Database.insertAudit("Medico","Requested patient");
 
         pr.setPatient(Database.getPatientById(id));
         return pr;
@@ -52,8 +51,7 @@ public class PatientService {
                 patientResponse.setPatient(patient);
                 patientResponse.setStatusId(0);
 		patientResponse.setStatusMessage("Paciente inserido com sucesso");
-		Calendar today = Calendar.getInstance();
-		Database.insertAudit("Medico","Created patient "+patient.getId(),today.getTime().toString());
+		Database.insertAudit("Medico","Created patient "+patient.getId());
 	    } catch (SQLException e) {
                 if (e.getErrorCode() == 0) {
                     patientResponse.setStatusId(2);
@@ -79,8 +77,7 @@ public class PatientService {
         MultiplePatientsResponse multiplePatientsResponse = new MultiplePatientsResponse();
         multiplePatientsResponse.setStatusMessage("Erro desconhecido ao filtrar pacientes");
         multiplePatientsResponse.setStatusId(-1);
-	Calendar today = Calendar.getInstance();
-	Database.insertAudit("Medico","Searched patients as "+filter,today.getTime().toString());
+	Database.insertAudit("Medico","Searched patients as "+filter);
 
         List<Patient> patients = Database.filterPatients(filter);
         if (patients != null) {
