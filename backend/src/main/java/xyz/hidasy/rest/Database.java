@@ -46,6 +46,16 @@ public class Database {
             ee.printStackTrace();
         }
 	try {
+            String sql = "CREATE TABLE OBJECTIVE         " +
+		"(ID              BIGINT PRIMARY KEY NOT NULL," +
+		" PATIENTDATA     TEXT,                       " +
+		" LASTUPDATE      INT)";
+            Statement stmt = c.createStatement();
+            stmt.executeUpdate(sql);
+	} catch(Exception ee) {
+            ee.printStackTrace();
+        }
+	try {
 	    String sql;
 	    Statement stmt = c.createStatement();
             
@@ -70,32 +80,57 @@ public class Database {
 
     }
 
-//        public static Subjective getSubjectiveById(Long id) {
-//        try {
-//            String sql = "SELECT * FROM SUBJECTIVE WHERE ID = " + id;
-//            Statement stmt = c.createStatement();
-//
-//            ResultSet rs = stmt.executeQuery(sql);
-//            rs.next();
-//	    Subjective subjective = readFromJSON(rs.getString("patientdata"),Subjetivo.class);
-//            subjective.setId(rs.getLong("id"));
-//            subjective.setMainComplaint(rs.getString("maincomplaint"));
-//            subjective.setStory(rs.getString("story"));
-//            subjective.setUpdate(rs.getString("lastupdate"));
-//            //...
-//            rs.close();
-//        } catch(Exception e) {
-//            e.printStackTrace();
-//        } finally {
-//            try {
-//                //c.commit();
-//                //c.close();
-//            } catch (Exception e) {
-//                e.printStackTrace();
-//            }
-//        }
-//	return subjective;
-//    }
+    public static Objective getObjectiveById(Long id) {
+	try {
+	    String sql = "SELECT * FROM OBJECTIVE WHERE ID = " + id;
+	    Statement stmt = c.createStatement();
+
+	    ResultSet rs = stmt.executeQuery(sql);
+	    rs.next();
+	    Objective objective = readFromJSON(rs.getString("patientdata"),Objective.class);
+	    objective.setId(rs.getLong("id"));
+	    objective.setUpdate(rs.getString("lastupdate"));
+	    //...
+	    rs.close();
+	} catch(Exception e) {
+	    e.printStackTrace();
+	} finally {
+	    try {
+		//c.commit();
+		//c.close();
+	    } catch (Exception e) {
+		e.printStackTrace();
+	    }
+	}
+	return objective;
+    }
+    
+    public static Subjective getSubjectiveById(Long id) {
+	try {
+	    String sql = "SELECT * FROM SUBJECTIVE WHERE ID = " + id;
+	    Statement stmt = c.createStatement();
+
+	    ResultSet rs = stmt.executeQuery(sql);
+	    rs.next();
+	    Subjective subjective = readFromJSON(rs.getString("patientdata"),Subjective.class);
+	    subjective.setId(rs.getLong("id"));
+	    subjective.setMainComplaint(rs.getString("maincomplaint"));
+	    subjective.setStory(rs.getString("story"));
+	    subjective.setUpdate(rs.getString("lastupdate"));
+	    //...
+	    rs.close();
+	} catch(Exception e) {
+	    e.printStackTrace();
+	} finally {
+	    try {
+		//c.commit();
+		//c.close();
+	    } catch (Exception e) {
+		e.printStackTrace();
+	    }
+	}
+	return subjective;
+    }
     
     public static Patient getPatientById(Long id) {
         Patient patient = new Patient();
@@ -216,6 +251,4 @@ public class Database {
         }
 
     }
-
-
 }
