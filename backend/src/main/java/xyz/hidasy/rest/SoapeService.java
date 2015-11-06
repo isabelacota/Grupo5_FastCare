@@ -98,7 +98,7 @@ public class SoapeService {
     @Path("{appointmentId}/diagnosis")
     @Produces(MediaType.APPLICATION_JSON)
     public DiagnosisResponse getDiagnosis(@PathParam("appointmentId") Long appointmentId) {
-        Diagnosis diagnosis = null;//Database.getDiagnosisById(appointmentId);
+        Diagnosis diagnosis = Database.getDiagnosisById(appointmentId);
         DiagnosisResponse diagnosisResponse = new DiagnosisResponse();
         diagnosisResponse.setDiagnosis(diagnosis);
         if (diagnosis != null) {
@@ -124,10 +124,10 @@ public class SoapeService {
         diagnosisResponse.setDiagnosis(diagnosis);
 
         try {
-            //Database.addDiagnosis(diagnosis);
+            Database.addDiagnosis(diagnosis);
             diagnosisResponse.setStatusId(0);
             diagnosisResponse.setStatusMessage("Diagnosis inserted");
-        } catch (/*SQL*/Exception e) {
+        } catch (SQLException e) {
             e.printStackTrace();
             diagnosisResponse.setStatusId(1);
             diagnosisResponse.setStatusMessage("Diagnosis not inserted. Error: " + e.getMessage());
@@ -140,7 +140,7 @@ public class SoapeService {
     @Path("{appointmentId}/evolution")
     @Produces(MediaType.APPLICATION_JSON)
     public EvolutionResponse getEvolution(@PathParam("appointmentId") Long appointmentId) {
-        Evolution evolution = null;//Database.getEvolutionById(appointmentId);
+        Evolution evolution = Database.getEvolutionById(appointmentId);
         EvolutionResponse evolutionResponse = new EvolutionResponse();
         evolutionResponse.setEvolution(evolution);
         if (evolution != null) {
@@ -166,10 +166,10 @@ public class SoapeService {
         evolutionResponse.setEvolution(evolution);
 
         try {
-            //Database.addEvolution(evolution);
+            Database.addEvolution(evolution);
             evolutionResponse.setStatusId(0);
             evolutionResponse.setStatusMessage("Evolution inserted");
-        } catch (/*SQL*/Exception e) {
+        } catch (SQLException e) {
             e.printStackTrace();
             evolutionResponse.setStatusId(1);
             evolutionResponse.setStatusMessage("Evolution not inserted. Error: " + e.getMessage());
@@ -182,7 +182,7 @@ public class SoapeService {
     @Path("{appointmentId}/plan")
     @Produces(MediaType.APPLICATION_JSON)
     public PlanResponse getPlan(@PathParam("appointmentId") Long appointmentId) {
-        Plan plan = null;//Database.getPlanById(appointmentId);
+        Plan plan = Database.getPlanById(appointmentId);
         PlanResponse planResponse = new PlanResponse();
         planResponse.setPlan(plan);
         if (plan != null) {
@@ -208,10 +208,10 @@ public class SoapeService {
         planResponse.setPlan(plan);
 
         try {
-            //Database.addPlan(plan);
+            Database.addPlan(plan);
             planResponse.setStatusId(0);
             planResponse.setStatusMessage("Plan inserted");
-        } catch (/*SQL*/Exception e) {
+        } catch (SQLException e) {
             e.printStackTrace();
             planResponse.setStatusId(1);
             planResponse.setStatusMessage("Plan not inserted. Error: " + e.getMessage());

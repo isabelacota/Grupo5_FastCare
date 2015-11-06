@@ -120,97 +120,100 @@ public class Database {
 
     }
 
+
     public static void addAppointment(Appointment a) throws SQLException {
-	String sql = "INSERT INTO APPOINTMENT(ID,PATIENTID,RUNNING,CREATEDAT) VALUES (" +
-	    A.getAppointmentId() + "','" + a.getPatientId() +
-	    "'," + a.getRunning() + ",'" + a.getCreatedAt +";";
-        System.out.println("Query for insertion: " + sql);
-	insertAudit("Medico","Inserted appointment");
-	Statement statement = c.createStatement();
-	statement.executeUpdate(sql);
+        String sql = "INSERT INTO APPOINTMENT(ID,PATIENTID,RUNNING,CREATEDAT) VALUES (" +
+            a.getAppointmentId() + "','" + a.getPatientId() +
+            "'," + a.getRunning() + ",'" + a.getCreatedAt() +";";
+            System.out.println("Query for insertion: " + sql);
+        insertAudit("Medico","Inserted appointment");
+        Statement statement = c.createStatement();
+        statement.executeUpdate(sql);
     }
 
     public static Appointment getAppointmentById(Long id) {
-	Appointment appointment = null;
-	try {
-	    String sql = "SELECT * FROM APPOINTMENT WHERE ID = " + id;
-	    Statement stmt = c.createStatement();
+        Appointment appointment = null;
+        try {
+            String sql = "SELECT * FROM APPOINTMENT WHERE ID = " + id;
+            Statement stmt = c.createStatement();
 
-	    ResultSet rs = stmt.executeQuery(sql);
-	    rs.next();
-	    appointment.setAppointmentId(rs.getString("id"));
-	    appointment.setPatientId(rs.getString("patientid"));
-	    appointment.setRunning(rs.getString("running"));
-	    appointment.setCreatedAt(rs.getString("createdat"));
-	    //...
-	    rs.close();
-	} catch(Exception e) {
-	    e.printStackTrace();
-	} finally {
-	    try {
-		//c.commit();
-		//c.close();
-	    } catch (Exception e) {
-		e.printStackTrace();
-	    }
-	}
-	return appointment;
+            ResultSet rs = stmt.executeQuery(sql);
+            if(rs.next()) {
+                appointment.setAppointmentId(rs.getLong("id"));
+                appointment.setPatientId(rs.getLong("patientid"));
+                appointment.setRunning(rs.getInt("running") == 1);
+                appointment.setCreatedAt(rs.getLong("createdat"));
+            }
+            //...
+            rs.close();
+        } catch(Exception e) {
+            e.printStackTrace();
+        } finally {
+            try {
+            //c.commit();
+            //c.close();
+            } catch (Exception e) {
+            e.printStackTrace();
+            }
+        }
+        return appointment;
     }
     public static Appointment getRunningAppointmentByPatientId(Long id) {
-	try {
-	    String sql = "SELECT * FROM APPOINTMENT WHERE PATIENTID = " + id + " AND RUNNING = 1";
-	    Statement stmt = c.createStatement();
+        Appointment appointment = null;
+        try {
+            String sql = "SELECT * FROM APPOINTMENT WHERE PATIENTID = " + id + " AND RUNNING = 1";
+            Statement stmt = c.createStatement();
 
-	    ResultSet rs = stmt.executeQuery(sql);
-	    rs.next();
-	    Appointment appointment = new Appointment;
-	    appointment.setAppointmentId(rs.getString("id"));
-	    appointment.setPatientId(rs.getString("patientid"));
-	    appointment.setRunning(rs.getString("running"));
-	    appointment.setCreatedAt(rs.getString("createdat"));
-	    Appointments.append(appointment);
-	    //...
-	    rs.close();
-	} catch(Exception e) {
-	    e.printStackTrace();
-	} finally {
-	    try {
-		//c.commit();
-		//c.close();
-	    } catch (Exception e) {
-		e.printStackTrace();
-	    }
-	}
-	return appointment;
+            ResultSet rs = stmt.executeQuery(sql);
+            if (rs.next()) {
+                appointment = new Appointment();
+                appointment.setAppointmentId(rs.getLong("id"));
+                appointment.setPatientId(rs.getLong("patientid"));
+                appointment.setRunning(rs.getInt("running") == 1);
+                appointment.setCreatedAt(rs.getLong("createdat"));
+            }
+            //...
+            rs.close();
+        } catch(Exception e) {
+            e.printStackTrace();
+        } finally {
+            try {
+            //c.commit();
+            //c.close();
+            } catch (Exception e) {
+            e.printStackTrace();
+            }
+        }
+        return appointment;
     }
-    
-    
-    public static Subjective getSubjectiveById(Long id) {
-	Subjective subjective = null;
-	try {
-	    String sql = "SELECT * FROM SUBJECTIVE WHERE ID = " + id;
-	    Statement stmt = c.createStatement();
 
-	    ResultSet rs = stmt.executeQuery(sql);
-	    rs.next();
-	    subjective = readFromJson(rs.getString("patientdata"),Subjective.class);
-	    subjective.setMainComplaint(rs.getString("maincomplaint"));
-	    subjective.setStory(rs.getString("story"));
-	    subjective.setLastUpdatedAt(rs.getString("lastupdate"));
-	    //...
-	    rs.close();
-	} catch(Exception e) {
-	    e.printStackTrace();
-	} finally {
-	    try {
-		//c.commit();
-		//c.close();
-	    } catch (Exception e) {
-		e.printStackTrace();
-	    }
-	}
-	return subjective;
-     }
+    public static Subjective getSubjectiveById(Long id) {
+	    Subjective subjective = null;
+        try {
+            String sql = "SELECT * FROM SUBJECTIVE WHERE ID = " + id;
+            Statement stmt = c.createStatement();
+
+            ResultSet rs = stmt.executeQuery(sql);
+            if (rs.next()) {
+                subjective = readFromJson(rs.getString("patientdata"), Subjective.class);
+                subjective.setMainComplaint(rs.getString("maincomplaint"));
+                subjective.setStory(rs.getString("story"));
+                subjective.setLastUpdatedAt(rs.getString("lastupdate"));
+            }
+            //...
+            rs.close();
+        } catch(Exception e) {
+            e.printStackTrace();
+        } finally {
+            try {
+            //c.commit();
+            //c.close();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        return subjective;
+    }
 
     public static void addSubjective(Subjective s) throws SQLException {
 	String sql = "INSERT INTO SUBJECTIVE(MAINCOMPLAINT,STORY,PATIENTDATA,LASTUPDATE) VALUES (" +
@@ -229,9 +232,10 @@ public class Database {
 	    Statement stmt = c.createStatement();
 
 	    ResultSet rs = stmt.executeQuery(sql);
-	    rs.next();
-	    objective = readFromJson(rs.getString("patientdata"),Objective.class);
-	    objective.setLastUpdatedAt(rs.getString("lastupdate"));
+	    if (rs.next()) {
+            objective = readFromJson(rs.getString("patientdata"), Objective.class);
+            objective.setLastUpdatedAt(rs.getString("lastupdate"));
+        }
 	    //...
 	    rs.close();
 	} catch(Exception e) {
@@ -241,7 +245,7 @@ public class Database {
 		//c.commit();
 		//c.close();
 	    } catch (Exception e) {
-		e.printStackTrace();
+	    	e.printStackTrace();
 	    }
 	}
 	return objective;
@@ -263,8 +267,9 @@ public class Database {
     	    Statement stmt = c.createStatement();
 
     	    ResultSet rs = stmt.executeQuery(sql);
-    	    rs.next();
-    	    d = readFromJson(rs.getString("DATA"),Diagnosis.class);
+    	    if (rs.next()) {
+                d = readFromJson(rs.getString("DATA"), Diagnosis.class);
+            }
     	    //...
     	    rs.close();
 	} catch(Exception e) {
@@ -288,8 +293,9 @@ public class Database {
     	    Statement stmt = c.createStatement();
 
     	    ResultSet rs = stmt.executeQuery(sql);
-    	    rs.next();
-    	    p = readFromJson(rs.getString("DATA"),Plan.class);
+    	    if (rs.next()) {
+                p = readFromJson(rs.getString("DATA"), Plan.class);
+            }
     	    //...
     	    rs.close();
 	} catch(Exception e) {
@@ -314,8 +320,9 @@ public class Database {
     	    Statement stmt = c.createStatement();
 
     	    ResultSet rs = stmt.executeQuery(sql);
-    	    rs.next();
-    	    e = readFromJson(rs.getString("DATA"),Evolution.class);
+    	    if (rs.next()) {
+                e = readFromJson(rs.getString("DATA"), Evolution.class);
+            }
     	    //...
     	    rs.close();
         } catch(Exception e2) {
@@ -340,14 +347,15 @@ public class Database {
             Statement stmt = c.createStatement();
 
             ResultSet rs = stmt.executeQuery(sql);
-            rs.next();
-            patient.setId(rs.getLong("id"));
-            patient.setName(rs.getString("name"));
-            patient.setCpf(rs.getString("cpf"));
-            patient.setGender(rs.getString("gender"));
-            patient.setBirthDate(rs.getLong("birthdate"));
-            patient.setPhone(rs.getString("phone"));
-            patient.setHealthPlan(rs.getString("healthplan"));
+            if (rs.next()) {
+                patient.setId(rs.getLong("id"));
+                patient.setName(rs.getString("name"));
+                patient.setCpf(rs.getString("cpf"));
+                patient.setGender(rs.getString("gender"));
+                patient.setBirthDate(rs.getLong("birthdate"));
+                patient.setPhone(rs.getString("phone"));
+                patient.setHealthPlan(rs.getString("healthplan"));
+            }
             //...
             rs.close();
         } catch(Exception e) {
