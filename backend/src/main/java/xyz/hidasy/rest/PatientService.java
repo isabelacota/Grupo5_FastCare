@@ -4,6 +4,7 @@ import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import java.sql.SQLException;
+import java.util.Date;
 import java.util.List;
 import java.util.Calendar;
 
@@ -92,5 +93,49 @@ public class PatientService {
         }
 
         return multiplePatientsResponse;
+    }
+
+    @POST
+    @Path("patient/{id}/create_appointment")
+    @Produces(MediaType.APPLICATION_JSON)
+    public AppointmentResponse createAppointment(@PathParam("id") Long patientId) {
+        Appointment appointment = new Appointment();
+        appointment.setAppointmentId(System.currentTimeMillis() / 10000);
+        appointment.setPatientId(patientId);
+        appointment.setRunning(false);
+        appointment.setCreatedAt(System.currentTimeMillis());
+
+        AppointmentResponse appointmentResponse = new AppointmentResponse();
+        appointmentResponse.setAppointment(appointment);
+
+        try {
+            // Database.createAppointment
+            appointmentResponse.setStatusId(0);
+            appointmentResponse.setStatusMessage("Appointed created");
+        } catch (/*SQL*/Exception e) {
+            appointmentResponse.setStatusId(0);
+            appointmentResponse.setStatusMessage("Appointed not created. Error: " + e.getMessage());
+        }
+
+        return appointmentResponse;
+    }
+
+    @GET
+    @Path("patient/{id}/appointments")
+    @Produces(MediaType.APPLICATION_JSON)
+    public MultipleAppointmentsResponse retrieveAppointments(@PathParam("id") Long patientId) {
+        List<Appointment> appointments = null; // Database.getAppointments
+
+        MultipleAppointmentsResponse multipleAppointmentsResponse = new MultipleAppointmentsResponse();
+        multipleAppointmentsResponse.setAppointments(appointments);
+        if (appointments != null) {
+            multipleAppointmentsResponse.setStatusId(0);
+            multipleAppointmentsResponse.setStatusMessage("Appointments filtered");
+        } else {
+            multipleAppointmentsResponse.setStatusId(0);
+            multipleAppointmentsResponse.setStatusMessage("Appointments NOT filtered");
+        }
+
+        return multipleAppointmentsResponse;
     }
 }
