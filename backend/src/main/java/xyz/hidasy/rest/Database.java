@@ -57,9 +57,37 @@ public class Database {
             ee.printStackTrace();
         }
 	try {
+            String sql = "CREATE TABLE DIAGNOSIS         " +
+		"(ID              BIGINT PRIMARY KEY NOT NULL," +
+		" DATA       TEXT)";
+            Statement stmt = c.createStatement();
+            stmt.executeUpdate(sql);
+	} catch(Exception ee) {
+            ee.printStackTrace();
+        }
+	try {
+            String sql = "CREATE TABLE PLAN         " +
+		"(ID              BIGINT PRIMARY KEY NOT NULL," +
+		" DATA         TEXT)";
+            Statement stmt = c.createStatement();
+            stmt.executeUpdate(sql);
+	} catch(Exception ee) {
+            ee.printStackTrace();
+        }
+	try {
+            String sql = "CREATE TABLE EVOLUTION         " +
+		"(ID              BIGINT PRIMARY KEY NOT NULL," +
+		" DATA       TEXT)";
+            Statement stmt = c.createStatement();
+            stmt.executeUpdate(sql);
+	} catch(Exception ee) {
+            ee.printStackTrace();
+        }
+
+	try {
 	    String sql;
 	    Statement stmt = c.createStatement();
-            
+
 	    sql = "CREATE TABLE AUDIT " +
 		"(ID    INTEGER PRIMARY KEY," +
 		"USER   TEXT    NOT NULL," +
@@ -81,40 +109,7 @@ public class Database {
 
     }
 
-    public static Objective getObjectiveById(Long id) {
-	Objective objective = null;
-	try {
-	    String sql = "SELECT * FROM OBJECTIVE WHERE ID = " + id;
-	    Statement stmt = c.createStatement();
-
-	    ResultSet rs = stmt.executeQuery(sql);
-	    rs.next();
-	    objective = readFromJson(rs.getString("patientdata"),Objective.class);
-	    objective.setLastUpdatedAt(rs.getString("lastupdate"));
-	    //...
-	    rs.close();
-	} catch(Exception e) {
-	    e.printStackTrace();
-	} finally {
-	    try {
-		//c.commit();
-		//c.close();
-	    } catch (Exception e) {
-		e.printStackTrace();
-	    }
-	}
-	return objective;
-    }
-    public static void addObjective(Objective o) throws SQLException {
-	String sql = "INSERT INTO OBJECTIVE(ID,PATIENTDATA,LASTUPDATE) VALUES (" +
-	    writeToJson(o) + ",'" + o.getLastUpdatedAt() +";";
-        System.out.println("Query for insertion: " + sql);
-	insertAudit("Medico","Inserted subjective appointment");
-	Statement statement = c.createStatement();
-	statement.executeUpdate(sql);
-    }
-    
-    public static Subjective getSubjectiveById(Long id) {
+        public static Subjective getSubjectiveById(Long id) {
 	Subjective subjective = null;
 	try {
 	    String sql = "SELECT * FROM SUBJECTIVE WHERE ID = " + id;
@@ -150,7 +145,118 @@ public class Database {
 	Statement statement = c.createStatement();
 	statement.executeUpdate(sql);
     }
-    
+
+    public static Objective getObjectiveById(Long id) {
+	Objective objective = null;
+	try {
+	    String sql = "SELECT * FROM OBJECTIVE WHERE ID = " + id;
+	    Statement stmt = c.createStatement();
+
+	    ResultSet rs = stmt.executeQuery(sql);
+	    rs.next();
+	    objective = readFromJson(rs.getString("patientdata"),Objective.class);
+	    objective.setLastUpdatedAt(rs.getString("lastupdate"));
+	    //...
+	    rs.close();
+	} catch(Exception e) {
+	    e.printStackTrace();
+	} finally {
+	    try {
+		//c.commit();
+		//c.close();
+	    } catch (Exception e) {
+		e.printStackTrace();
+	    }
+	}
+	return objective;
+    }
+    public static void addObjective(Objective o) throws SQLException {
+	String sql = "INSERT INTO OBJECTIVE(ID,PATIENTDATA,LASTUPDATE) VALUES (" +
+	    writeToJson(o) + ",'" + o.getLastUpdatedAt() +";";
+        System.out.println("Query for insertion: " + sql);
+	insertAudit("Medico","Inserted subjective appointment");
+	Statement statement = c.createStatement();
+	statement.executeUpdate(sql);
+    }
+
+
+    public static Diagnosis getDiagnosisById(Long id) {
+    	Diagnosis d = null;
+    	try {
+    	    String sql = "SELECT * FROM DIAGNOSIS WHERE ID = " + id;
+    	    Statement stmt = c.createStatement();
+
+    	    ResultSet rs = stmt.executeQuery(sql);
+    	    rs.next();
+    	    d = readFromJson(rs.getString("DATA"),Diagnosis.class);
+    	    //...
+    	    rs.close();
+	} catch(Exception e) {
+    	    e.printStackTrace();
+    	}
+    	return d;
+    }
+
+    public static void addDiagnosis(Diagnosis d) throws SQLException {
+    	String sql = "INSERT INTO DIAGNOSIS(PATIENTDATA) VALUES (" +
+	    writeToJson(d) +";";
+        System.out.println("Query for insertion: " + sql);
+    	insertAudit("Medico","Inserted diagnosis appointment");
+    	Statement statement = c.createStatement();
+    	statement.executeUpdate(sql);
+    }
+    public static Plan getPlanById(Long id) {
+    	Plan p = null;
+    	try {
+    	    String sql = "SELECT * FROM DIAGNOSIS WHERE ID = " + id;
+    	    Statement stmt = c.createStatement();
+
+    	    ResultSet rs = stmt.executeQuery(sql);
+    	    rs.next();
+    	    d = readFromJson(rs.getString("DATA"),Plan.class);
+    	    //...
+    	    rs.close();
+	} catch(Exception e) {
+    	    e.printStackTrace();
+    	}
+    	return p;
+    }
+
+    public static void addPlan(Plan p) throws SQLException {
+    	String sql = "INSERT INTO PLAN(PATIENTDATA) VALUES (" +
+	    writeToJson(p) +";";
+        System.out.println("Query for insertion: " + sql);
+    	insertAudit("Medico","Inserted plan appointment");
+    	Statement statement = c.createStatement();
+    	statement.executeUpdate(sql);
+    }
+
+    public static Evolution getEvolutionById(Long id) {
+    	Evolution e = null;
+    	try {
+    	    String sql = "SELECT * FROM EVOLUTION WHERE ID = " + id;
+    	    Statement stmt = c.createStatement();
+
+    	    ResultSet rs = stmt.executeQuery(sql);
+    	    rs.next();
+    	    e = readFromJson(rs.getString("DATA"),Evolution.class);
+    	    //...
+    	    rs.close();
+	} catch(Exception e) {
+    	    e.printStackTrace();
+    	}
+    	return e;
+    }
+
+    public static void addEvolution(Evolution e) throws SQLException {
+    	String sql = "INSERT INTO EVOLUTION(PATIENTDATA) VALUES (" +
+	    writeToJson(e) +";";
+        System.out.println("Query for insertion: " + sql);
+    	insertAudit("Medico","Inserted evolution appointment");
+    	Statement statement = c.createStatement();
+    	statement.executeUpdate(sql);
+    }
+
     public static Patient getPatientById(Long id) {
         Patient patient = new Patient();
         try {
@@ -192,10 +298,10 @@ public class Database {
 	    System.out.println(e.toString());
 	}
     }
-    
+
     public static List<Audit> getAuditLog() {
         String sql = "SELECT * FROM AUDIT";
-	
+
         System.out.println("Query for select: " + sql);
 
         try {
@@ -212,7 +318,7 @@ public class Database {
                 audit.setDate(rs.getString("date"));
                 Audits.add(audit);
             }
-	    
+
             return Audits;
         } catch (SQLException e) {
             e.printStackTrace();
@@ -222,7 +328,7 @@ public class Database {
 
     }
 
-    
+
     public static void insertPatient(Patient patient) throws SQLException {
         String sql = "INSERT INTO PATIENT(ID, NAME, CPF, BIRTHDATE, GENDER, PHONE, HEALTHPLAN, CREATED) VALUES (" +
 	    patient.getId() + ",'" + patient.getName() + "','" + patient.getCpf() + "'," +
