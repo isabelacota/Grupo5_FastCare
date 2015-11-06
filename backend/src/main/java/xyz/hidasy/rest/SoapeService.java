@@ -52,48 +52,171 @@ public class SoapeService {
         return subjectiveResponse;
     }
 
-    /*@GET
-    @Path("patient/{patientId}/appointment/{appointmentId}/objective")
+    @GET
+    @Path("{appointmentId}/objective")
     @Produces(MediaType.APPLICATION_JSON)
-    public SubjectiveResponse getObjective(@PathParam("patientId") Long patientId,
-                                            @PathParam("appointmentId") Long appointmentId) {
+    public ObjectiveResponse getObjective(@PathParam("appointmentId") Long appointmentId) {
         Objective objective = Database.getObjectiveById(appointmentId);
-        ObjectiveResponse subjectiveResponse = new SubjectiveResponse();
-        subjectiveResponse.setSubjective(objective);
+        ObjectiveResponse objectiveResponse = new ObjectiveResponse();
+        objectiveResponse.setObjective(objective);
         if (objective != null) {
-            subjectiveResponse.setStatusId(0);
-            subjectiveResponse.setStatusMessage("Subjective found");
+            objectiveResponse.setStatusId(0);
+            objectiveResponse.setStatusMessage("Objective found");
         } else {
-            subjectiveResponse.setStatusId(1);
-            subjectiveResponse.setStatusMessage("Subjective not found");
+            objectiveResponse.setStatusId(1);
+            objectiveResponse.setStatusMessage("Objective not found");
         }
 
-        return subjectiveResponse;
+        return objectiveResponse;
     }
 
     @POST
-    @Path("patient/{patientId}/appointment/{appointmentId}/subjective")
+    @Path("{appointmentId}/objective")
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public SubjectiveResponse addSubjective(@PathParam("patientId") Long patientId,
-                                            @PathParam("appointmentId") Long appointmentId,
-                                            Subjective subjective) throws SQLException {
-        subjective.setAppointmentId(appointmentId);
+    public ObjectiveResponse addObjective(@PathParam("appointmentId") Long appointmentId,
+                                            Objective objective) throws SQLException {
+        objective.setAppointmentId(appointmentId);
 
-        SubjectiveResponse subjectiveResponse = new SubjectiveResponse();
-        subjectiveResponse.setSubjective(subjective);
+        ObjectiveResponse objectiveResponse = new ObjectiveResponse();
+        objectiveResponse.setObjective(objective);
 
         try {
-            Database.addSubjective(subjective);
-            subjectiveResponse.setStatusId(0);
-            subjectiveResponse.setStatusMessage("Subjective inserted");
+            Database.addObjective(objective);
+            objectiveResponse.setStatusId(0);
+            objectiveResponse.setStatusMessage("Objective inserted");
         } catch (SQLException e) {
             e.printStackTrace();
-            subjectiveResponse.setStatusId(1);
-            subjectiveResponse.setStatusMessage("Subjective not inserted. Error: " + e.getMessage());
+            objectiveResponse.setStatusId(1);
+            objectiveResponse.setStatusMessage("Objective not inserted. Error: " + e.getMessage());
         }
 
-        return subjectiveResponse;
-    }*/
+        return objectiveResponse;
+    }
 
+    @GET
+    @Path("{appointmentId}/diagnosis")
+    @Produces(MediaType.APPLICATION_JSON)
+    public DiagnosisResponse getDiagnosis(@PathParam("appointmentId") Long appointmentId) {
+        Diagnosis diagnosis = null;//Database.getDiagnosisById(appointmentId);
+        DiagnosisResponse diagnosisResponse = new DiagnosisResponse();
+        diagnosisResponse.setDiagnosis(diagnosis);
+        if (diagnosis != null) {
+            diagnosisResponse.setStatusId(0);
+            diagnosisResponse.setStatusMessage("Diagnosis found");
+        } else {
+            diagnosisResponse.setStatusId(1);
+            diagnosisResponse.setStatusMessage("Diagnosis not found");
+        }
+
+        return diagnosisResponse;
+    }
+
+    @POST
+    @Path("{appointmentId}/diagnosis")
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
+    public DiagnosisResponse addDiagnosis(@PathParam("appointmentId") Long appointmentId,
+                                          Diagnosis diagnosis) throws SQLException {
+        diagnosis.setAppointmentId(appointmentId);
+
+        DiagnosisResponse diagnosisResponse = new DiagnosisResponse();
+        diagnosisResponse.setDiagnosis(diagnosis);
+
+        try {
+            //Database.addDiagnosis(diagnosis);
+            diagnosisResponse.setStatusId(0);
+            diagnosisResponse.setStatusMessage("Diagnosis inserted");
+        } catch (/*SQL*/Exception e) {
+            e.printStackTrace();
+            diagnosisResponse.setStatusId(1);
+            diagnosisResponse.setStatusMessage("Diagnosis not inserted. Error: " + e.getMessage());
+        }
+
+        return diagnosisResponse;
+    }
+
+    @GET
+    @Path("{appointmentId}/evolution")
+    @Produces(MediaType.APPLICATION_JSON)
+    public EvolutionResponse getEvolution(@PathParam("appointmentId") Long appointmentId) {
+        Evolution evolution = null;//Database.getEvolutionById(appointmentId);
+        EvolutionResponse evolutionResponse = new EvolutionResponse();
+        evolutionResponse.setEvolution(evolution);
+        if (evolution != null) {
+            evolutionResponse.setStatusId(0);
+            evolutionResponse.setStatusMessage("Evolution found");
+        } else {
+            evolutionResponse.setStatusId(1);
+            evolutionResponse.setStatusMessage("Evolution not found");
+        }
+
+        return evolutionResponse;
+    }
+
+    @POST
+    @Path("{appointmentId}/evolution")
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
+    public EvolutionResponse addEvolution(@PathParam("appointmentId") Long appointmentId,
+                                          Evolution evolution) throws SQLException {
+        evolution.setAppointmentId(appointmentId);
+
+        EvolutionResponse evolutionResponse = new EvolutionResponse();
+        evolutionResponse.setEvolution(evolution);
+
+        try {
+            //Database.addEvolution(evolution);
+            evolutionResponse.setStatusId(0);
+            evolutionResponse.setStatusMessage("Evolution inserted");
+        } catch (/*SQL*/Exception e) {
+            e.printStackTrace();
+            evolutionResponse.setStatusId(1);
+            evolutionResponse.setStatusMessage("Evolution not inserted. Error: " + e.getMessage());
+        }
+
+        return evolutionResponse;
+    }
+
+    @GET
+    @Path("{appointmentId}/plan")
+    @Produces(MediaType.APPLICATION_JSON)
+    public PlanResponse getPlan(@PathParam("appointmentId") Long appointmentId) {
+        Plan plan = null;//Database.getPlanById(appointmentId);
+        PlanResponse planResponse = new PlanResponse();
+        planResponse.setPlan(plan);
+        if (plan != null) {
+            planResponse.setStatusId(0);
+            planResponse.setStatusMessage("Plan found");
+        } else {
+            planResponse.setStatusId(1);
+            planResponse.setStatusMessage("Plan not found");
+        }
+
+        return planResponse;
+    }
+
+    @POST
+    @Path("{appointmentId}/plan")
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
+    public PlanResponse addPlan(@PathParam("appointmentId") Long appointmentId,
+                                          Plan plan) throws SQLException {
+        plan.setAppointmentId(appointmentId);
+
+        PlanResponse planResponse = new PlanResponse();
+        planResponse.setPlan(plan);
+
+        try {
+            //Database.addPlan(plan);
+            planResponse.setStatusId(0);
+            planResponse.setStatusMessage("Plan inserted");
+        } catch (/*SQL*/Exception e) {
+            e.printStackTrace();
+            planResponse.setStatusId(1);
+            planResponse.setStatusMessage("Plan not inserted. Error: " + e.getMessage());
+        }
+
+        return planResponse;
+    }
 }
