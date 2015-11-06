@@ -83,6 +83,17 @@ public class Database {
 	} catch(Exception ee) {
             ee.printStackTrace();
         }
+	try {
+            String sql = "CREATE TABLE APPOINTMENT      " +
+		"(ID              BIGINT PRIMARY KEY NOT NULL," +
+		" PATIENTID       BIGINT," +
+		" RUNNING         INT," +
+		" CREATEDAT         TEXT)";
+            Statement stmt = c.createStatement();
+            stmt.executeUpdate(sql);
+	} catch(Exception ee) {
+            ee.printStackTrace();
+        }
 
 	try {
 	    String sql;
@@ -109,7 +120,72 @@ public class Database {
 
     }
 
-        public static Subjective getSubjectiveById(Long id) {
+    public static void addAppointment(Appointment a) throws SQLException {
+	String sql = "INSERT INTO APPOINTMENT(ID,PATIENTID,RUNNING,CREATEDAT) VALUES (" +
+	    A.getAppointmentId() + "','" + a.getPatientId() +
+	    "'," + a.getRunning() + ",'" + a.getCreatedAt +";";
+        System.out.println("Query for insertion: " + sql);
+	insertAudit("Medico","Inserted appointment");
+	Statement statement = c.createStatement();
+	statement.executeUpdate(sql);
+    }
+
+    public static Appointment getAppointmentById(Long id) {
+	Appointment appointment = null;
+	try {
+	    String sql = "SELECT * FROM APPOINTMENT WHERE ID = " + id;
+	    Statement stmt = c.createStatement();
+
+	    ResultSet rs = stmt.executeQuery(sql);
+	    rs.next();
+	    appointment.setAppointmentId(rs.getString("id"));
+	    appointment.setPatientId(rs.getString("patientid"));
+	    appointment.setRunning(rs.getString("running"));
+	    appointment.setCreatedAt(rs.getString("createdat"));
+	    //...
+	    rs.close();
+	} catch(Exception e) {
+	    e.printStackTrace();
+	} finally {
+	    try {
+		//c.commit();
+		//c.close();
+	    } catch (Exception e) {
+		e.printStackTrace();
+	    }
+	}
+	return appointment;
+    }
+    public static Appointment getRunningAppointmentByPatientId(Long id) {
+	try {
+	    String sql = "SELECT * FROM APPOINTMENT WHERE PATIENTID = " + id + " AND RUNNING = 1";
+	    Statement stmt = c.createStatement();
+
+	    ResultSet rs = stmt.executeQuery(sql);
+	    rs.next();
+	    Appointment appointment = new Appointment;
+	    appointment.setAppointmentId(rs.getString("id"));
+	    appointment.setPatientId(rs.getString("patientid"));
+	    appointment.setRunning(rs.getString("running"));
+	    appointment.setCreatedAt(rs.getString("createdat"));
+	    Appointments.append(appointment);
+	    //...
+	    rs.close();
+	} catch(Exception e) {
+	    e.printStackTrace();
+	} finally {
+	    try {
+		//c.commit();
+		//c.close();
+	    } catch (Exception e) {
+		e.printStackTrace();
+	    }
+	}
+	return appointment;
+    }
+    
+    
+    public static Subjective getSubjectiveById(Long id) {
 	Subjective subjective = null;
 	try {
 	    String sql = "SELECT * FROM SUBJECTIVE WHERE ID = " + id;
@@ -134,7 +210,7 @@ public class Database {
 	    }
 	}
 	return subjective;
-    }
+     }
 
     public static void addSubjective(Subjective s) throws SQLException {
 	String sql = "INSERT INTO SUBJECTIVE(MAINCOMPLAINT,STORY,PATIENTDATA,LASTUPDATE) VALUES (" +
@@ -328,7 +404,7 @@ public class Database {
 
     }
 
-
+    
     public static void insertPatient(Patient patient) throws SQLException {
         String sql = "INSERT INTO PATIENT(ID, NAME, CPF, BIRTHDATE, GENDER, PHONE, HEALTHPLAN, CREATED) VALUES (" +
 	    patient.getId() + ",'" + patient.getName() + "','" + patient.getCpf() + "'," +
