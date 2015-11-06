@@ -284,12 +284,12 @@ public class Database {
     public static Plan getPlanById(Long id) {
     	Plan p = null;
     	try {
-    	    String sql = "SELECT * FROM DIAGNOSIS WHERE ID = " + id;
+    	    String sql = "SELECT * FROM PLAN WHERE ID = " + id;
     	    Statement stmt = c.createStatement();
 
     	    ResultSet rs = stmt.executeQuery(sql);
     	    rs.next();
-    	    d = readFromJson(rs.getString("DATA"),Plan.class);
+    	    p = readFromJson(rs.getString("DATA"),Plan.class);
     	    //...
     	    rs.close();
 	} catch(Exception e) {
@@ -318,9 +318,9 @@ public class Database {
     	    e = readFromJson(rs.getString("DATA"),Evolution.class);
     	    //...
     	    rs.close();
-	} catch(Exception e) {
-    	    e.printStackTrace();
-    	}
+        } catch(Exception e2) {
+                e2.printStackTrace();
+        }
     	return e;
     }
 
