@@ -5,6 +5,7 @@ import grupo5.pages.PatientPage;
 import grupo5.pages.VisitPage;
 import grupo5.pages.RegistrationPage;
 import grupo5.pages.SearchPatientPage;
+import grupo5.pages.SubjectiveDataPage;
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.pages.Pages;
 import net.thucydides.core.steps.ScenarioSteps;
@@ -20,6 +21,7 @@ public class EndUserSteps extends ScenarioSteps {
 	VisitPage visitPage;
 	RegistrationPage registrationPage;
 	SearchPatientPage search_patientPage;
+	SubjectiveDataPage subjectiveDataPage;
 	
 	//// OPEN PAGES STEPS /////////////////////////////////////////////////////////////////
 	
@@ -47,6 +49,11 @@ public class EndUserSteps extends ScenarioSteps {
     public void is_the_visit_page() {
     	visitPage.open();
     }
+    
+    @Step
+    public void is_the_subjective_data_page() {
+    	subjectiveDataPage.open();
+    }
       
     @Step
     public void click_inserir_dados_subjetivos() {
@@ -60,40 +67,40 @@ public class EndUserSteps extends ScenarioSteps {
     //// DADOS SUBJETIVOS //////
     @Step
     public void inserts_main_complaint(String str) {
-        visitPage.enter_main_complaint(str);
+        subjectiveDataPage.enter_main_complaint(str);
     }
     @Step
     public void inserts_history_illness(String str) {
-        visitPage.enter_illness(str);
+    	subjectiveDataPage.enter_illness(str);
     }
     @Step
     public void inserts_symptomatic(String str) {
-        visitPage.enter_symptomatic(str);
+    	subjectiveDataPage.enter_symptomatic(str);
     }
     @Step
     public void inserts_personal_family_history(String str) {
-        visitPage.enter_personal(str);
+    	subjectiveDataPage.enter_personal(str);
     }
     @Step
     public void inserts_lifestyle(String str) {
-        visitPage.enter_lifestyle(str);
+    	subjectiveDataPage.enter_lifestyle(str);
     }
     @Step
     public void inserts_orthotics(String str) {
-        visitPage.enter_orthotics(str);
+    	subjectiveDataPage.enter_orthotics(str);
     }
     @Step
     public void inserts_comments(String str) {
-        visitPage.enter_comments(str);
+    	subjectiveDataPage.enter_comments(str);
     }
     @Step
     public void confirm_subjetivos_submission() {
-        visitPage.confirm_submission();
+    	subjectiveDataPage.confirm_submission();
     }
     
     @Step
 	public void should_see_subjetivos_confirmation(String message) {
-		assertThat(visitPage.getMessage(), containsString(message));
+		assertThat(subjectiveDataPage.getSuccessMessage(), containsString(message));
 	}
     
     
@@ -244,6 +251,12 @@ public class EndUserSteps extends ScenarioSteps {
 	@Step
 	public void should_see_success_message_registration(String message) {
 		assertThat(registrationPage.getSuccessMessage(), containsString(message));
+		//assert(true);
+	}
+	
+	@Step
+	public void should_see_success_message_subjective_data(String message) {
+		assertThat(subjectiveDataPage.getSuccessMessage(), containsString(message));
 		//assert(true);
 	}
 	

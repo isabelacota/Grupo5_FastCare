@@ -51,6 +51,11 @@ public class DefinitionSteps {
         endUser.is_the_visit_page();;
     }
     
+    @Given("the user is on the subjective data page")
+    public void givenTheUserIsOnSubjectiveDataPage() {
+        endUser.is_the_subjective_data_page();;
+    }
+    
     //// GIVEN TYPES OF USERS STEPS ////////////////////////////////////////////////////////
        
     @Given("the user is receptionist")
@@ -263,6 +268,11 @@ public class DefinitionSteps {
     @Then("a success message '$message' should be sent to the user on registration page")
     public void thenASuccessMessageInsertedIsSentToTheUserOnRegistrationPage(String message) {
     	endUser.should_see_success_message_registration(message);
+    }
+    
+    @Then("a success message '$message' should be sent to the user on subjective data page")
+    public void thenASuccessMessageInsertedIsSentToTheUserOnSubjectiveDataPage(String message) {
+    	endUser.should_see_success_message_subjective_data(message);
     }
     
     @Then("a error message '$message' should be sent to the user on registration page")
