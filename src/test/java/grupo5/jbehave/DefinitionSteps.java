@@ -51,6 +51,11 @@ public class DefinitionSteps {
         endUser.is_the_visit_page();;
     }
     
+    @Given("the user is on the subjective data page")
+    public void givenTheUserIsOnSubjectiveDataPage() {
+        endUser.is_the_subjective_data_page();;
+    }
+    
     //// GIVEN TYPES OF USERS STEPS ////////////////////////////////////////////////////////
        
     @Given("the user is receptionist")
@@ -260,19 +265,26 @@ public class DefinitionSteps {
         //patient added to the database
     }
     
-    @Then("a message '$message' should be sent to the user on registration page")
-    public void thenAMessageInsertedIsSentToTheUserOnRegistrationPage(String message) {
-    	endUser.should_see_message_registration(message);
+    @Then("a success message '$message' should be sent to the user on registration page")
+    public void thenASuccessMessageInsertedIsSentToTheUserOnRegistrationPage(String message) {
+    	endUser.should_see_success_message_registration(message);
     }
     
-    @Then("a message '$message' should be sent to the user on search page")
-    public void thenAMessageInsertedIsSentToTheUserOnSearchPage(String message) {
-    	endUser.should_see_message_search(message);
+    @Then("a success message '$message' should be sent to the user on subjective data page")
+    public void thenASuccessMessageInsertedIsSentToTheUserOnSubjectiveDataPage(String message) {
+    	endUser.should_see_success_message_subjective_data(message);
     }
     
-   
-
+    @Then("a error message '$message' should be sent to the user on registration page")
+    public void thenAErrorMessageInsertedIsSentToTheUserOnRegistrationPage(String message) {
+    	endUser.should_see_error_message_registration(message);
+    }
     
+    @Then("a error message '$message' should be sent to the user on search page")
+    public void thenAErrorMessageInsertedIsSentToTheUserOnSearchPage(String message) {
+    	endUser.should_see_error_message_search(message);
+    }
+        
 //    @Then("the user sees a message saying that a patient with the same cpf already exists")
 //    public void thenAMessagePatientAlreadyExists() {
 //        endUser.should_see_a__message_patient_already_exists();

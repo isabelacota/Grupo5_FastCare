@@ -72,8 +72,13 @@ public class SearchPatientPage extends PageObject {
     	search_patient_button.click();
     }
     
-    public String getMessage() {
-        WebElement messageClass = find(By.name("Nome"));
+    public String getErrorMessage() {
+        WebElement messageClass = find(By.name("mensagemErro"));
+        return messageClass.getText();
+    }
+    
+    public String getSuccessMessage() {
+        WebElement messageClass = find(By.tagName("strong"));
         return messageClass.getText();
     }
     
