@@ -3,6 +3,7 @@ package grupo5.steps;
 import grupo5.pages.InitialPage;
 import grupo5.pages.PatientPage;
 import grupo5.pages.VisitPage;
+import grupo5.pages.ObjectiveDataPage;
 import grupo5.pages.RegistrationPage;
 import grupo5.pages.SearchPatientPage;
 import grupo5.pages.SubjectiveDataPage;
@@ -18,10 +19,12 @@ public class EndUserSteps extends ScenarioSteps {
 
 	InitialPage initialPage;
 	PatientPage patientPage;
-	VisitPage visitPage;
+	//VisitPage visitPage;
 	RegistrationPage registrationPage;
 	SearchPatientPage search_patientPage;
 	SubjectiveDataPage subjectiveDataPage;
+	ObjectiveDataPage objectiveDataPage;
+
 	
 	//// OPEN PAGES STEPS /////////////////////////////////////////////////////////////////
 	
@@ -45,24 +48,16 @@ public class EndUserSteps extends ScenarioSteps {
     	search_patientPage.open();
     }
     
-    @Step
-    public void is_the_visit_page() {
-    	visitPage.open();
-    }
     
     @Step
     public void is_the_subjective_data_page() {
     	subjectiveDataPage.open();
     }
+    @Step
+    public void is_the_objective_data_page() {
+    	objectiveDataPage.open();
+    }
       
-    @Step
-    public void click_inserir_dados_subjetivos() {
-    	visitPage.inserir_dados_subjetivos();;
-    }
-    @Step
-    public void click_inserir_dados_objetivos() {
-    	visitPage.inserir_dados_objetivos();
-    }
     
     //// DADOS SUBJETIVOS //////
     @Step
@@ -100,6 +95,62 @@ public class EndUserSteps extends ScenarioSteps {
     
     @Step
 	public void should_see_subjetivos_confirmation(String message) {
+		assertThat(subjectiveDataPage.getSuccessMessage(), containsString(message));
+	}
+    
+////DADOS OBJETIVOS //////
+   @Step
+   public void inserts_height(String str) {
+       objectiveDataPage.enter_height(str);
+   }
+   @Step
+   public void inserts_weight(String str) {
+   	objectiveDataPage.enter_weight(str);
+   }
+   @Step
+   public void inserts_temperature(String str) {
+   	objectiveDataPage.enter_temperature(str);
+   }
+   @Step
+   public void inserts_blood_pressure(String str) {
+   	objectiveDataPage.enter_blood_pressure(str);
+   }
+   @Step
+   public void inserts_heart_rate(String str) {
+   	objectiveDataPage.enter_heart_rate(str);
+   }
+   @Step
+   public void inserts_respiratory_rate(String str) {
+   	objectiveDataPage.enter_respiratory_rate(str);
+   }
+   @Step
+   public void inserts_oxygen_saturation(String str) {
+   	objectiveDataPage.enter_oxygen(str);
+   }
+   @Step
+   public void inserts_gas_carbon_saturation(String str) {
+   	subjectiveDataPage.enter_comments(str);
+   }
+   @Step
+   public void inserts_blood_glucose(String str) {
+	objectiveDataPage.enter_glucose(str);
+   }
+   @Step
+   public void inserts_objective_comments(String str) {
+   	objectiveDataPage.enter_comments(str);
+   }
+  
+   @Step
+   public void confirm_objective_submission() {
+   	objectiveDataPage.confirm_submission();
+   }
+   @Step
+   public void reset_objective_submission() {
+   	objectiveDataPage.reset();
+   }
+   
+   @Step
+	public void should_see_objetivos_confirmation(String message) {
 		assertThat(subjectiveDataPage.getSuccessMessage(), containsString(message));
 	}
     

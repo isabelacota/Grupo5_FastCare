@@ -46,10 +46,7 @@ public class DefinitionSteps {
         endUser.is_the_search_page();;
     }
     
-    @Given("the user is on the visit page")
-    public void givenTheUserIsOnVisitPage() {
-        endUser.is_the_visit_page();;
-    }
+    
     
     @Given("the user is on the subjective data page")
     public void givenTheUserIsOnSubjectiveDataPage() {
@@ -82,10 +79,7 @@ public class DefinitionSteps {
     }
     
     ////SUBJETIVOS STEPS ////////////////////////////////////////////////////////
-    @When("the user clicks on 'Inserir dados subjetivos'")
-    public void whenTheUserClicksOnInserirDadosSubjetivos() {
-        endUser.click_inserir_dados_subjetivos();
-    }
+    
     
     
     @When("the user insert the main complaint '$str'")
@@ -122,14 +116,61 @@ public class DefinitionSteps {
         endUser.confirm_subjetivos_submission();
     }
     @Then("a message '$str' should be sent to the user on visit page")
-    public void thenSubjMsgShouldBeSentOnVisitPage(String str) {
+    public void thenSubjMsgShouldBeSentOnSubjPage(String str) {
         endUser.should_see_subjetivos_confirmation(str);
     }
     
     ////OBJETIVOS STEPS ////////////////////////////////////////////////////////
-    @When("the user clicks on 'Inserir dados objetivos'")
-    public void whenTheUserClicksOnInserirDadosObjetivos() {
-        endUser.click_inserir_dados_objetivos();
+    
+    @When("the user insert the height '$str'")
+    public void whenTheUserInsertTheHeight(String str) {
+        endUser.inserts_height(str);
+    }
+    @When("the user insert the weight '$str'")
+    public void whenTheUserInsertWeight(String str) {
+        endUser.inserts_weight(str);
+    }
+    @When("the user insert the temperature '$str'")
+    public void whenTheUserInsertTemperature(String str) {
+        endUser.inserts_temperature(str);
+    }
+    @When("the user insert the blood pressure '$str'")
+    public void whenTheUserInsertBloodPressure(String str) {
+        endUser.inserts_blood_pressure(str);
+    }
+    @When("the user insert the heart rate '$str'")
+    public void whenTheUserInsertHeartRate(String str) {
+        endUser.inserts_heart_rate(str);
+    }
+    
+    @When("the user insert the respiratory rate '$str'")
+    public void whenTheUserInsertRespiratoryRate(String str) {
+        endUser.inserts_respiratory_rate(str);
+    }
+    @When("the user insert the oxygen saturation '$str'")
+    public void whenTheUserInsertOxySaturation(String str) {
+        endUser.inserts_oxygen_saturation(str);
+    }
+    @When("the user insert the gas carbon saturation '$str'")
+    public void whenTheUserInsertGasCarbonSaturation(String str) {
+        endUser.inserts_gas_carbon_saturation(str);
+    }
+    @When("the user insert the capillary blood glucose '$str'")
+    public void whenTheUserInsertBloodGlucose(String str) {
+        endUser.inserts_blood_glucose(str);
+    }
+    
+    @When("the user insert the objective comments '$str'")
+    public void whenTheUserInsertObjectivesComments(String str) {
+        endUser.inserts_objective_comments(str);
+    }
+    @When("the user confirm the objective submission")
+    public void whenTheUserConfirmObjetivoSubmission() {
+        endUser.confirm_objective_submission();
+    }
+    @Then("a message '$str' should be sent to the user on visit page")
+    public void thenSubjMsgShouldBeSentOnObjPage(String str) {
+        endUser.should_see_objetivos_confirmation(str);
     }
     ////////////////////////////////////////////////////////////////////////////////////////
     ////////////////////////////////////////////////////////////////////////////////////////
