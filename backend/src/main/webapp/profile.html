@@ -4,7 +4,7 @@
 	
 	<!-- start: Meta -->
 	<meta charset="utf-8">
-	<title>Fast Care - Página Inicial</title>
+	<title>Fast Care - Pesquisa</title>
 	<meta name="description" content="Bootstrap Metro Dashboard">
 	<meta name="author" content="Dennis Ji">
 	<meta name="keyword" content="Metro, Metro UI, Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
@@ -57,7 +57,7 @@
 				<!-- start: Header Menu -->
 				<div class="nav-no-collapse header-nav">
 					<ul class="nav pull-right">
-						<!-- start: User Dropdown -->
+				<!-- start: User Dropdown -->
 						<li class="dropdown">
 							<a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
 								<i class="halflings-icon white user"></i> Dennis Ji
@@ -85,7 +85,34 @@
 		<div class="row-fluid">
 				
 			<!-- start: Main Menu -->
-			
+			<div id="sidebar-left" class="span2">
+				<div class="nav-collapse sidebar-nav">
+					<ul class="nav nav-tabs nav-stacked main-menu">
+						<li><a href="index.html"><i class="icon-bar-chart"></i><span class="hidden-tablet"> Dashboard</span></a></li>	
+						<li><a href="messages.html"><i class="icon-envelope"></i><span class="hidden-tablet"> Messages</span></a></li>
+						<li><a href="tasks.html"><i class="icon-tasks"></i><span class="hidden-tablet"> Tasks</span></a></li>
+						<li><a href="ui.html"><i class="icon-eye-open"></i><span class="hidden-tablet"> UI Features</span></a></li>
+						<li><a href="widgets.html"><i class="icon-dashboard"></i><span class="hidden-tablet"> Widgets</span></a></li>
+						<li>
+							<a class="dropmenu" href="#"><i class="icon-folder-close-alt"></i><span class="hidden-tablet"> Dropdown</span><span class="label label-important"> 3 </span></a>
+							<ul>
+								<li><a class="submenu" href="submenu.html"><i class="icon-file-alt"></i><span class="hidden-tablet"> Sub Menu 1</span></a></li>
+								<li><a class="submenu" href="submenu2.html"><i class="icon-file-alt"></i><span class="hidden-tablet"> Sub Menu 2</span></a></li>
+								<li><a class="submenu" href="submenu3.html"><i class="icon-file-alt"></i><span class="hidden-tablet"> Sub Menu 3</span></a></li>
+							</ul>	
+						</li>
+						<li><a href="form.html"><i class="icon-edit"></i><span class="hidden-tablet"> Forms</span></a></li>
+						<li><a href="chart.html"><i class="icon-list-alt"></i><span class="hidden-tablet"> Charts</span></a></li>
+						<li><a href="typography.html"><i class="icon-font"></i><span class="hidden-tablet"> Typography</span></a></li>
+						<li><a href="gallery.html"><i class="icon-picture"></i><span class="hidden-tablet"> Gallery</span></a></li>
+						<li><a href="table.html"><i class="icon-align-justify"></i><span class="hidden-tablet"> Tables</span></a></li>
+						<li><a href="calendar.html"><i class="icon-calendar"></i><span class="hidden-tablet"> Calendar</span></a></li>
+						<li><a href="file-manager.html"><i class="icon-folder-open"></i><span class="hidden-tablet"> File Manager</span></a></li>
+						<li><a href="icon.html"><i class="icon-star"></i><span class="hidden-tablet"> Icons</span></a></li>
+						<li><a href="login.html"><i class="icon-lock"></i><span class="hidden-tablet"> Login Page</span></a></li>
+					</ul>
+				</div>
+			</div>
 			<!-- end: Main Menu -->
 			
 			<noscript>
@@ -102,41 +129,75 @@
 			<ul class="breadcrumb">
 				<li>
 					<i class="icon-home"></i>
-					<a href="index.html">Home</a>
-					<i class="icon-angle-right"></i> 
+					<a href="index.html">Home</a> 
+					<i class="icon-angle-right"></i>
 				</li>
+				<li><a href="#">Pesquisar Pacientes</a></li>
 			</ul>
 			
-			<div class="row-fluid sortable">
-				<div class="box span12">
-					<div class="box-header" data-original-title>
-						<h2><i class="halflings-icon white plus-sign"></i><span class="break"></span>Pagina Inicial</h2>
+			<div class="row-fluid">
+				<div style="width:100%;" class="box span4" onTablet="span6" onDesktop="span4">
+					<div class="box-header">
+						<h2><i class="halflings-icon white user"></i><span class="break"></span>Perfil do Paciente</h2>
 						<div class="box-icon">
-							<a href="#" class="btn-setting"><i class="halflings-icon white wrench"></i></a>
 							<a href="#" class="btn-minimize"><i class="halflings-icon white chevron-up"></i></a>
 							<a href="#" class="btn-close"><i class="halflings-icon white remove"></i></a>
 						</div>
 					</div>
 					<div class="box-content">
-						<form class="form-horizontal">
-						  <fieldset>
-							<div class="form-actions">
-							  <a id="insert_button" class="btn btn_home" href="insert.html">Inserir</a>
-							  <a id="search_button" class="btn btn_home" href="search.html">Procurar</a>
+						<ul class="dashboard-list">
+							<li id="consults-list">
+								<a href="#">
+									<img class="avatar" alt="Dennis Ji" src="img/avatar.jpg">
+								</a>
+								<strong>Nome:</strong> <a href="#">Dennis Ji</a><br>
+								<strong>CPF:</strong> 011111111<br>
+								<div class="btn-users-options">
+									<a class="btn btn-info" id="btn-start-cons"href="#">
+										Iniciar Consulta
+										<i class="halflings-icon white edit"></i>  
+									</a>
+								</div>
+							</li>
+							<div class="timeline">
+								<div style="height: 104px;" class="timeslot alt" id="timeline-box">
+									<div class="task">
+										<span>
+											<button class="btn btn-primary" id="edit_button">Editar Consulta<i class="halflings-icon white white edit"></i></button>
+											<span class="type" >Médico Responsável</span>
+											<span class="details" id="doctor-name">
+												Doutor Bomzão de Tal
+											</span>
+											<span class="type" >Observações Gerais</span>
+											<span class="details" id="">
+												Fazer exame de fezes
+											</span>
+										</span>
+										<div class="arrow"></div>
+									</div>
+									<div class="icon">
+										<i class="icon-calendar"></i>
+									</div>
+									<div class="time">
+										<div class="date">31 Out, 2015</div>
+									</div>	
+										
+								</div>
 							</div>
-						  </fieldset>
-						</form>   
-
+						</ul>
+						<ul class>
 					</div>
 				</div><!--/span-->
-
-			</div><!--/row-->
-
+				
+			</div><!--/Content-->
+			</div><!--/#content.span10-->
+			<hr>
+			       
+		</div><!--/fluid-row-->
 	</div><!--/.fluid-container-->
 	
-			<!-- end: Content -->
-		</div><!--/#content.span10-->
-		</div><!--/fluid-row-->
+		
+		
 		
 	<div class="modal hide fade" id="myModal">
 		<div class="modal-header">
