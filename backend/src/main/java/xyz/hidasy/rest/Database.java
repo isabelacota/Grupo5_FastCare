@@ -216,9 +216,10 @@ public class Database {
     }
 
     public static void addSubjective(Subjective s) throws SQLException {
-	String sql = "INSERT INTO SUBJECTIVE(MAINCOMPLAINT,STORY,PATIENTDATA,LASTUPDATE) VALUES (" +
+	String sql = "INSERT INTO SUBJECTIVE(ID,MAINCOMPLAINT,STORY,PATIENTDATA,LASTUPDATE) VALUES (" +
+        s.getAppointmentId() + ",'" +
 	    s.getMainComplaint() + "','" + s.getStory() +
-	    "'," + writeToJson(s) + ",'" + s.getLastUpdatedAt() +";";
+	    "','" + writeToJson(s) + "'," + s.getLastUpdatedAt() +");";
         System.out.println("Query for insertion: " + sql);
 	insertAudit("Medico","Inserted subjective appointment");
 	Statement statement = c.createStatement();
@@ -252,7 +253,8 @@ public class Database {
     }
     public static void addObjective(Objective o) throws SQLException {
 	String sql = "INSERT INTO OBJECTIVE(ID,PATIENTDATA,LASTUPDATE) VALUES (" +
-	    writeToJson(o) + ",'" + o.getLastUpdatedAt() +";";
+        o.getAppointmentId() + ",'" +
+	    writeToJson(o) + "'," + o.getLastUpdatedAt() +");";
         System.out.println("Query for insertion: " + sql);
 	insertAudit("Medico","Inserted subjective appointment");
 	Statement statement = c.createStatement();
@@ -279,8 +281,9 @@ public class Database {
     }
 
     public static void addDiagnosis(Diagnosis d) throws SQLException {
-    	String sql = "INSERT INTO DIAGNOSIS(PATIENTDATA) VALUES (" +
-	    writeToJson(d) +";";
+    	String sql = "INSERT INTO DIAGNOSIS(ID, PATIENTDATA) VALUES (" +
+        d.getAppointmentId() + ",'" +
+	    writeToJson(d) +"');";
         System.out.println("Query for insertion: " + sql);
     	insertAudit("Medico","Inserted diagnosis appointment");
     	Statement statement = c.createStatement();
@@ -305,8 +308,9 @@ public class Database {
     }
 
     public static void addPlan(Plan p) throws SQLException {
-    	String sql = "INSERT INTO PLAN(PATIENTDATA) VALUES (" +
-	    writeToJson(p) +";";
+    	String sql = "INSERT INTO PLAN(ID, PATIENTDATA) VALUES (" +
+            p.getAppointmentId() + ",'" +
+	    writeToJson(p) +"');";
         System.out.println("Query for insertion: " + sql);
     	insertAudit("Medico","Inserted plan appointment");
     	Statement statement = c.createStatement();
@@ -332,8 +336,9 @@ public class Database {
     }
 
     public static void addEvolution(Evolution e) throws SQLException {
-    	String sql = "INSERT INTO EVOLUTION(PATIENTDATA) VALUES (" +
-	    writeToJson(e) +";";
+    	String sql = "INSERT INTO EVOLUTION(ID, PATIENTDATA) VALUES (" +
+                e.getAppointmentId() + ",'" +
+	    writeToJson(e) +"');";
         System.out.println("Query for insertion: " + sql);
     	insertAudit("Medico","Inserted evolution appointment");
     	Statement statement = c.createStatement();
