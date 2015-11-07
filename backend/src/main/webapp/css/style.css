@@ -232,6 +232,7 @@
 }
 /* Fast Care Alterations
 =================================================================== */
+
 #cpf-validation{
 	color:#EA7B30;
 	visibility:hidden;
@@ -287,6 +288,9 @@
 }
 .dropdown hidden-phone{
 	padding: hidden;
+
+.edit_button{
+	width: 100%;
 }
 
 /* Basic
@@ -2918,7 +2922,6 @@ ul.messagesList li span.date {
 	width: auto;
 	height: 100%;
 	margin: 20px auto; 
-	background: url(../img/timeline-bg.png) repeat-y center top; 
 }
 
 .timeslot {
@@ -2926,6 +2929,7 @@ ul.messagesList li span.date {
 	position: relative;	
 	width: 100%;
 	margin: 5px 0px;
+	right:35%;
 }
 
 .timeslot .task {
@@ -2945,7 +2949,6 @@ ul.messagesList li span.date {
 
 .timeslot .task span {
 	border: 2px solid #67C2EF; /* rgba(103, 194, 239, 1); */
-	background: #EDF6FB; /* rgba(103, 194, 239, .1); */
 	padding: 5px;
 	display: block;
 	font-size: 11px;

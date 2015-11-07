@@ -1,13 +1,3 @@
-app.factory('oldPatientservice', ['$http', function($http) {
-  return $http.get('http://bla:8080/FastCare/API/patient/1')
-            .success(function(data) {
-              return data;
-            })
-            .error(function(err) {
-              return err;
-            });
-}]);
-
 app.factory('patientService', ['$http', function($http, patient) {
 	var insertPatient = function(patient) {
 		return $http.post('./API/patient/insert', {

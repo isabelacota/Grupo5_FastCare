@@ -2,8 +2,11 @@ package grupo5.steps;
 
 import grupo5.pages.InitialPage;
 import grupo5.pages.PatientPage;
+import grupo5.pages.VisitPage;
+import grupo5.pages.ObjectiveDataPage;
 import grupo5.pages.RegistrationPage;
 import grupo5.pages.SearchPatientPage;
+import grupo5.pages.SubjectiveDataPage;
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.pages.Pages;
 import net.thucydides.core.steps.ScenarioSteps;
@@ -16,8 +19,12 @@ public class EndUserSteps extends ScenarioSteps {
 
 	InitialPage initialPage;
 	PatientPage patientPage;
+	//VisitPage visitPage;
 	RegistrationPage registrationPage;
 	SearchPatientPage search_patientPage;
+	SubjectiveDataPage subjectiveDataPage;
+	ObjectiveDataPage objectiveDataPage;
+
 	
 	//// OPEN PAGES STEPS /////////////////////////////////////////////////////////////////
 	
@@ -40,7 +47,119 @@ public class EndUserSteps extends ScenarioSteps {
     public void is_the_search_page() {
     	search_patientPage.open();
     }
-       
+    
+    
+    @Step
+    public void is_the_subjective_data_page() {
+    	subjectiveDataPage.open();
+    }
+    @Step
+    public void is_the_objective_data_page() {
+    	objectiveDataPage.open();
+    }
+      
+    
+    //// DADOS SUBJETIVOS //////
+    @Step
+    public void inserts_main_complaint(String str) {
+        subjectiveDataPage.enter_main_complaint(str);
+    }
+    @Step
+    public void inserts_history_illness(String str) {
+    	subjectiveDataPage.enter_illness(str);
+    }
+    @Step
+    public void inserts_symptomatic(String str) {
+    	subjectiveDataPage.enter_symptomatic(str);
+    }
+    @Step
+    public void inserts_personal_family_history(String str) {
+    	subjectiveDataPage.enter_personal(str);
+    }
+    @Step
+    public void inserts_lifestyle(String str) {
+    	subjectiveDataPage.enter_lifestyle(str);
+    }
+    @Step
+    public void inserts_orthotics(String str) {
+    	subjectiveDataPage.enter_orthotics(str);
+    }
+    @Step
+    public void inserts_comments(String str) {
+    	subjectiveDataPage.enter_comments(str);
+    }
+    @Step
+    public void confirm_subjetivos_submission() {
+    	subjectiveDataPage.confirm_submission();
+    }
+    
+    @Step
+	public void should_see_subjetivos_confirmation(String message) {
+		assertThat(subjectiveDataPage.getSuccessMessage(), containsString(message));
+	}
+    
+////DADOS OBJETIVOS //////
+   @Step
+   public void inserts_height(String str) {
+       objectiveDataPage.enter_height(str);
+   }
+   @Step
+   public void inserts_weight(String str) {
+   	objectiveDataPage.enter_weight(str);
+   }
+   @Step
+   public void inserts_temperature(String str) {
+   	objectiveDataPage.enter_temperature(str);
+   }
+   @Step
+   public void inserts_blood_pressure(String str) {
+   	objectiveDataPage.enter_blood_pressure(str);
+   }
+   @Step
+   public void inserts_heart_rate(String str) {
+   	objectiveDataPage.enter_heart_rate(str);
+   }
+   @Step
+   public void inserts_respiratory_rate(String str) {
+   	objectiveDataPage.enter_respiratory_rate(str);
+   }
+   @Step
+   public void inserts_oxygen_saturation(String str) {
+   	objectiveDataPage.enter_oxygen(str);
+   }
+   @Step
+   public void inserts_gas_carbon_saturation(String str) {
+   	subjectiveDataPage.enter_comments(str);
+   }
+   @Step
+   public void inserts_blood_glucose(String str) {
+	objectiveDataPage.enter_glucose(str);
+   }
+   @Step
+   public void inserts_objective_comments(String str) {
+   	objectiveDataPage.enter_comments(str);
+   }
+  
+   @Step
+   public void confirm_objective_submission() {
+   	objectiveDataPage.confirm_submission();
+   }
+   @Step
+   public void reset_objective_submission() {
+   	objectiveDataPage.reset();
+   }
+   
+   @Step
+	public void should_see_objetivos_confirmation(String message) {
+		assertThat(subjectiveDataPage.getSuccessMessage(), containsString(message));
+	}
+    
+    
+    
+    
+    
+    
+    
 	//// INITIAL PAGE STEPS /////////////////////////////////////////////////////////////////
 
     @Step
@@ -110,7 +229,8 @@ public class EndUserSteps extends ScenarioSteps {
 
     @Step
     public void shoud_see_list_pacients_met_criteria () {
-    	assertThat(search_patientPage.getMessage(), containsString("Nome"));
+    	assertThat(search_patientPage.getSuccessMessage(), containsString("Nome"));
+    	//assert(true);
     }
     
     @Step
@@ -180,13 +300,27 @@ public class EndUserSteps extends ScenarioSteps {
 ///////////////////////////////////////////////////////////////////////
 
 	@Step
-	public void should_see_message_registration(String message) {
-		assertThat(registrationPage.getMessage(), containsString(message));
+	public void should_see_success_message_registration(String message) {
+		assertThat(registrationPage.getSuccessMessage(), containsString(message));
+		//assert(true);
 	}
 	
 	@Step
-	public void should_see_message_search(String message) {
-		assertThat(search_patientPage.getMessage(), containsString(message));
+	public void should_see_success_message_subjective_data(String message) {
+		assertThat(subjectiveDataPage.getSuccessMessage(), containsString(message));
+		//assert(true);
+	}
+	
+	@Step
+	public void should_see_error_message_registration(String message) {
+		assertThat(registrationPage.getErrorMessage(), containsString(message));
+		//assert(true);
+	}
+	
+	@Step
+	public void should_see_error_message_search(String message) {
+		assertThat(search_patientPage.getErrorMessage(), containsString(message));
+		//assert(true);
 	}
 	
 }

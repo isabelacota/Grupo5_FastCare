@@ -19,15 +19,27 @@ public class Database {
 
         try {
             String sql = "CREATE TABLE PATIENT  "    +
-            "(ID BIGINT PRIMARY KEY      NOT NULL," +
-            " NAME           TEXT     NOT NULL UNIQUE," +
-            " CPF            CHAR(14) NOT NULL UNIQUE," +
-            " BIRTHDATE      INT      ," +
-            " CREATED        INT      ," +
-            " GENDER         TEXT     NOT NULL," +
-            " PHONE          TEXT     ," +
-            " HEALTHPLAN     TEXT     ," +
-            " ADDRESS        CHAR(50))";
+		"(ID BIGINT PRIMARY KEY      NOT NULL," +
+		" NAME           TEXT     NOT NULL UNIQUE," +
+		" CPF            CHAR(14) NOT NULL UNIQUE," +
+		" BIRTHDATE      INT      ," +
+		" CREATED        INT      ," +
+		" GENDER         TEXT     NOT NULL," +
+		" PHONE          TEXT     ," +
+		" HEALTHPLAN     TEXT     ," +
+		" ADDRESS        CHAR(50))";
+            Statement stmt = c.createStatement();
+            stmt.executeUpdate(sql);
+	} catch(Exception ee) {
+            ee.printStackTrace();
+        }
+	try {
+            String sql = "CREATE TABLE SUBJECTIVE         " +
+		"(ID              BIGINT PRIMARY KEY NOT NULL," +
+		" MAINCOMPLAINT   TEXT     NOT NULL,          " +
+		" STORY           TEXT NOT NULL,              " +
+		" PATIENTDATA     TEXT,                       " +
+		" LASTUPDATE      INT)";
             Statement stmt = c.createStatement();
             stmt.executeUpdate(sql);
 	} catch(Exception ee) {
@@ -46,10 +58,10 @@ public class Database {
 	    stmt.executeUpdate(sql);
 
 	    sql = "INSERT INTO PATIENT(ID,NAME,CPF,BIRTHDATE,CREATED,GENDER,ADDRESS)" +
-            "VALUES (1, 'Maria', '123.234.345-45', 23, 21313, 'Female', 'rua banha 3')";
+		"VALUES (1, 'Maria', '123.234.345-45', 23, 21313, 'Female', 'rua banha 3')";
             stmt.executeUpdate(sql);
             sql = "INSERT INTO PATIENT(ID,NAME,CPF,BIRTHDATE,CREATED,GENDER, ADDRESS)" +
-            "VALUES (2, 'João', '223.234.345-45', 33, 11313, 'Male', 'rua  banha 4')";
+		"VALUES (2, 'João', '223.234.345-45', 33, 11313, 'Male', 'rua  banha 4')";
             stmt.executeUpdate(sql);
 
         } catch(Exception ee) {
@@ -57,6 +69,33 @@ public class Database {
         }
 
     }
+
+//        public static Subjective getSubjectiveById(Long id) {
+//        try {
+//            String sql = "SELECT * FROM SUBJECTIVE WHERE ID = " + id;
+//            Statement stmt = c.createStatement();
+//
+//            ResultSet rs = stmt.executeQuery(sql);
+//            rs.next();
+//	    Subjective subjective = readFromJSON(rs.getString("patientdata"),Subjetivo.class);
+//            subjective.setId(rs.getLong("id"));
+//            subjective.setMainComplaint(rs.getString("maincomplaint"));
+//            subjective.setStory(rs.getString("story"));
+//            subjective.setUpdate(rs.getString("lastupdate"));
+//            //...
+//            rs.close();
+//        } catch(Exception e) {
+//            e.printStackTrace();
+//        } finally {
+//            try {
+//                //c.commit();
+//                //c.close();
+//            } catch (Exception e) {
+//                e.printStackTrace();
+//            }
+//        }
+//	return subjective;
+//    }
     
     public static Patient getPatientById(Long id) {
         Patient patient = new Patient();
@@ -85,15 +124,15 @@ public class Database {
                 e.printStackTrace();
             }
         }
-	    return patient;
+	return patient;
     }
 
-    public static void insertAudit(String User, String Action, String Date) {
+    public static void insertAudit(String User, String Action) {
 	try {
 	    Statement stmt = c.createStatement();
 	    String sql;
 	    sql = "INSERT INTO AUDIT(USER, DATE, ACTION) " +
-		"VALUES ('"+User+"','"+Date+"','"+Action+"')";
+		"VALUES ('"+User+"','"+new Date().toString()+"','"+Action+"')";
             stmt.executeUpdate(sql);
 	} catch (Exception e) {
 	    System.out.println(e.toString());
@@ -132,9 +171,9 @@ public class Database {
     
     public static void insertPatient(Patient patient) throws SQLException {
         String sql = "INSERT INTO PATIENT(ID, NAME, CPF, BIRTHDATE, GENDER, PHONE, HEALTHPLAN, CREATED) VALUES (" +
-                patient.getId() + ",'" + patient.getName() + "','" + patient.getCpf() + "'," +
-                patient.getBirthDate() + ",'" + patient.getGender() + "','" + patient.getPhone() + "','" +
-                patient.getHealthPlan() + "'," + new Date().getTime() +");";
+	    patient.getId() + ",'" + patient.getName() + "','" + patient.getCpf() + "'," +
+	    patient.getBirthDate() + ",'" + patient.getGender() + "','" + patient.getPhone() + "','" +
+	    patient.getHealthPlan() + "'," + new Date().getTime() +");";
 
         System.out.println("Query for insertion: " + sql);
 
@@ -144,7 +183,7 @@ public class Database {
 
     public static List<Patient> filterPatients(String filter) {
         String sql = "SELECT * FROM PATIENT WHERE (" +
-                "NAME LIKE '%" + filter + "%' OR CPF LIKE '%" + filter + "%' OR PHONE LIKE '%" + filter + "%');";
+	    "NAME LIKE '%" + filter + "%' OR CPF LIKE '%" + filter + "%' OR PHONE LIKE '%" + filter + "%');";
 
         System.out.println("Query for select: " + sql);
 

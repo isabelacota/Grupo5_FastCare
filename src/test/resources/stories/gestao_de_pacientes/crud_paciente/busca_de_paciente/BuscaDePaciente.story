@@ -16,5 +16,5 @@ Scenario: Looking up a nonexistent patient in database
 Given the user is on the search page
 Given the user is doctor
 When the doctor looks up field 'Caique'
-Then they should see a list of patients that met that criteria
+Then a error message 'Nenhum paciente foi encontrado para esse filtro' should be sent to the user on search page
 
