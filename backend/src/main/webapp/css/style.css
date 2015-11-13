@@ -487,6 +487,7 @@ a.brand span {
 background: #3A3A3A;
 }
 .dropdown:hover .dropdown-menu {
+	
     display: block;
  }
 .nav-tabs.nav-stacked>li>a:hover, .nav-tabs.nav-stacked>li>a:focus {
@@ -669,8 +670,8 @@ ul.notifications li .avatar img,
 ul.tasks li .avatar img,
 ul.messages li .avatar img {
 	float: left;
-	height: 40px;
-	width: 40px;
+	height: 70px;
+	width: 70px;
 	margin-right: 10px;
 	border-radius:50%;
 }
@@ -901,6 +902,7 @@ ul.messages li .message {
 }
 
 .box-header .box-icon a {
+	visibility:hidden;
 	margin: 0px 5px;
 }
 
@@ -1244,8 +1246,8 @@ ul.dashboard-list li a span {
 }
 
 ul.dashboard-list li .avatar {
-	height: 50px;
-	width: 50px;
+	height: 80px;
+	width: 80px;
 	padding: 1px;
 	float: left;
 	margin-top: 3px;
