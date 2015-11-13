@@ -23,21 +23,4 @@ app.controller('SubjectiveController', ['$scope', 'soapeService', function($scop
           $scope.errorMessage = err;
 	  });
   };
-
-//  $scope.getSubjective = function(appointmentId) {
-//        $scope.fail = false;
-//        $scope.patients = [];
-//        soapeService.getSubjective(appointmentId).success(function(response) {
-//            if (response.statusId == 0) {
-//                $scope.patients = response.patients;
-//            } else {
-//                $scope.fail = true;
-//                $scope.errorMessage = response.statusMessage;
-//            }
-//        })
-//        .error(function(err) {
-//            $scope.fail = true;
-//            $scope.errorMessage = err;
-//        });
-//    };
 }]);

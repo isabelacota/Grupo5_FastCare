@@ -5,17 +5,11 @@ app.factory('soapeService', ['$http', function($http, soapeInfo) {
 			appointmentId: subjectiveInfo.appointmentId,
             mainComplaint: subjectiveInfo.mainComplaint,
             story: subjectiveInfo.story,
-            renal: subjectiveInfo.renal,
-            reumatism: subjectiveInfo.reumatism,
-            cardiac: subjectiveInfo.cardiac,
-            pulmonar: subjectiveInfo.pulmonar,
-            gastric: subjectiveInfo.gastric,
-            alergies: subjectiveInfo.alergies,
-            hepatite: subjectiveInfo.hepatite,
-            pregnancy: subjectiveInfo.pregnancy,
-            diabetes: subjectiveInfo.diabetes,
-            scars: subjectiveInfo.scars,
-            onDrugs: subjectiveInfo.onDrugs
+            syptomaticInterrogation: subjectiveInfo.syptomaticInterrogation,
+            personalAndFamily: subjectiveInfo.personalAndFamily,
+            lifeStyleAndSocioeconomic: subjectiveInfo.lifeStyleAndSocioeconomic,
+            orthoticsAndProsthetics: subjectiveInfo.orthoticsAndProsthetics,
+            comments: subjectiveInfo.comments
 			});
 	};
 
