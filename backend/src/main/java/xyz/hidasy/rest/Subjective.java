@@ -12,25 +12,15 @@ public class Subjective extends SoapeModel{
 
     private String renal;
 
-    private String reumatism;
+    private String syptomaticInterrogation;
 
-    private String cardiac;
+    private String personalAndFamily;
 
-    private String pulmonar;
+    private String lifeStyleAndSocioeconomic;
 
-    private String gastric;
+    private String orthoticsAndProsthetics;
 
-    private String alergies;
-
-    private Boolean hepatite;
-
-    private Boolean pregnancy;
-
-    private Boolean diabetes;
-
-    private Boolean scars;
-
-    private String onDrugs;
+    private String comments;
 
     public String getMainComplaint() {
         return mainComplaint;
@@ -56,104 +46,57 @@ public class Subjective extends SoapeModel{
         this.renal = renal;
     }
 
-    public String getReumatism() {
-        return reumatism;
+    public String getSyptomaticInterrogation() {
+        return syptomaticInterrogation;
     }
 
-    public void setReumatism(String reumatism) {
-        this.reumatism = reumatism;
+    public void setSyptomaticInterrogation(String syptomaticInterrogation) {
+        this.syptomaticInterrogation = syptomaticInterrogation;
     }
 
-    public String getCardiac() {
-        return cardiac;
+    public String getPersonalAndFamily() {
+        return personalAndFamily;
     }
 
-    public void setCardiac(String cardiac) {
-        this.cardiac = cardiac;
+    public void setPersonalAndFamily(String personalAndFamily) {
+        this.personalAndFamily = personalAndFamily;
     }
 
-    public String getPulmonar() {
-        return pulmonar;
+    public String getLifeStyleAndSocioeconomic() {
+        return lifeStyleAndSocioeconomic;
     }
 
-    public void setPulmonar(String pulmonar) {
-        this.pulmonar = pulmonar;
+    public void setLifeStyleAndSocioeconomic(String lifeStyleAndSocioeconomic) {
+        this.lifeStyleAndSocioeconomic = lifeStyleAndSocioeconomic;
     }
 
-    public String getGastric() {
-        return gastric;
+    public String getOrthoticsAndProsthetics() {
+        return orthoticsAndProsthetics;
     }
 
-    public void setGastric(String gastric) {
-        this.gastric = gastric;
+    public void setOrthoticsAndProsthetics(String orthoticsAndProsthetics) {
+        this.orthoticsAndProsthetics = orthoticsAndProsthetics;
     }
 
-    public String getAlergies() {
-        return alergies;
+    public String getComments() {
+        return comments;
     }
 
-    public void setAlergies(String alergies) {
-        this.alergies = alergies;
-    }
-
-    public Boolean getHepatite() {
-        return hepatite;
-    }
-
-    public void setHepatite(Boolean hepatite) {
-        this.hepatite = hepatite;
-    }
-
-    public Boolean getPregnancy() {
-        return pregnancy;
-    }
-
-    public void setPregnancy(Boolean pregnancy) {
-        this.pregnancy = pregnancy;
-    }
-
-    public Boolean getDiabetes() {
-        return diabetes;
-    }
-
-    public void setDiabetes(Boolean diabetes) {
-        this.diabetes = diabetes;
-    }
-
-    public Boolean getScars() {
-        return scars;
-    }
-
-    public void setScars(Boolean scars) {
-        this.scars = scars;
-    }
-
-    public String getOnDrugs() {
-        return onDrugs;
-    }
-
-    public void setOnDrugs(String onDrugs) {
-        this.onDrugs = onDrugs;
+    public void setComments(String comments) {
+        this.comments = comments;
     }
 
     @Override
     public String toString() {
-        return "Subjetivo{" +
-                "appointmentId=" + appointmentId +
-                ", mainComplaint='" + mainComplaint + '\'' +
+        return "Subjective{" +
+                "mainComplaint='" + mainComplaint + '\'' +
                 ", story='" + story + '\'' +
                 ", renal='" + renal + '\'' +
-                ", reumatism='" + reumatism + '\'' +
-                ", cardiac='" + cardiac + '\'' +
-                ", pulmonar='" + pulmonar + '\'' +
-                ", gastric='" + gastric + '\'' +
-                ", alergies='" + alergies + '\'' +
-                ", hepatite=" + hepatite +
-                ", pregnancy=" + pregnancy +
-                ", diabetes=" + diabetes +
-                ", scars=" + scars +
-                ", onDrugs='" + onDrugs + '\'' +
-                ", lastUpdatedAt=" + lastUpdatedAt +
+                ", syptomaticInterrogation='" + syptomaticInterrogation + '\'' +
+                ", personalAndFamily='" + personalAndFamily + '\'' +
+                ", lifeStyleAndSocioeconomic='" + lifeStyleAndSocioeconomic + '\'' +
+                ", orthoticsAndProsthetics='" + orthoticsAndProsthetics + '\'' +
+                ", comments='" + comments + '\'' +
                 '}';
     }
 }
