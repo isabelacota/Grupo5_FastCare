@@ -7,15 +7,23 @@ import java.util.Date;
  */
 public class SoapeModel {
 
-    protected Integer appointmentId;
+    protected Long appointmentId;
 
-    protected Date lastUpdatedAt;
+    protected String lastUpdatedAt;
 
-    public Integer getAppointmentId() {
+    public Long getAppointmentId() {
         return appointmentId;
     }
 
-    public void setAppointmentId(Integer appointmentId) {
+    public void setAppointmentId(Long appointmentId) {
         this.appointmentId = appointmentId;
+    }
+
+    public String getLastUpdatedAt() {
+        return lastUpdatedAt;
+    }
+
+    public void setLastUpdatedAt(String lastUpdatedAt) {
+        this.lastUpdatedAt = lastUpdatedAt;
     }
 }

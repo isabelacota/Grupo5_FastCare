@@ -1,7 +1,7 @@
 app.factory('soapeService', ['$http', function($http, soapeInfo) {
 
 	var insertSubjective = function(subjectiveInfo) {
-		return $http.post('./API/patient/'+subjectiveInfo.patientId+'/subjective', {
+		return $http.post('./API/appointment/'+subjectiveInfo.patientId+'/subjective', {
 			appointmentId: subjectiveInfo.appointmentId,
             mainComplaint: subjectiveInfo.mainComplaint,
             story: subjectiveInfo.story,
@@ -19,8 +19,8 @@ app.factory('soapeService', ['$http', function($http, soapeInfo) {
 			});
 	};
 
-	var getSubjective = function(patientId, appointmentId) {
-	    return $http.get('./API/patient/'+patientId+'/subjective')
+	var getSubjective = function(appointmentId) {
+	    return $http.get('./API/appointment/'+appointmentId+'/subjective')
             .success(function(response) {
                 return response.patients;
             })
@@ -30,7 +30,7 @@ app.factory('soapeService', ['$http', function($http, soapeInfo) {
     	};
 
 	var insertObjective = function(objectiveInfo) {
-    		return $http.post('./API/patient/'+objectiveInfo.patientId+'/objective', {
+    		return $http.post('./API/appointment/'+objectiveInfo.patientId+'/objective', {
     			height: objectiveInfo.height,
                 weight: objectiveInfo.weight,
                 cardiacFrequency: objectiveInfo.cardiacFrequency,
@@ -41,20 +41,20 @@ app.factory('soapeService', ['$http', function($http, soapeInfo) {
     	};
 	}
 
-	var getObjective = function(patientId, appointmentId) {
-        return $http.get('./API/patient/'+patientId+'/objective');
+	var getObjective = function(appointmentId) {
+        return $http.get('./API/appointment/'+appointmentId+'/objective');
     }
 
     var insertDiagnosis = function(patientInfo) {
-            return $http.post('./API/patient/'+patientInfo.patientId+'/diagnosis', {
+            return $http.post('./API/appointment/'+patientInfo.patientId+'/diagnosis', {
                 diagnosis: patientInfo.diagnosis,
                 weight: patientInfo.observations
             });
         };
     }
 
-    var getDiagnosis = function(patientId, appointmentId) {
-        return $http.get('./API/patient/'+patientId+'/diagnosis/');
+    var getDiagnosis = function(appointmentId) {
+        return $http.get('./API/appointment/'+appointmentId+'/diagnosis/');
     }
 
     return {
