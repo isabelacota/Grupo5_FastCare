@@ -487,6 +487,7 @@ a.brand span {
 background: #3A3A3A;
 }
 .dropdown:hover .dropdown-menu {
+	
     display: block;
  }
 .nav-tabs.nav-stacked>li>a:hover, .nav-tabs.nav-stacked>li>a:focus {
@@ -901,6 +902,7 @@ ul.messages li .message {
 }
 
 .box-header .box-icon a {
+	visibility:hidden;
 	margin: 0px 5px;
 }
 
