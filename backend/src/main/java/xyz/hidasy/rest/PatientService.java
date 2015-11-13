@@ -109,7 +109,7 @@ public class PatientService {
         appointmentResponse.setAppointment(appointment);
 
         try {
-            // Database.createAppointment
+            Database.addAppointment(appointment);
             appointmentResponse.setStatusId(0);
             appointmentResponse.setStatusMessage("Appointed created");
         } catch (/*SQL*/Exception e) {
@@ -137,5 +137,21 @@ public class PatientService {
         }
 
         return multipleAppointmentsResponse;
+    }
+
+    @GET
+    @Path("patient/{id}/running_appointment")
+    public AppointmentResponse getRunningAppointment(@PathParam("id") Long patientId) {
+        AppointmentResponse appointmentResponse = new AppointmentResponse();
+        Appointment appointment = null;//Database.findAppointment
+        appointmentResponse.setAppointment(appointment);
+        if (appointment != null) {
+            appointmentResponse.setStatusId(0);
+            appointmentResponse.setStatusMessage("Found current appointment");
+        } else {
+            appointmentResponse.setStatusId(1);
+            appointmentResponse.setStatusMessage("No current appointment found");
+        }
+        return appointmentResponse;
     }
 }

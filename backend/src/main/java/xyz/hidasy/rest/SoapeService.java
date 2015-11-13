@@ -234,20 +234,4 @@ public class SoapeService {
         //Database.stopAppointment(appointmentId);
     }
 
-    @GET
-    @Path("running")
-    public AppointmentResponse getRunningAppointment() {
-        AppointmentResponse appointmentResponse = new AppointmentResponse();
-        Appointment appointment = null;//Database.findAppointment
-        appointmentResponse.setAppointment(appointment);
-        if (appointment != null) {
-            appointmentResponse.setStatusId(0);
-            appointmentResponse.setStatusMessage("Found current appointment");
-        } else {
-            appointmentResponse.setStatusId(1);
-            appointmentResponse.setStatusMessage("No current appointment found");
-        }
-        return appointmentResponse;
-    }
-
 }
