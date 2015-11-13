@@ -314,7 +314,7 @@ public class Database {
     }
 
     public static void addDiagnosis(Diagnosis d) throws SQLException {
-    	String sql = "INSERT INTO DIAGNOSIS(ID, PATIENTDATA) VALUES (" +
+    	String sql = "INSERT INTO DIAGNOSIS(ID, DATA) VALUES (" +
         d.getAppointmentId() + ",'" +
 	    writeToJson(d) +"');";
         System.out.println("Query for insertion: " + sql);
@@ -341,7 +341,7 @@ public class Database {
     }
 
     public static void addPlan(Plan p) throws SQLException {
-    	String sql = "INSERT INTO PLAN(ID, PATIENTDATA) VALUES (" +
+    	String sql = "INSERT INTO PLAN(ID, DATA) VALUES (" +
             p.getAppointmentId() + ",'" +
 	    writeToJson(p) +"');";
         System.out.println("Query for insertion: " + sql);
@@ -369,7 +369,7 @@ public class Database {
     }
 
     public static void addEvolution(Evolution e) throws SQLException {
-    	String sql = "INSERT INTO EVOLUTION(ID, PATIENTDATA) VALUES (" +
+    	String sql = "INSERT INTO EVOLUTION(ID, DATA) VALUES (" +
                 e.getAppointmentId() + ",'" +
 	    writeToJson(e) +"');";
         System.out.println("Query for insertion: " + sql);
