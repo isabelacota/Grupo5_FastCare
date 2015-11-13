@@ -670,8 +670,8 @@ ul.notifications li .avatar img,
 ul.tasks li .avatar img,
 ul.messages li .avatar img {
 	float: left;
-	height: 40px;
-	width: 40px;
+	height: 70px;
+	width: 70px;
 	margin-right: 10px;
 	border-radius:50%;
 }
@@ -1246,8 +1246,8 @@ ul.dashboard-list li a span {
 }
 
 ul.dashboard-list li .avatar {
-	height: 50px;
-	width: 50px;
+	height: 80px;
+	width: 80px;
 	padding: 1px;
 	float: left;
 	margin-top: 3px;
