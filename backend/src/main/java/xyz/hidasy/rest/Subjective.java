@@ -1,14 +1,10 @@
 package xyz.hidasy.rest;
 
-import java.util.Date;
-
 /**
  * @author Caique Moreira caique.moreira@movile.com
  */
 
 public class Subjective extends SoapeModel{
-
-    private Integer appointmentId;
 
     private String mainComplaint;
 
@@ -35,8 +31,6 @@ public class Subjective extends SoapeModel{
     private Boolean scars;
 
     private String onDrugs;
-
-    private Date lastUpdatedAt;
 
     public String getMainComplaint() {
         return mainComplaint;
