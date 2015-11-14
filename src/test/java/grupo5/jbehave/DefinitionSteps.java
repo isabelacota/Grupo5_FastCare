@@ -77,7 +77,24 @@ public class DefinitionSteps {
     	assert(false);
         //endUser.must_insert_event_audit_log();
     }
+    ////AVALIACAO STEPS /////////////////////////////////////
+    @Given("the user is on avaliacao page")
+    public void givenTheUserIsOnAvaliacaoPage() {
+        endUser.is_the_avaliacao_page();
+    }
+    @When("the user insert the diagnosis '$str'")
+    public void whenTheUserInsertTheDiagnosis(String str) {
+        endUser.avaliacao_inserts_diagnostico(str);
+    }
+    @When("the user insert the comments '$str'")
+    public void whenTheUserInsertTheAvaliacaoComentarios(String str) {
+        endUser.avaliacao_enter_comentario(str);
+    }
     
+    @Then("a message '$str' should be sent to the user on avaliacao page")
+    public void thenMsgShouldBeSentOnAvaliacaoPage(String str) {
+        endUser.should_see_avaliacao_confirmation(str);
+    }
     ////SUBJETIVOS STEPS ////////////////////////////////////////////////////////
     
     
@@ -120,6 +137,7 @@ public class DefinitionSteps {
         endUser.should_see_subjetivos_confirmation(str);
     }
     
+    
     ////OBJETIVOS STEPS ////////////////////////////////////////////////////////
     
     @When("the user insert the height '$str'")
@@ -134,10 +152,15 @@ public class DefinitionSteps {
     public void whenTheUserInsertTemperature(String str) {
         endUser.inserts_temperature(str);
     }
-    @When("the user insert the blood pressure '$str'")
-    public void whenTheUserInsertBloodPressure(String str) {
-        endUser.inserts_blood_pressure(str);
+    @When("the user insert the systolic pressure '$str'")
+    public void whenTheUserInsertSystolicPressure(String str) {
+        endUser.inserts_s_pressure(str);
     }
+    @When("the user insert the diastolic pressure '$str'")
+    public void whenTheUserInsertDiastolicPressure(String str) {
+        endUser.inserts_d_pressure(str);
+    }
+    
     @When("the user insert the heart rate '$str'")
     public void whenTheUserInsertHeartRate(String str) {
         endUser.inserts_heart_rate(str);
