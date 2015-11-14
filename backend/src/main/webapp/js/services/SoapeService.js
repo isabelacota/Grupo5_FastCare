@@ -42,7 +42,7 @@ app.factory('soapeService', ['$http', function($http, soapeInfo) {
     }
 
     var insertDiagnosis = function(patientInfo) {
-            return $http.post('./API/appointment/'+patientInfo.patientId+'/diagnosis', {
+            return $http.post('./API/appointment/'+patientInfo.appointmentId+'/diagnosis', {
                 diagnosis: patientInfo.diagnosis,
                 weight: patientInfo.observations
             });
@@ -52,9 +52,17 @@ app.factory('soapeService', ['$http', function($http, soapeInfo) {
         return $http.get('./API/appointment/'+appointmentId+'/diagnosis/');
     };
 
+    var insertEvolution = function(patientInfo) {
+                return $http.post('./API/appointment/'+patientInfo.appointmentId+'/evolution', {
+                    evolution: patientInfo.evolution,
+                    comments: patientInfo.comments
+                });
+            };
+
     return {
 		insertSubjective: insertSubjective,
 		insertObjective: insertObjective,
+		insertEvolution: insertEvolution,
 		getSubjective: getSubjective,
 		getObjective: getObjective
 	};
