@@ -19,7 +19,7 @@ public class EndUserSteps extends ScenarioSteps {
 	SubjectiveDataPage subjectiveDataPage;
 	ObjectiveDataPage objectiveDataPage;
 	AvaliacaoPage avaliacaoPage;
-
+	PlanDataPage planDataPage;
 
 	
 	//// OPEN PAGES STEPS /////////////////////////////////////////////////////////////////
@@ -56,6 +56,11 @@ public class EndUserSteps extends ScenarioSteps {
     @Step
     public void is_the_objective_data_page() {
     	objectiveDataPage.open();
+    }
+    
+    @Step
+    public void is_the_plan_data_page() {
+    	planDataPage.open();
     }
       
     //Avaliacao
@@ -163,6 +168,16 @@ public class EndUserSteps extends ScenarioSteps {
    @Step
    public void inserts_objective_comments(String str) {
    	objectiveDataPage.enter_comments(str);
+   }
+   
+   @Step
+   public void inserts_plan_comments(String str) {
+   	planDataPage.enter_comments(str);
+   }
+   
+   @Step
+   public void inserts_behavior(String str) {
+   	planDataPage.enter_behavior(str);
    }
   
    @Step

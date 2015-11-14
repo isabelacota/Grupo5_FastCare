@@ -53,6 +53,11 @@ public class DefinitionSteps {
         endUser.is_the_subjective_data_page();;
     }
     
+    @Given("the user is on the plan data page")
+    public void givenTheUserIsOnPlanDataPage() {
+        endUser.is_the_plan_data_page();;
+    }
+    
     //// GIVEN TYPES OF USERS STEPS ////////////////////////////////////////////////////////
        
     @Given("the user is receptionist")
@@ -187,6 +192,7 @@ public class DefinitionSteps {
     public void whenTheUserInsertObjectivesComments(String str) {
         endUser.inserts_objective_comments(str);
     }
+    
     @When("the user confirm the objective submission")
     public void whenTheUserConfirmObjetivoSubmission() {
         endUser.confirm_objective_submission();
@@ -196,6 +202,15 @@ public class DefinitionSteps {
         endUser.should_see_objetivos_confirmation(str);
     }
     ////////////////////////////////////////////////////////////////////////////////////////
+   
+    @When("the user insert the behavior '$str'")
+    public void whenTheUserInsertBehavior(String str) {
+        endUser.inserts_behavior(str);
+    }
+    
+    
+    
+    
     ////////////////////////////////////////////////////////////////////////////////////////
     
 
@@ -336,6 +351,11 @@ public class DefinitionSteps {
     
     @Then("a success message '$message' should be sent to the user on subjective data page")
     public void thenASuccessMessageInsertedIsSentToTheUserOnSubjectiveDataPage(String message) {
+    	endUser.should_see_success_message_subjective_data(message);
+    }
+    
+    @Then("a success message '$message' should be sent to the user on plan data page")
+    public void thenASuccessMessageInsertedIsSentToTheUserOnPlanDataPage(String message) {
     	endUser.should_see_success_message_subjective_data(message);
     }
     
