@@ -28,25 +28,37 @@ public class ObjectiveDataPage extends PageObject {
     private WebElementFacade confirm_button;
     
     //Fields
-    @FindBy(id="SUBSTITUIR")
+    @FindBy(id="height-control-input")
     private WebElementFacade height_field;
-    @FindBy(id="SUBSTITUIR")
+    @FindBy(id="weight-control-input")
     private WebElementFacade weight_field;
-    @FindBy(id="SUBSTITUIR")
+    @FindBy(id="temperatura-control-input")
     private WebElementFacade temperature_field;
-    @FindBy(id="SUBSTITUIR")
-    private WebElementFacade blood_pressure_field;
-    @FindBy(id="SUBSTITUIR")
+    
+   
+    
+    
+    
+    
+    
+    
+    
+    @FindBy(id="systolicArterialPressure-control-input")
+    private WebElementFacade systolic_pressure_field;
+    @FindBy(id="diastolicArterialPressure-control-input")
+    private WebElementFacade diastolic_pressure_field;
+    
+    @FindBy(id="cardiacFrequency-control-input")
     private WebElementFacade heart_rate_field;
-    @FindBy(id="SUBSTITUIR")
+    @FindBy(id="frequenciaRespiratoria-control-input")
     private WebElementFacade respiratory_rate_field;
-    @FindBy(id="SUBSTITUIR")
+    @FindBy(id="saturacaoOxigenio-control-input")
     private WebElementFacade oxygen_field;
-    @FindBy(id="SUBSTITUIR")
+    @FindBy(id="saturacaoCarbonico-control-input")
     private WebElementFacade gas_carbon_field;
-    @FindBy(id="SUBSTITUIR")
+    @FindBy(id="glicemiaCapilar-control-input")
     private WebElementFacade glucose_field;
-    @FindBy(id="SUBSTITUIR")
+    @FindBy(id="comentarios-control-input")
     private WebElementFacade comments_field;
     // Methods 
     
@@ -59,8 +71,11 @@ public class ObjectiveDataPage extends PageObject {
     public void enter_temperature(String str) {
     	temperature_field.type(str);
     }
-    public void enter_blood_pressure(String str) {
-    	blood_pressure_field.type(str);
+    public void enter_systolic_pressure(String str) {
+    	systolic_pressure_field.type(str);
+    }
+    public void enter_diastolic_pressure(String str) {
+    	diastolic_pressure_field.type(str);
     }
     public void enter_heart_rate(String str) {
     	heart_rate_field.type(str);

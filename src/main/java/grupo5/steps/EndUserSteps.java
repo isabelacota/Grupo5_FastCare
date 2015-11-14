@@ -1,12 +1,6 @@
 package grupo5.steps;
 
-import grupo5.pages.InitialPage;
-import grupo5.pages.PatientPage;
-import grupo5.pages.VisitPage;
-import grupo5.pages.ObjectiveDataPage;
-import grupo5.pages.RegistrationPage;
-import grupo5.pages.SearchPatientPage;
-import grupo5.pages.SubjectiveDataPage;
+import grupo5.pages.*;
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.pages.Pages;
 import net.thucydides.core.steps.ScenarioSteps;
@@ -24,6 +18,8 @@ public class EndUserSteps extends ScenarioSteps {
 	SearchPatientPage search_patientPage;
 	SubjectiveDataPage subjectiveDataPage;
 	ObjectiveDataPage objectiveDataPage;
+	AvaliacaoPage avaliacaoPage;
+
 
 	
 	//// OPEN PAGES STEPS /////////////////////////////////////////////////////////////////
@@ -47,6 +43,10 @@ public class EndUserSteps extends ScenarioSteps {
     public void is_the_search_page() {
     	search_patientPage.open();
     }
+    @Step
+    public void is_the_avaliacao_page() {
+    	avaliacaoPage.open();
+    }
     
     
     @Step
@@ -58,6 +58,27 @@ public class EndUserSteps extends ScenarioSteps {
     	objectiveDataPage.open();
     }
       
+    //Avaliacao
+    @Step
+    public void avaliacao_inserts_diagnostico(String str) {
+        avaliacaoPage.enter_diagnostico(str);
+    }
+    @Step
+    public void avaliacao_enter_comentario(String str) {
+        avaliacaoPage.enter_comentario(str);
+    }
+    @Step
+    public void confirm_avaliacao_submission() {
+    	avaliacaoPage.confirm_submission();
+    }
+    @Step
+    public void reset_avaliacao_submission() {
+    	avaliacaoPage.reset();
+    }
+    @Step
+	public void should_see_avaliacao_confirmation(String message) {
+		assertThat(avaliacaoPage.getSuccessMessage(), containsString(message));
+	}
     
     //// DADOS SUBJETIVOS //////
     @Step
@@ -112,8 +133,12 @@ public class EndUserSteps extends ScenarioSteps {
    	objectiveDataPage.enter_temperature(str);
    }
    @Step
-   public void inserts_blood_pressure(String str) {
-   	objectiveDataPage.enter_blood_pressure(str);
+   public void inserts_s_pressure(String str) {
+   	objectiveDataPage.enter_systolic_pressure(str);
+   }
+   @Step
+   public void inserts_d_pressure(String str) {
+   	objectiveDataPage.enter_diastolic_pressure(str);
    }
    @Step
    public void inserts_heart_rate(String str) {
