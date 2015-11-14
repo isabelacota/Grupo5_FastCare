@@ -46,7 +46,15 @@ public class DefinitionSteps {
         endUser.is_the_search_page();;
     }
     
+    @Given("the user is on the objective data page")
+    public void givenTheUserIsOnObjectiveDataPage() {
+        endUser.is_the_objective_data_page();;
+    }  
     
+    @Given("the user is on the evolution data page")
+    public void givenTheUserIsOnEvolutionDataPage() {
+        endUser.is_the_evolution_data_page();;
+    }  
     
     @Given("the user is on the subjective data page")
     public void givenTheUserIsOnSubjectiveDataPage() {
@@ -141,11 +149,16 @@ public class DefinitionSteps {
     public void whenTheUserInsertEvolutionComments(String str) {
         endUser.inserts_evolution_comments(str);
     }
+
     @When("the user confirm the subjetivo submission")
     public void whenTheUserConfirmSubjetivoSubmission() {
         endUser.confirm_subjetivos_submission();
     }
     
+    @When("the user insert the definitive diagnosis flag 'S'")
+    public void whenTheUserInsertDefinitiveFlag(String str) {
+    	endUser.inserts_definitive_flag(str);
+    }
     
     ////OBJETIVOS STEPS ////////////////////////////////////////////////////////
     
@@ -356,6 +369,11 @@ public class DefinitionSteps {
     @Then("a success message '$message' should be sent to the user on subjective data page")
     public void thenASuccessMessageInsertedIsSentToTheUserOnSubjectiveDataPage(String message) {
     	endUser.should_see_success_message_subjective_data(message);
+    }
+    
+    @Then("a success message '$message' should be sent to the user on evolution data page")
+    public void thenASuccessMessageInsertedIsSentToTheUserOnEvolutionDataPage(String message) {
+    	endUser.should_see_success_message_evolution_data(message);
     }
     
     @Then("a success message '$message' should be sent to the user on objective data page")

@@ -1,5 +1,5 @@
 Scenario: User inserts patient evolution
-Given the user is on visit page
+Given the user is on evolution data page
 When the user clicks on 'Inserir evolucao do paciente'
 When the user insert the evolution comments 'Joao esta melhor'
 When the user confirm the submission

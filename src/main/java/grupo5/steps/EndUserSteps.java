@@ -20,7 +20,7 @@ public class EndUserSteps extends ScenarioSteps {
 	ObjectiveDataPage objectiveDataPage;
 	AvaliacaoPage avaliacaoPage;
 	PlanDataPage planDataPage;
-
+	EvolutionDataPage evolutionDataPage;
 	
 	//// OPEN PAGES STEPS /////////////////////////////////////////////////////////////////
 	
@@ -56,6 +56,11 @@ public class EndUserSteps extends ScenarioSteps {
     @Step
     public void is_the_objective_data_page() {
     	objectiveDataPage.open();
+    }
+    
+    @Step
+    public void is_the_evolution_data_page() {
+    	evolutionDataPage.open();
     }
     
     @Step
@@ -178,6 +183,11 @@ public class EndUserSteps extends ScenarioSteps {
    @Step
    public void inserts_evolution_comments(String str) {
    	planDataPage.enter_comments(str);
+   }
+   
+   @Step
+   public void inserts_definitive_flag(String str) {
+   	evolutionDataPage.enter_flag(str);
    }
    
    @Step
@@ -353,6 +363,12 @@ public class EndUserSteps extends ScenarioSteps {
 	@Step
 	public void should_see_success_message_subjective_data(String message) {
 		assertThat(subjectiveDataPage.getSuccessMessage(), containsString(message));
+		//assert(true);
+	}
+	
+	@Step
+	public void should_see_success_message_evolution_data(String message) {
+		assertThat(evolutionDataPage.getSuccessMessage(), containsString(message));
 		//assert(true);
 	}
 	
