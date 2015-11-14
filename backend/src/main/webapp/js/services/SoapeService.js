@@ -54,15 +54,22 @@ app.factory('soapeService', ['$http', function($http, soapeInfo) {
 
     var insertEvolution = function(patientInfo) {
                 return $http.post('./API/appointment/'+patientInfo.appointmentId+'/evolution', {
-                    evolution: patientInfo.evolution,
-                    comments: patientInfo.comments
+                    evolution: patientInfo.evolution
                 });
             };
+
+    var insertPlan = function(patientInfo) {
+                    return $http.post('./API/appointment/'+patientInfo.appointmentId+'/plan', {
+                        evolution: patientInfo.conduct,
+                        comments: patientInfo.comments
+                    });
+                };
 
     return {
 		insertSubjective: insertSubjective,
 		insertObjective: insertObjective,
 		insertEvolution: insertEvolution,
+		insertPlan: insertPlan,
 		getSubjective: getSubjective,
 		getObjective: getObjective
 	};
