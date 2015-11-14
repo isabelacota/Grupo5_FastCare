@@ -126,15 +126,13 @@
 						  <fieldset>
 							<h1>Diagnóstico</h1>
 							<br>
-							<div style="position:relative;left:55px;" class="control-group" id="diagnostico">
+							<div class="control-group" id="diagnostico">
 							  <label class="control-label" for="typeahead">Diagnóstico</label>
 							  <div class="controls"  id="diagnostico-control">
 								<textarea rows="1" class="span6 typeahead" style="width:380px;" onkeypress="onTestChange()" id="diagnostico-control-input"  data-provide="typeahead" data-items="6" data-source='["J12 - Pneumonia viral não classificada em outra parte","J120 - Pneumonia devida a adenovírus","J121 - Pneumonia devida a vírus respiratório sincicial","J122 - Pneumonia devida à parainfluenza","J128 - Outras pneumonias virais","J129 - Pneumonia viral não especificada"]'></textarea>
 							  </div>
 							</div>  
-							<div id="tabela-diagnostico" style="margin-bottom:10px">
-								
-							</div>
+							<textarea style="position:relative;left:75px;width:inherit;margin-bottom:10px;" id="tabela-diagnostico" rows="6" cols="75" readonly></textarea>
 							<div class="control-group" style="margin-bottom:0px;" id="comentarios">
 							  <label class="control-label" for="typeahead">Comentários</label>
 							  <div class="control-group">
@@ -144,7 +142,7 @@
 							<div class="control-group" id="diagnostico-definitivo">
 							  <label class="control-label" for="typeahead">O Diagnóstico é definitivo? (S ou N)</label>
 							  <div class="controls"  id="diagnostico-definitivo-control">
-								<textarea rows="1" class="span6 typeahead" style="width:80px;position:relative;top:10px;z-index:0;" onkeypress="onTestChange()" id="diagnostico-definitivo-control-input"  data-provide="typeahead" data-items="6" data-source='["J12 - Pneumonia viral não classificada em outra parte","J120 - Pneumonia devida a adenovírus","J121 - Pneumonia devida a vírus respiratório sincicial","J122 - Pneumonia devida à parainfluenza","J128 - Outras pneumonias virais","J129 - Pneumonia viral não especificada"]'></textarea>
+								<textarea rows="1" class="span6 typeahead" style="width:80px;position:relative;top:10px;z-index:0;" id="diagnostico-definitivo-control-input"  data-provide="typeahead" data-items="6" data-source='["J12 - Pneumonia viral não classificada em outra parte","J120 - Pneumonia devida a adenovírus","J121 - Pneumonia devida a vírus respiratório sincicial","J122 - Pneumonia devida à parainfluenza","J128 - Outras pneumonias virais","J129 - Pneumonia viral não especificada"]'></textarea>
 							  </div>
 							</div>  
 							<div class="form-actions">
