@@ -16,7 +16,7 @@ import java.util.List;
 
 import static ch.lambdaj.Lambda.convert;
 
-@DefaultUrl("http://127.0.0.1:8080/FastCare/formulario_S.html")
+@DefaultUrl("http://127.0.0.1:8080/FastCare/formulario_A.html")
 public class AvaliacaoPage extends PageObject {
 
 	// Web Elements

@@ -16,7 +16,7 @@ import java.util.List;
 
 import static ch.lambdaj.Lambda.convert;
 
-@DefaultUrl("http://127.0.0.1:8080/FastCare/insert.html")
+@DefaultUrl("http://127.0.0.1:8080/FastCare/formulario_O.html")
 public class ObjectiveDataPage extends PageObject {
 
 // Web Elements

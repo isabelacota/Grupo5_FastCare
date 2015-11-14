@@ -111,7 +111,7 @@ public class EndUserSteps extends ScenarioSteps {
     	subjectiveDataPage.enter_orthotics(str);
     }
     @Step
-    public void inserts_comments(String str) {
+    public void inserts_subjective_comments(String str) {
     	subjectiveDataPage.enter_comments(str);
     }
     @Step
@@ -172,6 +172,11 @@ public class EndUserSteps extends ScenarioSteps {
    
    @Step
    public void inserts_plan_comments(String str) {
+   	planDataPage.enter_comments(str);
+   }
+   
+   @Step
+   public void inserts_evolution_comments(String str) {
    	planDataPage.enter_comments(str);
    }
    
@@ -348,6 +353,12 @@ public class EndUserSteps extends ScenarioSteps {
 	@Step
 	public void should_see_success_message_subjective_data(String message) {
 		assertThat(subjectiveDataPage.getSuccessMessage(), containsString(message));
+		//assert(true);
+	}
+	
+	@Step
+	public void should_see_success_message_objective_data(String message) {
+		assertThat(objectiveDataPage.getSuccessMessage(), containsString(message));
 		//assert(true);
 	}
 	

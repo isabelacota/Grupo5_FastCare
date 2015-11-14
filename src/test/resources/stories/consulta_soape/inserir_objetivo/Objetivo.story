@@ -12,4 +12,4 @@ When the user insert the gas carbon saturation 'none'
 When the user insert the capillary blood glucose 'none'
 When the user insert the objective comments 'none'
 When the user confirm the objective submission
-Then a message 'Dados inseridos com sucesso!' should be sent to the user on visit page
+Then a success message 'Dados inseridos com sucesso!' should be sent to the user on objective data page

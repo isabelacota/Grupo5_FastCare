@@ -129,17 +129,21 @@ public class DefinitionSteps {
     public void whenTheUserInsertOrthoticsProsthetics(String str) {
         endUser.inserts_orthotics(str);
     }
-    @When("the user insert the comments '$str'")
-    public void whenTheUserInsertComments(String str) {
-        endUser.inserts_comments(str);
+    @When("the user insert the subjective comments '$str'")
+    public void whenTheUserInsertSubjectiveComments(String str) {
+        endUser.inserts_subjective_comments(str);
+    }
+    @When("the user insert the plan comments '$str'")
+    public void whenTheUserInsertPlanComments(String str) {
+        endUser.inserts_plan_comments(str);
+    }
+    @When("the user insert the evolution comments '$str'")
+    public void whenTheUserInsertEvolutionComments(String str) {
+        endUser.inserts_evolution_comments(str);
     }
     @When("the user confirm the subjetivo submission")
     public void whenTheUserConfirmSubjetivoSubmission() {
         endUser.confirm_subjetivos_submission();
-    }
-    @Then("a message '$str' should be sent to the user on visit page")
-    public void thenSubjMsgShouldBeSentOnSubjPage(String str) {
-        endUser.should_see_subjetivos_confirmation(str);
     }
     
     
@@ -352,6 +356,11 @@ public class DefinitionSteps {
     @Then("a success message '$message' should be sent to the user on subjective data page")
     public void thenASuccessMessageInsertedIsSentToTheUserOnSubjectiveDataPage(String message) {
     	endUser.should_see_success_message_subjective_data(message);
+    }
+    
+    @Then("a success message '$message' should be sent to the user on objective data page")
+    public void thenASuccessMessageInsertedIsSentToTheUserOnObjectiveDataPage(String message) {
+    	endUser.should_see_success_message_objective_data(message);
     }
     
     @Then("a success message '$message' should be sent to the user on plan data page")
