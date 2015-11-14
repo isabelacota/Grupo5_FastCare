@@ -24,12 +24,15 @@ app.factory('soapeService', ['$http', function($http, soapeInfo) {
     	};
 
 	var insertObjective = function(objectiveInfo) {
-    		return $http.post('./API/appointment/'+objectiveInfo.patientId+'/objective', {
+    		return $http.post('./API/appointment/'+objectiveInfo.appointmentId+'/objective', {
     			height: objectiveInfo.height,
                 weight: objectiveInfo.weight,
                 cardiacFrequency: objectiveInfo.cardiacFrequency,
                 systolicArterialPressure: objectiveInfo.systolicArterialPressure,
                 diastolicArterialPressure: objectiveInfo.diastolicArterialPressure,
+                oxigenSaturation: objectiveInfo.oxigenSaturation,
+                carbonicSaturation: objectiveInfo.carbonicSaturation,
+                capilarGlycemy: objectiveInfo.capilarGlycemy,
                 observations: objectiveInfo.observations
             });
     	};

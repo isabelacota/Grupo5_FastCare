@@ -1,9 +1,20 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="app">
 <head>
 	
 	<!-- start: Meta -->
 	<meta charset="utf-8">
+
+	<script src="http://code.angularjs.org/1.0.6/angular.min.js"></script>
+	<!-- Modules -->
+	<script src="js/app.js"></script>
+
+	<!-- Controllers -->
+	<script src="js/controllers/ObjectiveController.js"></script>
+
+	<!-- Services -->
+	<script src="js/services/SoapeService.js"></script>
+
 	<title>Fast Care - Objetiva</title>
 	<meta name="description" content="Bootstrap Metro Dashboard">
 	<meta name="author" content="Dennis Ji">
@@ -121,33 +132,33 @@
 							<a href="#" class="btn-close"><i class="halflings-icon white remove"></i></a>
 						</div>
 					</div>
-					<div class="box-content">
-						<form class="form-horizontal">
+					<div class="box-content" ng-controller="ObjectiveController">
+						<form class="form-horizontal" ng-submit="insert(object)">
 						  <fieldset>
 							<h1>Exame Físico</h1>
 							<br>
 							<div class="control-group" id="height">
 							  <label class="control-label" for="typeahead">Altura (m)</label>
 							  <div class="controls"  id="height-control">
-								<textarea rows="1" cols="10" style="width:inherit;" class="span6 typeahead" id="height-control-input"  data-provide="typeahead"></textarea>
+								<textarea rows="1" cols="10" style="width:inherit;" class="span6 typeahead" id="height-control-input"  data-provide="typeahead" ng-model= "object.height"></textarea>
 							  </div>
 							</div>
 							<div class="control-group" style="margin-bottom:0px;" id="weight">
 							  <label class="control-label" for="typeahead">Peso (Kg)</label>
 							  <div class="control-group">
-								<textarea style="position:relative;left:20px;width:inherit" rows="1" cols="10" class="span6 typeahead" id="weight-control-input"  data-provide="typeahead"></textarea>
+								<textarea style="position:relative;left:20px;width:inherit" rows="1" cols="10" class="span6 typeahead" id="weight-control-input"  data-provide="typeahead" ng-model= "object.weight"></textarea>
 							  </div>
 							</div>
 							<div class="control-group" style="margin-bottom:0px;" id="temperatura">
 							  <label class="control-label" for="typeahead">Temperatura (°C)</label>
 							  <div class="control-group">
-								<textarea style="position:relative;left:20px;width:inherit" rows="1" cols="10" class="span6 typeahead" id="temperatura-control-input"  data-provide="typeahead"></textarea>
+								<textarea style="position:relative;left:20px;width:inherit" rows="1" cols="10" class="span6 typeahead" id="temperatura-control-input"  data-provide="typeahead" ng-model= "object.temperature"></textarea>
 							  </div>
 							</div>
 							<div class="control-group" style="margin-bottom:0px;" id="cardiacFrequency">
 							  <label class="control-label" for="typeahead">Frequência Cardiaca (bpm)</label>
 							  <div class="control-group">
-								<textarea style="position:relative;left:20px;width:inherit" rows="1" cols="10" class="span6 typeahead" id="cardiacFrequency-control-input"  data-provide="typeahead"></textarea>
+								<textarea style="position:relative;left:20px;width:inherit" rows="1" cols="10" class="span6 typeahead" id="cardiacFrequency-control-input"  data-provide="typeahead" ng-model= "object.cardiacFrequency"></textarea>
 							  </div>
 							</div>
 							<div class="control-group" style="margin-bottom:0px;" id="systolicArterialPressure">
@@ -159,37 +170,37 @@
 							<div class="control-group" style="margin-bottom:0px;" id="diastolicArterialPressure">
 							  <label class="control-label" for="typeahead">Pressão Arterial Diastólica (mmHg)</label>
 							  <div class="control-group">
-								<textarea style="position:relative;left:20px;width:inherit" rows="1" cols="10" class="span6 typeahead" id="diastolicArterialPressure-control-input" data-provide="typeahead"></textarea>
+								<textarea style="position:relative;left:20px;width:inherit" rows="1" cols="10" class="span6 typeahead" id="diastolicArterialPressure-control-input" data-provide="typeahead" ng-model= "object.systolicArterialPressure"></textarea>
 							  </div>
 							</div>
 							<div class="control-group" style="margin-bottom:0px;" id="frequenciaRespiratoria">
 							  <label class="control-label" for="typeahead">Frequência Respiratória (rpm)</label>
 							  <div class="control-group">
-								<textarea style="position:relative;left:20px;width:inherit" rows="1" cols="10" class="span6 typeahead" id="frequenciaRespiratoria-control-input"  data-provide="typeahead"></textarea>
+								<textarea style="position:relative;left:20px;width:inherit" rows="1" cols="10" class="span6 typeahead" id="frequenciaRespiratoria-control-input"  data-provide="typeahead" ng-model= "object.diastolicArterialPressure"></textarea>
 							  </div>
 							</div>
 							<div class="control-group" style="margin-bottom:0px;" id="saturacaoOxigenio">
 							  <label class="control-label" for="typeahead">Saturação de oxigênio (SatO2)</label>
 							  <div class="control-group">
-								<textarea style="position:relative;left:20px;width:inherit" rows="1" cols="10" class="span6 typeahead" id="saturacaoOxigenio-control-input"  data-provide="typeahead"></textarea>
+								<textarea style="position:relative;left:20px;width:inherit" rows="1" cols="10" class="span6 typeahead" id="saturacaoOxigenio-control-input"  data-provide="typeahead" ng-model= "object.oxigenSaturation"></textarea>
 							  </div>
 							</div>
 							<div class="control-group" style="margin-bottom:0px;" id="saturacaoCarbonico">
 							  <label class="control-label" for="typeahead">Saturação de gás carbônico (SatCO2)</label>
 							  <div class="control-group">
-								<textarea style="position:relative;left:20px;width:inherit" rows="1" cols="10" class="span6 typeahead" id="saturacaoCarbonico-control-input"  data-provide="typeahead"></textarea>
+								<textarea style="position:relative;left:20px;width:inherit" rows="1" cols="10" class="span6 typeahead" id="saturacaoCarbonico-control-input"  data-provide="typeahead" ng-model= "object.carbonicSaturation"></textarea>
 							  </div>
 							</div>
 							<div class="control-group" style="margin-bottom:0px;" id="glicemiaCapilar">
 							  <label class="control-label" for="typeahead">Glicemia Capilar</label>
 							  <div class="control-group">
-								<textarea style="position:relative;left:20px;width:inherit" rows="1" cols="10" class="span6 typeahead" id="glicemiaCapilar-control-input"  data-provide="typeahead"></textarea>
+								<textarea style="position:relative;left:20px;width:inherit" rows="1" cols="10" class="span6 typeahead" id="glicemiaCapilar-control-input"  data-provide="typeahead" ng-model="object.capilarGlycemy"></textarea>
 							  </div>
 							</div>
 							<div class="control-group" style="margin-bottom:0px;" id="comentarios">
 							  <label class="control-label" for="typeahead">Comentários</label>
 							  <div class="control-group">
-								<textarea style="position:relative;left:20px;width:inherit;" rows="6" cols="100" class="span6 typeahead" placeholder="Comentários..." id="comentarios-control-input"  data-provide="typeahead"></textarea>
+								<textarea style="position:relative;left:20px;width:inherit;" rows="6" cols="100" class="span6 typeahead" placeholder="Comentários..." id="comentarios-control-input"  data-provide="typeahead" ng-model="object.observations"></textarea>
 							  </div>
 							</div>
 							<div class="form-actions">
