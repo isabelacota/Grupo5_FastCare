@@ -1,9 +1,20 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="app">
 <head>
 	
 	<!-- start: Meta -->
 	<meta charset="utf-8">
+
+	<script src="http://code.angularjs.org/1.0.6/angular.min.js"></script>
+	<!-- Modules -->
+	<script src="js/app.js"></script>
+
+	<!-- Controllers -->
+	<script src="js/controllers/EvolutionController.js"></script>
+
+	<!-- Services -->
+	<script src="js/services/SoapeService.js"></script>
+
 	<title>Fast Care - Subjetiva</title>
 	<meta name="description" content="Bootstrap Metro Dashboard">
 	<meta name="author" content="Dennis Ji">
@@ -121,15 +132,23 @@
 							<a href="#" class="btn-close"><i class="halflings-icon white remove"></i></a>
 						</div>
 					</div>
-					<div class="box-content">
-						<form class="form-horizontal">
+					<div class="box-content" ng-controller="EvolutionController">
+						<form class="form-horizontal" ng-submit="insertEvolution(evolution)">
+							<center>
+								<div name="mensagemSucesso" ng-show="success">
+									<font color="green">Dados inseridos com sucesso</font>
+								</div>
+								<div name="mensagemErro" ng-show="fail">
+									<font color="red">Erro ao inserir paciente: {{errorMessage}}</font>
+								</div>
+							</center>
 						  <fieldset>
 						  <h1>Evolução</h1>
 						  <br>
 							<div class="control-group" id="cometario">
 							  <label class="control-label" for="typeahead">Comentários</label>
 							  <div class="controls"  id="cometario-control">
-								<textarea rows="5" cols="60" class="span6 typeahead" placeholder="Detalhes da Evolução..." id="cometario-control-input"  data-provide="typeahead"></textarea>
+								<textarea rows="5" cols="60" class="span6 typeahead" placeholder="Detalhes da Evolução..." id="cometario-control-input"  data-provide="typeahead" ng-model="evolution.evolution"></textarea>
 							  </div>
 							</div>
 						
