@@ -1,21 +1,10 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="app">
+<html lang="en">
 <head>
 	
 	<!-- start: Meta -->
 	<meta charset="utf-8">
-
-	<script src="http://code.angularjs.org/1.0.6/angular.min.js"></script>
-	<!-- Modules -->
-	<script src="js/app.js"></script>
-
-	<!-- Controllers -->
-	<script src="js/controllers/SubjectiveController.js"></script>
-
-	<!-- Services -->
-	<script src="js/services/SoapeService.js"></script>
-
-	<title>Fast Care - Subjetiva</title>
+	<title>Fast Care - Diagnóstico</title>
 	<meta name="description" content="Bootstrap Metro Dashboard">
 	<meta name="author" content="Dennis Ji">
 	<meta name="keyword" content="Metro, Metro UI, Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
@@ -125,71 +114,42 @@
 			<div class="row-fluid sortable">
 				<div class="box span12">
 					<div class="box-header" data-original-title>
-						<h2><i class="halflings-icon white edit"></i><span class="break"></span>Consulta Subjetiva</h2>
+						<h2><i class="halflings-icon white edit"></i><span class="break"></span>Consulta Objetiva</h2>
 						<div class="box-icon">
 							<a href="#" class="btn-setting"><i class="halflings-icon white wrench"></i></a>
 							<a href="#" class="btn-minimize"><i class="halflings-icon white chevron-up"></i></a>
 							<a href="#" class="btn-close"><i class="halflings-icon white remove"></i></a>
 						</div>
 					</div>
-					<div class="box-content" ng-controller="SubjectiveController">
-						<center>
-							<div name="mensagemSucesso" ng-show="success">
-								<font color="green">Paciente inserido com sucesso</font>
-							</div>
-							<div name="mensagemErro" ng-show="fail">
-								<font color="red">Erro ao inserir paciente: {{errorMessage}}</font>
-							</div>
-						</center>
-						<form class="form-horizontal"  ng-submit="insertSubjective(subjective)">
+					<div class="box-content">
+						<form class="form-horizontal">
 						  <fieldset>
-						  <h1>Anamnese</h1>
-						  <br>
-							<div style="position:relative;left:55px;" class="control-group" id="queixa">
-							  <label class="control-label" for="typeahead">Queixa Principal</label>
-							  <div class="controls"  id="queixa-control">
-								<input type="text" class="span6 typeahead" style="width:150px" id="queixa-control-input"  data-provide="typeahead" data-items="4" data-source='["Alabama","Alaska","Arizona","Arkansas","California","Colorado","Connecticut","Delaware","Florida","Georgia","Hawaii","Idaho","Illinois","Indiana","Iowa","Kansas","Kentucky","Louisiana","Maine","Maryland","Massachusetts","Michigan","Minnesota","Mississippi","Missouri","Montana","Nebraska","Nevada","New Hampshire","New Jersey","New Mexico","New York","North Dakota","North Carolina","Ohio","Oklahoma","Oregon","Pennsylvania","Rhode Island","South Carolina","South Dakota","Tennessee","Texas","Utah","Vermont","Virginia","Washington","West Virginia","Wisconsin","Wyoming"]' ng-model="subjective.mainComplaint">
+							<h1>Diagnóstico</h1>
+							<br>
+							<div style="position:relative;left:55px;" class="control-group" id="diagnostico">
+							  <label class="control-label" for="typeahead">Diagnóstico</label>
+							  <div class="controls"  id="diagnostico-control">
+								<textarea rows="1" class="span6 typeahead" style="width:380px;" onkeypress="onTestChange()" id="diagnostico-control-input"  data-provide="typeahead" data-items="6" data-source='["J12 - Pneumonia viral não classificada em outra parte","J120 - Pneumonia devida a adenovírus","J121 - Pneumonia devida a vírus respiratório sincicial","J122 - Pneumonia devida à parainfluenza","J128 - Outras pneumonias virais","J129 - Pneumonia viral não especificada"]'></textarea>
 							  </div>
 							</div>  
-							<div class="control-group" id="historia">
-							  <label class="control-label" for="typeahead">História</label>
-							  <div class="controls"  id="historia-control">
-								<textarea rows="5" cols="60" class="span6 typeahead" placeholder="Detalhes da história..." id="historia-control-input"  data-provide="typeahead" ng-model="subjective.story"></textarea>
-							  </div>
+							<div id="tabela-diagnostico" style="margin-bottom:10px">
+								
 							</div>
-							<div class="control-group" id="interrogatorio">
-							  <label class="control-label" for="typeahead">Interrogatório Sistomatológico</label>
-							  <div class="control-group">
-								<textarea style="position:relative;left:20px;width:inherit" rows="5" cols="60" class="span6 typeahead" placeholder="Interrogatorio: Problemas renais, Problemas articulares ou reumatismo, Problemas cardíacos, Problemas respiratórios, Problemas gástricos, Alergias, Hepatite, Gravidez, Diabetes, Problemas de cicatrização e Uso de medicamentos" id="interrogatorio-control-input"  data-provide="typeahead" ng-model="subjective.syptomaticInterrogation"></textarea>
-							  </div>
-							</div>
-							<div class="control-group" id="antecedentes">
-							  <label class="control-label" for="typeahead">Antecedentes Pessoais e Familiares</label>
-							  <div class="control-group">
-								<textarea style="position:relative;left:20px;width:inherit" rows="5" cols="60" class="span6 typeahead" placeholder="Digitar os antecedentes de doenças pessoais e familiares..." id="antecedentes-control-input"  data-provide="typeahead" ng-model="subjective.personalAndFamily"></textarea>
-							  </div>
-							</div>
-							<div class="control-group" id="habitos">
-							  <label class="control-label" for="typeahead">Habitos e atividades regulares do paciente</label>
-							  <div class="control-group">
-								<textarea style="position:relative;left:20px;width:inherit" rows="5" cols="60" class="span6 typeahead" placeholder="Habitos do paciente..." id="habitos-control-input"  data-provide="typeahead" ng-model="subjective.lifeStyleAndSocioeconomic"></textarea>
-							  </div>
-							</div>
-							<div class="control-group" id="orteses-proteses">
-							  <label class="control-label" for="typeahead">Órteses e Próteses</label>
-							  <div class="control-group">
-								<textarea style="position:relative;left:20px;width:inherit" rows="3" cols="30" class="span6 typeahead" placeholder="Órteses e próteses do paciente" id="orteses-proteses-control-input"  data-provide="typeahead" ng-model="subjective.orthoticsAndProsthetics"></textarea>
-							  </div>
-							</div>
-							<div class="control-group" id="comentarios">
+							<div class="control-group" style="margin-bottom:0px;" id="comentarios">
 							  <label class="control-label" for="typeahead">Comentários</label>
 							  <div class="control-group">
-								<textarea style="position:relative;left:20px;width:inherit;" rows="6" cols="100" class="span6 typeahead" placeholder="Comentários..." id="comentarios-control-input"  data-provide="typeahead" ng-model="subjective.comments"></textarea>
+								<textarea style="position:relative;left:20px;width:inherit;z-index:0;" rows="6" cols="100" class="span6 typeahead" placeholder="Comentários..." id="comentarios-control-input"  data-provide="typeahead"></textarea>
 							  </div>
 							</div>
+							<div class="control-group" id="diagnostico-definitivo">
+							  <label class="control-label" for="typeahead">O Diagnóstico é definitivo? (S ou N)</label>
+							  <div class="controls"  id="diagnostico-definitivo-control">
+								<textarea rows="1" class="span6 typeahead" style="width:80px;position:relative;top:10px;z-index:0;" onkeypress="onTestChange()" id="diagnostico-definitivo-control-input"  data-provide="typeahead" data-items="6" data-source='["J12 - Pneumonia viral não classificada em outra parte","J120 - Pneumonia devida a adenovírus","J121 - Pneumonia devida a vírus respiratório sincicial","J122 - Pneumonia devida à parainfluenza","J128 - Outras pneumonias virais","J129 - Pneumonia viral não especificada"]'></textarea>
+							  </div>
+							</div>  
 							<div class="form-actions">
-							  <a id="confirm" href="formulario_O"> <button class="btn btn-primary">Próximo</button></a>
-							  <a id="cancel" href="index.html" ><button class="btn">Cancelar</button></a>
+								<a id="confirm" href="formulario_P"> <button class="btn btn-primary">Próximo</button></a>
+							  	<a id="cancel" href="index.html"><button class="btn">Cancelar</button></a>
 							</div>
 						  </fieldset>
 						</form>   
@@ -200,7 +160,18 @@
 			</div><!--/row-->
 
 	</div><!--/.fluid-container-->
-	
+
+	<script>
+		function onTestChange() {
+		    var key = window.event.keyCode;
+		
+		    // If the user has pressed enter
+		    if (key == 13) {
+		        document.getElementById("tabela-diagnostico").innerHTML += document.getElementById("diagnostico-control-input").value + "," ;
+		        document.getElementById("diagnostico-control-input").value = "" ;
+		    }
+		}
+	</script>	
 			<!-- end: Content -->
 		</div><!--/#content.span10-->
 		</div><!--/fluid-row-->
