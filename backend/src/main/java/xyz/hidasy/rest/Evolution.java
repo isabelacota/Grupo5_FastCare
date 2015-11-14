@@ -7,8 +7,6 @@ public class Evolution extends SoapeModel {
 
     private String evolution;
 
-    private String comments;
-
     public String getEvolution() {
         return evolution;
     }
@@ -17,11 +15,4 @@ public class Evolution extends SoapeModel {
         this.evolution = evolution;
     }
 
-    public String getComments() {
-        return comments;
-    }
-
-    public void setComments(String comments) {
-        this.comments = comments;
-    }
 }

@@ -11,6 +11,16 @@ public class Diagnosis extends SoapeModel {
 
     private String observations;
 
+    private String permanent;
+
+    public String getPermanent() {
+        return permanent;
+    }
+
+    public void setPermanent(String permanent) {
+        this.permanent = permanent;
+    }
+
     public List<String> getDiagnosis() {
         return diagnosis;
     }
