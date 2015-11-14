@@ -24,7 +24,7 @@ public class AvaliacaoPage extends PageObject {
     @FindBy(id="diagnostico-control-input")
     private WebElementFacade diagnostico_field;
     
-    @FindBy(id="comentario-control-input")
+    @FindBy(id="comentarios-control-input")
     private WebElementFacade comentario_field;
     
     @FindBy(id="confirm")
