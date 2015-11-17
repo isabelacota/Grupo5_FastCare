@@ -12,6 +12,9 @@
 	<!-- Controllers -->
 	<script src="js/controllers/DiagnosisController.js"></script>
 
+	<!-- Directives -->
+	<script src="js/directives/ngEnter.js"></script>
+
 	<!-- Services -->
 	<script src="js/services/SoapeService.js"></script>
 
@@ -148,10 +151,10 @@
 							<div class="control-group" id="diagnostico">
 							  <label class="control-label" for="typeahead">Diagnóstico</label>
 							  <div class="controls"  id="diagnostico-control">
-								<textarea rows="1" class="span6 typeahead" style="width:380px;" onkeypress="onTestChange()" id="diagnostico-control-input"  data-provide="typeahead" data-items="6" data-source='["J12 - Pneumonia viral não classificada em outra parte","J120 - Pneumonia devida a adenovírus","J121 - Pneumonia devida a vírus respiratório sincicial","J122 - Pneumonia devida à parainfluenza","J128 - Outras pneumonias virais","J129 - Pneumonia viral não especificada"]'></textarea>
+								<textarea rows="1" class="span6 typeahead" style="width:380px;" id="diagnostico-control-input"  data-provide="typeahead" data-items="6" data-source='["J12 - Pneumonia viral não classificada em outra parte","J120 - Pneumonia devida a adenovírus","J121 - Pneumonia devida a vírus respiratório sincicial","J122 - Pneumonia devida à parainfluenza","J128 - Outras pneumonias virais","J129 - Pneumonia viral não especificada"]' ng-enter="enterPressed()" ng-init="count = 0" ng-model="diagnosisField"></textarea>
 							  </div>
 							</div>  
-							<textarea style="position:relative;left:75px;width:inherit;margin-bottom:10px;" id="tabela-diagnostico" rows="6" cols="75" readonly></textarea>
+							<textarea style="position:relative;left:75px;width:inherit;margin-bottom:10px;" id="tabela-diagnostico" rows="6" cols="75" ng-model="diagnosisString" readonly></textarea>
 							<div class="control-group" style="margin-bottom:0px;" id="comentarios">
 							  <label class="control-label" for="typeahead">Comentários</label>
 							  <div class="control-group">
@@ -169,7 +172,7 @@
 							  	<a id="cancel" href="index.html"><button class="btn">Cancelar</button></a>
 							</div>
 						  </fieldset>
-						</form>   
+						</form>
 
 					</div>
 				</div><!--/span-->
@@ -181,14 +184,15 @@
 	<script>
 		function onTestChange() {
 		    var key = window.event.keyCode;
-		
+
 		    // If the user has pressed enter
 		    if (key == 13) {
 		        document.getElementById("tabela-diagnostico").innerHTML += document.getElementById("diagnostico-control-input").value + "," ;
 		        document.getElementById("diagnostico-control-input").value = "" ;
+		        $scope.$apply();
 		    }
 		}
-	</script>	
+	</script>
 			<!-- end: Content -->
 		</div><!--/#content.span10-->
 		</div><!--/fluid-row-->

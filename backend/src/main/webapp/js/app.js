@@ -3,4 +3,4 @@
  */
 
 //criando o module para toda app
-var app = angular.module("app", []);
+var app = angular.module("app", ['ui.bootstrap']);
