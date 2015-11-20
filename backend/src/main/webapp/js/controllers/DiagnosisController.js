@@ -3,6 +3,12 @@ app.controller('DiagnosisController', ['$scope', 'soapeService', function($scope
   $scope.diagnosis = {appointmentId : 1};
   $scope.success = false;
   $scope.fail = false;
+  $scope.diagnosis.diagnosis = "";
+
+  $scope.addDiagnosis = function() {
+        $scope.diagnosis.diagnosis += $scope.newDiagnosis + '\n';
+        $scope.newDiagnosis = "";
+  };
 
   $scope.insertDiagnosis = function(diagnosis) {
       $scope.success = false;

@@ -43,7 +43,7 @@ app.factory('soapeService', ['$http', function($http, soapeInfo) {
 
     var insertDiagnosis = function(patientInfo) {
             return $http.post('./API/appointment/'+patientInfo.appointmentId+'/diagnosis', {
-                diagnosis: patientInfo.diagnosis,
+                diagnosis: patientInfo.diagnosis.split("\n"),
                 observations: patientInfo.comments,
                 permanent: patientInfo.permanent
             });
