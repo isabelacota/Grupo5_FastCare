@@ -24,10 +24,7 @@ public class EvolutionDataPage extends PageObject {
     
     @FindBy(id="comentario-control-input")
     private WebElementFacade comments_field;
-    
-    @FindBy(id="diganostico-definitivo-control-input")
-    private WebElementFacade flag_field;
-    
+       
     @FindBy(id="confirm")
     private WebElementFacade confirm_button;
     
@@ -39,13 +36,7 @@ public class EvolutionDataPage extends PageObject {
    
     public void enter_comments(String str) {
     	comments_field.type(str);
-    }
-    
-    public void enter_flag(String str) {
-    	flag_field.type(str);
-    }
-   
-    
+    } 
         
     public void confirm_submission() {
     	confirm_button.click();

@@ -164,7 +164,7 @@ public class EndUserSteps extends ScenarioSteps {
    }
    @Step
    public void inserts_gas_carbon_saturation(String str) {
-   	subjectiveDataPage.enter_comments(str);
+   	objectiveDataPage.enter_gas_carbon(str);
    }
    @Step
    public void inserts_blood_glucose(String str) {
@@ -182,12 +182,12 @@ public class EndUserSteps extends ScenarioSteps {
    
    @Step
    public void inserts_evolution_comments(String str) {
-   	planDataPage.enter_comments(str);
+   	evolutionDataPage.enter_comments(str);
    }
    
    @Step
    public void inserts_definitive_flag(String str) {
-   	evolutionDataPage.enter_flag(str);
+   	avaliacaoPage.enter_flag(str);
    }
    
    @Step

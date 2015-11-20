@@ -24,7 +24,7 @@ public class PlanDataPage extends PageObject {
     @FindBy(id="condulta-control-input")
     private WebElementFacade behavior_field;
     
-    @FindBy(id="comentarios-control-input")
+    @FindBy(id="comentario-control-input")
     private WebElementFacade comments_field;
     
     @FindBy(id="confirm")

@@ -24,8 +24,14 @@ public class AvaliacaoPage extends PageObject {
     @FindBy(id="diagnostico-control-input")
     private WebElementFacade diagnostico_field;
     
+    @FindBy(id="diagnostico-definitivo-control-input")
+    private WebElementFacade flag_field;
+    
     @FindBy(id="comentarios-control-input")
     private WebElementFacade comentario_field;
+    
+    @FindBy(id="mais")
+    private WebElementFacade mais_button;
     
     @FindBy(id="confirm")
     private WebElementFacade confirm_button;
@@ -33,15 +39,21 @@ public class AvaliacaoPage extends PageObject {
     @FindBy(id="cancel")
     private WebElementFacade reset_button;
     
+    
+    
     // Methods 
         
     public void enter_diagnostico(String str) {
-    	diagnostico_field.typeAndEnter(str);
+    	diagnostico_field.type(str);
+    	mais_button.click();
     }
     public void enter_comentario(String str) {
     	comentario_field.type(str);
     }
  
+    public void enter_flag(String str) {
+    	flag_field.type(str);
+    }
         
     public void confirm_submission() {
     	confirm_button.click();

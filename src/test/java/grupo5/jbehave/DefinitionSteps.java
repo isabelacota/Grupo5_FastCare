@@ -46,25 +46,30 @@ public class DefinitionSteps {
         endUser.is_the_search_page();;
     }
     
+    @Given("the user is on the subjective data page")
+    public void givenTheUserIsOnSubjectiveDataPage() {
+        endUser.is_the_subjective_data_page();;
+    }
+    
     @Given("the user is on the objective data page")
     public void givenTheUserIsOnObjectiveDataPage() {
         endUser.is_the_objective_data_page();;
     }  
     
-    @Given("the user is on the evolution data page")
-    public void givenTheUserIsOnEvolutionDataPage() {
-        endUser.is_the_evolution_data_page();;
-    }  
-    
-    @Given("the user is on the subjective data page")
-    public void givenTheUserIsOnSubjectiveDataPage() {
-        endUser.is_the_subjective_data_page();;
+    @Given("the user is on avaliacao page")
+    public void givenTheUserIsOnAvaliacaoPage() {
+        endUser.is_the_avaliacao_page();
     }
     
     @Given("the user is on the plan data page")
     public void givenTheUserIsOnPlanDataPage() {
         endUser.is_the_plan_data_page();;
     }
+    
+    @Given("the user is on the evolution data page")
+    public void givenTheUserIsOnEvolutionDataPage() {
+        endUser.is_the_evolution_data_page();;
+    }  
     
     //// GIVEN TYPES OF USERS STEPS ////////////////////////////////////////////////////////
        
@@ -91,17 +96,19 @@ public class DefinitionSteps {
         //endUser.must_insert_event_audit_log();
     }
     ////AVALIACAO STEPS /////////////////////////////////////
-    @Given("the user is on avaliacao page")
-    public void givenTheUserIsOnAvaliacaoPage() {
-        endUser.is_the_avaliacao_page();
-    }
+
     @When("the user insert the diagnosis '$str'")
     public void whenTheUserInsertTheDiagnosis(String str) {
         endUser.avaliacao_inserts_diagnostico(str);
     }
-    @When("the user insert the comments '$str'")
+    @When("the user insert the avaliation comments '$str'")
     public void whenTheUserInsertTheAvaliacaoComentarios(String str) {
         endUser.avaliacao_enter_comentario(str);
+    }
+    
+    @When("the user insert the definitive diagnosis flag '$str'")
+    public void whenTheUserInsertDefinitiveFlag(String str) {
+    	endUser.inserts_definitive_flag(str);
     }
     
     @Then("a message '$str' should be sent to the user on avaliacao page")
@@ -155,10 +162,7 @@ public class DefinitionSteps {
         endUser.confirm_subjetivos_submission();
     }
     
-    @When("the user insert the definitive diagnosis flag 'S'")
-    public void whenTheUserInsertDefinitiveFlag(String str) {
-    	endUser.inserts_definitive_flag(str);
-    }
+
     
     ////OBJETIVOS STEPS ////////////////////////////////////////////////////////
     
@@ -214,10 +218,7 @@ public class DefinitionSteps {
     public void whenTheUserConfirmObjetivoSubmission() {
         endUser.confirm_objective_submission();
     }
-    @Then("a message '$str' should be sent to the user on visit page")
-    public void thenSubjMsgShouldBeSentOnObjPage(String str) {
-        endUser.should_see_objetivos_confirmation(str);
-    }
+
     ////////////////////////////////////////////////////////////////////////////////////////
    
     @When("the user insert the behavior '$str'")

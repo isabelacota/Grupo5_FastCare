@@ -24,40 +24,41 @@ public class ObjectiveDataPage extends PageObject {
     
 	@FindBy(id="cancel")
     private WebElementFacade reset_button;
+	
     @FindBy(id="confirm")
     private WebElementFacade confirm_button;
     
     //Fields
     @FindBy(id="height-control-input")
     private WebElementFacade height_field;
+    
     @FindBy(id="weight-control-input")
     private WebElementFacade weight_field;
+    
     @FindBy(id="temperatura-control-input")
     private WebElementFacade temperature_field;
     
-   
-    
-    
-    
-    
-    
-    
-    
     @FindBy(id="systolicArterialPressure-control-input")
     private WebElementFacade systolic_pressure_field;
+    
     @FindBy(id="diastolicArterialPressure-control-input")
     private WebElementFacade diastolic_pressure_field;
     
     @FindBy(id="cardiacFrequency-control-input")
     private WebElementFacade heart_rate_field;
+    
     @FindBy(id="frequenciaRespiratoria-control-input")
     private WebElementFacade respiratory_rate_field;
+    
     @FindBy(id="saturacaoOxigenio-control-input")
     private WebElementFacade oxygen_field;
+    
     @FindBy(id="saturacaoCarbonico-control-input")
     private WebElementFacade gas_carbon_field;
+    
     @FindBy(id="glicemiaCapilar-control-input")
     private WebElementFacade glucose_field;
+    
     @FindBy(id="comentarios-control-input")
     private WebElementFacade comments_field;
     // Methods 
