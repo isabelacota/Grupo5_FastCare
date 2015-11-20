@@ -1,5 +1,0 @@
-Possibilitar consulta do sumario clinico do paciente
-Narrative:
-In order to consultar o sumario clinico do paciente
-as a Medico
-I want to ver os dados clinicos do paciente

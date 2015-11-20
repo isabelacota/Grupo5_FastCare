@@ -1,0 +1,12 @@
+Encontrar informação de paciente
+
+Narrative:
+In order to buscar paciente
+As a Medico
+I want to preencher pelo menos um dos filtros requisitados.
+
+
+Narrative:
+In order to buscar paciente
+As a Recepcionista
+I want to preencher pelo menos um dos filtros requisitados.

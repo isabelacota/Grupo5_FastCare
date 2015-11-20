@@ -21,7 +21,7 @@ public class PlanDataPage extends PageObject {
 
 	// Web Elements
 	
-    @FindBy(id="condulta-control-input")
+    @FindBy(id="conduta-control-input")
     private WebElementFacade behavior_field;
     
     @FindBy(id="comentario-control-input")

@@ -1,6 +1,0 @@
-Scenario: User checks clinic patient data
-Given the user is on the search page
-Given the user is doctor
-When the doctor looks up field 'Jorge'
-When the user clicks on patient 'Jorge'
-Then all the clinic data of patient should be shown

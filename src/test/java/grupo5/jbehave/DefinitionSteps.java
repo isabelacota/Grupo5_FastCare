@@ -111,7 +111,7 @@ public class DefinitionSteps {
     	endUser.inserts_definitive_flag(str);
     }
     
-    @Then("a message '$str' should be sent to the user on avaliacao page")
+    @Then("a success message '$str' should be sent to the user on avaliacao page")
     public void thenMsgShouldBeSentOnAvaliacaoPage(String str) {
         endUser.should_see_avaliacao_confirmation(str);
     }
