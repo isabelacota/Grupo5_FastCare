@@ -1,6 +1,7 @@
 app.controller('SubjectiveController', ['$scope', 'soapeService', function($scope, soapeService) {
-  
-  $scope.subjective = {appointmentId : 1};
+
+  $scope.appointmentId = new Date().getTime();
+  $scope.subjective = {appointmentId : $scope.appointmentId};
   $scope.success = false;
   $scope.fail = false;
   
@@ -8,6 +9,7 @@ app.controller('SubjectiveController', ['$scope', 'soapeService', function($scop
       $scope.success = false;
       $scope.fail = false;
       console.log(subjective);
+      subjective.appointmentId = new Date().getTime();
 	  soapeService.insertSubjective(subjective).success(function(response) {
           if (response.statusId == 0) {
               $scope.subjective = {};

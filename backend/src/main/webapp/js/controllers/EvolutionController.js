@@ -8,6 +8,7 @@ app.controller('EvolutionController', ['$scope', 'soapeService', function($scope
       $scope.success = false;
       $scope.fail = false;
       console.log(evolution);
+      evolution.appointmentId = new Date().getTime();
 	  soapeService.insertEvolution(evolution).success(function(response) {
           if (response.statusId == 0) {
               $scope.evolution = {};

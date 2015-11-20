@@ -136,7 +136,7 @@
 						<form class="form-horizontal" ng-submit="insertPlan(plan)">
 							<center>
 								<div name="mensagemSucesso" ng-show="success">
-									<font color="green">Dados inseridos com sucesso</font>
+									<font color="green">Dados inseridos com sucesso!</font>
 								</div>
 								<div name="mensagemErro" ng-show="fail">
 									<font color="red">Erro ao inserir paciente: {{errorMessage}}</font>
@@ -148,13 +148,13 @@
 							<div class="control-group" id="condulta">
 							  <label class="control-label" for="typeahead">Condulta</label>
 							  <div class="controls"  id="condulta-control">
-								<input type="text" class="span6 typeahead"  id="condulta-control-input"  data-provide="typeahead" data-items="4" data-source='["Alabama","Alaska","Arizona","Arkansas","California","Colorado","Connecticut","Delaware","Florida","Georgia","Hawaii","Idaho","Illinois","Indiana","Iowa","Kansas","Kentucky","Louisiana","Maine","Maryland","Massachusetts","Michigan","Minnesota","Mississippi","Missouri","Montana","Nebraska","Nevada","New Hampshire","New Jersey","New Mexico","New York","North Dakota","North Carolina","Ohio","Oklahoma","Oregon","Pennsylvania","Rhode Island","South Carolina","South Dakota","Tennessee","Texas","Utah","Vermont","Virginia","Washington","West Virginia","Wisconsin","Wyoming"]' ng-model="plan.conduct">
+								<input type="text" class="span6 typeahead"  id="condulta-control-input"  data-provide="typeahead" data-items="4" ng-model="plan.conduct">
 							  </div>
 							</div>  
 							<div class="control-group" id="cometario">
 							  <label class="control-label" for="typeahead">Comentários</label>
 							  <div class="controls"  id="cometario-control">
-								<textarea rows="5" cols="60" class="span6 typeahead" placeholder="Detalhes do Plano..." id="cometario-control-input"  data-provide="typeahead"></textarea>
+								<textarea ng-model="plan.comments" rows="5" cols="60" class="span6 typeahead" placeholder="Detalhes do Plano..." id="cometario-control-input"  data-provide="typeahead"></textarea>
 							  </div>
 							</div>
 						

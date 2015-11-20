@@ -135,7 +135,7 @@
 					<div class="box-content" ng-controller="SubjectiveController">
 						<center>
 							<div name="mensagemSucesso" ng-show="success">
-								<font color="green">Dados inseridos com sucesso</font>
+								<font color="green">Dados inseridos com sucesso!</font>
 							</div>
 							<div name="mensagemErro" ng-show="fail">
 								<font color="red">Erro ao inserir paciente: {{errorMessage}}</font>
@@ -148,7 +148,7 @@
 							<div style="position:relative;left:55px;" class="control-group" id="queixa">
 							  <label class="control-label" for="typeahead">Queixa Principal</label>
 							  <div class="controls"  id="queixa-control">
-								<input type="text" class="span6 typeahead" style="width:150px" id="queixa-control-input"  data-provide="typeahead" data-items="4" data-source='["Alabama","Alaska","Arizona","Arkansas","California","Colorado","Connecticut","Delaware","Florida","Georgia","Hawaii","Idaho","Illinois","Indiana","Iowa","Kansas","Kentucky","Louisiana","Maine","Maryland","Massachusetts","Michigan","Minnesota","Mississippi","Missouri","Montana","Nebraska","Nevada","New Hampshire","New Jersey","New Mexico","New York","North Dakota","North Carolina","Ohio","Oklahoma","Oregon","Pennsylvania","Rhode Island","South Carolina","South Dakota","Tennessee","Texas","Utah","Vermont","Virginia","Washington","West Virginia","Wisconsin","Wyoming"]' ng-model="subjective.mainComplaint">
+								<input type="text" class="span6 typeahead" style="width:150px" id="queixa-control-input"  data-provide="typeahead" data-items="4"  ng-model="subjective.mainComplaint">
 							  </div>
 							</div>  
 							<div class="control-group" id="historia">

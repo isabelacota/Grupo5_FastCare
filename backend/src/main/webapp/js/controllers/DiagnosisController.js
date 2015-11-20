@@ -8,6 +8,7 @@ app.controller('DiagnosisController', ['$scope', 'soapeService', function($scope
       $scope.success = false;
       $scope.fail = false;
       console.log(diagnosis);
+      diagnosis.appointmentId = new Date().getTime();
 	  soapeService.insertDiagnosis(diagnosis).success(function(response) {
           if (response.statusId == 0) {
               $scope.diagnosis = {};

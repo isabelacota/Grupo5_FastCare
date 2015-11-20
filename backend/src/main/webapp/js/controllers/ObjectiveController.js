@@ -7,7 +7,8 @@ app.controller('ObjectiveController', ['$scope', 'soapeService', function($scope
   $scope.insert = function(object) {
       $scope.success = false;
       $scope.fail = false;
-          console.log(object);
+      console.log(object);
+      object.appointmentId = new Date().getTime();
 	  soapeService.insertObjective(object).success(function(response) {
           if (response.statusId == 0) {
               $scope.object = {};

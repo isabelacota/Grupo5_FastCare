@@ -8,6 +8,7 @@ app.controller('PlanController', ['$scope', 'soapeService', function($scope, soa
       $scope.success = false;
       $scope.fail = false;
       console.log(plan);
+      plan.appointmentId = new Date().getTime();
 	  soapeService.insertPlan(plan).success(function(response) {
           if (response.statusId == 0) {
               $scope.plan = {};

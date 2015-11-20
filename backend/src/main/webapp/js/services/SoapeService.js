@@ -61,7 +61,7 @@ app.factory('soapeService', ['$http', function($http, soapeInfo) {
 
     var insertPlan = function(patientInfo) {
                     return $http.post('./API/appointment/'+patientInfo.appointmentId+'/plan', {
-                        evolution: patientInfo.conduct,
+                        conduct: patientInfo.conduct,
                         comments: patientInfo.comments
                     });
                 };
