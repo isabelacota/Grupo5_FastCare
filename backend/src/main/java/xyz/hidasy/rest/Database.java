@@ -254,7 +254,7 @@ public class Database {
 	    s.getMainComplaint() + "','" + s.getStory() +
 	    "','" + writeToJson(s) + "'," + s.getLastUpdatedAt() +");";
         System.out.println("Query for insertion: " + sql);
-	insertAudit("Medico","Inserted subjective appointment");
+	insertAudit("Medico","Inserted subjective appointment " + s.getAppointmentId());
 	Statement statement = c.createStatement();
 	statement.executeUpdate(sql);
     }
@@ -289,7 +289,7 @@ public class Database {
         o.getAppointmentId() + ",'" +
 	    writeToJson(o) + "'," + o.getLastUpdatedAt() +");";
         System.out.println("Query for insertion: " + sql);
-	insertAudit("Medico","Inserted subjective appointment");
+	insertAudit("Medico","Inserted subjective appointment " + o.getAppointmentId());
 	Statement statement = c.createStatement();
 	statement.executeUpdate(sql);
     }
@@ -318,7 +318,7 @@ public class Database {
         d.getAppointmentId() + ",'" +
 	    writeToJson(d) +"');";
         System.out.println("Query for insertion: " + sql);
-    	insertAudit("Medico","Inserted diagnosis appointment");
+    	insertAudit("Medico","Inserted diagnosis appointment " + d.getAppointmentId());
     	Statement statement = c.createStatement();
     	statement.executeUpdate(sql);
     }
@@ -345,7 +345,7 @@ public class Database {
             p.getAppointmentId() + ",'" +
 	    writeToJson(p) +"');";
         System.out.println("Query for insertion: " + sql);
-    	insertAudit("Medico","Inserted plan appointment");
+    	insertAudit("Medico","Inserted plan appointment " + p.getAppointmentId());
     	Statement statement = c.createStatement();
     	statement.executeUpdate(sql);
     }
@@ -373,7 +373,7 @@ public class Database {
                 e.getAppointmentId() + ",'" +
 	    writeToJson(e) +"');";
         System.out.println("Query for insertion: " + sql);
-    	insertAudit("Medico","Inserted evolution appointment");
+    	insertAudit("Medico","Inserted evolution appointment " + e.getAppointmentId());
     	Statement statement = c.createStatement();
     	statement.executeUpdate(sql);
     }
